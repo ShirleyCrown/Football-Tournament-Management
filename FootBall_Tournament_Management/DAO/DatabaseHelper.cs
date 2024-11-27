@@ -13,9 +13,9 @@ namespace FootBall_Tournament_Management.DAO
     {
         string connectionString;
 
-        DatabaseHelper() 
+        public DatabaseHelper() 
         {
-            connectionString = "Server=localhost;Database=Footbal_Tournament_Management;User=root;Password=2704;";
+            connectionString = "Server=localhost;Database=Football_Tournament_Management;User=root;Password=2704;";
         }
 
         public MySqlConnection GetConnection()

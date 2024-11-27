@@ -99,22 +99,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DatabaseHelper.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewFolder1\Award.cs" />
-    <Compile Include="NewFolder1\Coach.cs" />
-    <Compile Include="NewFolder1\Match.cs" />
-    <Compile Include="NewFolder1\Player.cs" />
-    <Compile Include="NewFolder1\Rules.cs" />
-    <Compile Include="NewFolder1\Team.cs" />
-    <Compile Include="NewFolder1\Tournament.cs" />
+    <Compile Include="Object\Award.cs" />
+    <Compile Include="Object\Coach.cs" />
+    <Compile Include="Object\Match.cs" />
+    <Compile Include="Object\Player.cs" />
+    <Compile Include="Object\Rules.cs" />
+    <Compile Include="Object\Team.cs" />
+    <Compile Include="Object\Tournament.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -126,6 +126,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="resources\Football_Tournament_Management.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
