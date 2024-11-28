@@ -1,4 +1,6 @@
-﻿using FootBall_Tournament_Management.DAO;
+﻿using DevComponents.DotNetBar.Controls;
+using DevComponents.DotNetBar;
+using FootBall_Tournament_Management.DAO;
 using FootBall_Tournament_Management.NewFolder1;
 using System;
 using System.Collections.Generic;
@@ -29,6 +31,36 @@ namespace FootBall_Tournament_Management
                 MessageBox.Show($"ID: {row["PlayerID"]}, Name: {row["PlayerName"]}, Position: {row["Position"]}");
                 
             }
+        }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBoxEx1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelX1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }
