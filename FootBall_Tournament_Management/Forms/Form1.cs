@@ -11,8 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FootBall_Tournament_Management.DAO;
 
-namespace FootBall_Tournament_Management
+namespace FootBall_Tournament_Management.Forms
 {
     public partial class Form1 : Form
     {
@@ -23,44 +24,25 @@ namespace FootBall_Tournament_Management
 
         private void Form1_Load(object sender, EventArgs e)
         {
+                   
             DatabaseHelper helper = new DatabaseHelper();
             DataTable dt = helper.GetAllPlayers();
 
-            foreach(DataRow row in dt.Rows)
+            foreach (DataRow row in dt.Rows)
             {
                 MessageBox.Show($"ID: {row["PlayerID"]}, Name: {row["PlayerName"]}, Position: {row["Position"]}");
-                
+
             }
         }
 
-        private void buttonX1_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void richTextBoxEx1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void labelX1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-           
         }
     }
 }
