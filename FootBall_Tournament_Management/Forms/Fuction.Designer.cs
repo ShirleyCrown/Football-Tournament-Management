@@ -1,6 +1,6 @@
 ﻿namespace FootBall_Tournament_Management.Forms
 {
-    partial class Form2
+    partial class Fuction
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fuction));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -43,9 +43,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.panel1.Location = new System.Drawing.Point(3, 2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1183, 74);
+            this.panel1.Size = new System.Drawing.Size(1382, 74);
             this.panel1.TabIndex = 0;
             // 
             // button1
@@ -54,9 +55,9 @@
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(3, 100);
+            this.button1.Location = new System.Drawing.Point(35, 100);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(548, 282);
+            this.button1.Size = new System.Drawing.Size(610, 282);
             this.button1.TabIndex = 1;
             this.button1.Text = "Athlete management";
             this.button1.UseVisualStyleBackColor = true;
@@ -66,9 +67,9 @@
             this.button2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(602, 100);
+            this.button2.Location = new System.Drawing.Point(733, 100);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(548, 282);
+            this.button2.Size = new System.Drawing.Size(610, 282);
             this.button2.TabIndex = 2;
             this.button2.Text = "Team Management";
             this.button2.UseVisualStyleBackColor = true;
@@ -78,9 +79,9 @@
             this.button3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(3, 417);
+            this.button3.Location = new System.Drawing.Point(35, 417);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(548, 282);
+            this.button3.Size = new System.Drawing.Size(610, 282);
             this.button3.TabIndex = 3;
             this.button3.Text = "Tournament";
             this.button3.UseVisualStyleBackColor = true;
@@ -90,19 +91,20 @@
             this.button4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(602, 417);
+            this.button4.Location = new System.Drawing.Point(733, 417);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(548, 282);
+            this.button4.Size = new System.Drawing.Size(610, 282);
             this.button4.TabIndex = 4;
             this.button4.Text = "Coach";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.textBox3.Location = new System.Drawing.Point(148, 269);
+            this.textBox3.Location = new System.Drawing.Point(222, 269);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
@@ -116,7 +118,7 @@
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.textBox4.Location = new System.Drawing.Point(748, 269);
+            this.textBox4.Location = new System.Drawing.Point(899, 269);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
@@ -131,7 +133,7 @@
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.textBox5.Location = new System.Drawing.Point(148, 601);
+            this.textBox5.Location = new System.Drawing.Point(211, 601);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
@@ -145,22 +147,22 @@
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.textBox6.Location = new System.Drawing.Point(748, 601);
+            this.textBox6.Location = new System.Drawing.Point(912, 601);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(245, 82);
             this.textBox6.TabIndex = 8;
-            this.textBox6.Text = "Giải thưởng, Thể lệ\r\n\r\n\r\n ";
+            this.textBox6.Text = "Giải thưởng, Thể lệ \r\n\r\n\r\n";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
-            // Form2
+            // Fuction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(1192, 712);
+            this.ClientSize = new System.Drawing.Size(1382, 903);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
@@ -171,8 +173,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "Form2";
-            this.Text = "FootBall Tournament Management";
+            this.Name = "Fuction";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Function";
             this.ResumeLayout(false);
             this.PerformLayout();
 

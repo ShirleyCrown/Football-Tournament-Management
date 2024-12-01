@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace FootBall_Tournament_Management.Forms
 {
-    public partial class Form2 : Form
+    public partial class Main_screen : Form
     {
-        public Form2()
+        public Main_screen()
         {
             InitializeComponent();
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

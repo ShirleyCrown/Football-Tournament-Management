@@ -15,9 +15,9 @@ using FootBall_Tournament_Management.DAO;
 
 namespace FootBall_Tournament_Management.Forms
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -25,14 +25,8 @@ namespace FootBall_Tournament_Management.Forms
         private void Form1_Load(object sender, EventArgs e)
         {
                    
-            DatabaseHelper helper = new DatabaseHelper();
-            DataTable dt = helper.GetAllPlayers();
-
-            foreach (DataRow row in dt.Rows)
-            {
-                MessageBox.Show($"ID: {row["PlayerID"]}, Name: {row["PlayerName"]}, Position: {row["Position"]}");
-
-            }
+           
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
