@@ -8,12 +8,12 @@ namespace FootBall_Tournament_Management.NewFolder1
 {
     internal class Team
     {
-        private string teamID;
+        private int teamID;
         private string teamName;
-        private string coachID;
+        private int coachID;
         private DateTime establishedDate;
 
-        public Team(string teamID, string teamName, string coachID, DateTime establishDate)
+        public Team(int teamID, string teamName, int coachID, DateTime establishDate)
         {
             this.TeamID = teamID;
             this.TeamName = teamName;
@@ -21,9 +21,9 @@ namespace FootBall_Tournament_Management.NewFolder1
             this.EstablishedDate = establishDate;
         }
 
-        public string TeamID { get => teamID; set => teamID = value; }
+        public int TeamID { get => teamID; set => teamID = value; }
         public string TeamName { get => teamName; set => teamName = value; }
-        public string CoachID { get => coachID; set => coachID = value; }
+        public int CoachID { get => coachID; set => coachID = value; }
         public DateTime EstablishedDate { get => establishedDate; set => establishedDate = value; }
     }
 }

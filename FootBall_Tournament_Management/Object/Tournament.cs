@@ -8,14 +8,16 @@ namespace FootBall_Tournament_Management.NewFolder1
 {
     internal class Tournament
     {
-        private string tournamentID;
+        private int tournamentCreator;
+        private int tournamentID;
         private string tournamentName;
         private DateTime startDate;
         private DateTime endDate;
         private string location;
 
-        public Tournament(string tournamentID, string tournamentName, DateTime startDate, DateTime endDate, string location)
+        public Tournament(int tournamentCreator, int tournamentID, string tournamentName, DateTime startDate, DateTime endDate, string location)
         {
+            this.TournamentCreator = tournamentCreator;
             this.TournamentID = tournamentID;
             this.TournamentName = tournamentName;
             this.StartDate = startDate;
@@ -23,7 +25,8 @@ namespace FootBall_Tournament_Management.NewFolder1
             this.Location = location;
         }
 
-        public string TournamentID { get => tournamentID; set => tournamentID = value; }
+        public int TournamentCreator { get => tournamentCreator; set => tournamentCreator = value; }
+        public int TournamentID { get => tournamentID; set => tournamentID = value; }
         public string TournamentName { get => tournamentName; set => tournamentName = value; }
         public DateTime StartDate { get => startDate; set => startDate = value; }
         public DateTime EndDate { get => endDate; set => endDate = value; }

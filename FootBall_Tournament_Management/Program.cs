@@ -17,7 +17,7 @@ namespace FootBall_Tournament_Management
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form3());
+            Application.Run(new Form2());
         }
     }
 }

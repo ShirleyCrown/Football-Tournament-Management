@@ -8,21 +8,21 @@ namespace FootBall_Tournament_Management.NewFolder1
 {
     internal class Award
     {
-        private string awardID;
-        private string tournamentID;
+        private int awardID;
+        private int tournamentID;
         private string awardName;
         private long prizeAmount;
 
-        public Award(string adwardID, string tournamentID, string awardName, long prizeAmount)
+        public Award(int awardID, int tournamentID, string awardName, long prizeAmount)
         {
-            this.AwardID = adwardID;
+            this.AwardID = awardID;
             this.TournamentID = tournamentID;
             this.AwardName = awardName;
             this.PrizeAmount = prizeAmount;
         }
 
-        public string AwardID { get => awardID; set => awardID = value; }
-        public string TournamentID { get => tournamentID; set => tournamentID = value; }
+        public int AwardID { get => awardID; set => awardID = value; }
+        public int TournamentID { get => tournamentID; set => tournamentID = value; }
         public string AwardName { get => awardName; set => awardName = value; }
         public long PrizeAmount { get => prizeAmount; set => prizeAmount = value; }
     }

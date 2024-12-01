@@ -99,7 +99,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\DatabaseHelper.cs" />
+    <Compile Include="Config\DatabaseHelper.cs" />
+    <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\AwardDAO.cs" />
+    <Compile Include="DAO\CoachDAO.cs" />
+    <Compile Include="DAO\MatchDAO.cs" />
+    <Compile Include="DAO\PlayerDAO.cs" />
+    <Compile Include="DAO\RoleDAO.cs" />
+    <Compile Include="DAO\RuleDAO.cs" />
+    <Compile Include="DAO\TeamDAO.cs" />
+    <Compile Include="DAO\TeamsInTournamentDAO.cs" />
+    <Compile Include="DAO\TournamentDAO.cs" />
     <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,12 +128,15 @@
     <Compile Include="Forms\Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Object\Account.cs" />
     <Compile Include="Object\Award.cs" />
     <Compile Include="Object\Coach.cs" />
     <Compile Include="Object\Match.cs" />
     <Compile Include="Object\Player.cs" />
+    <Compile Include="Object\Role.cs" />
     <Compile Include="Object\Rules.cs" />
     <Compile Include="Object\Team.cs" />
+    <Compile Include="Object\TeamsInTournament.cs" />
     <Compile Include="Object\Tournament.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -155,5 +168,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

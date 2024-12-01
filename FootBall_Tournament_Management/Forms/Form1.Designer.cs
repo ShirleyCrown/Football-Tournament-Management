@@ -50,6 +50,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -65,7 +66,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label2.Location = new System.Drawing.Point(266, 601);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(244, 46);
+            this.label2.Size = new System.Drawing.Size(289, 56);
             this.label2.TabIndex = 2;
             this.label2.Text = "Development \r\nby Huy Khiem and Phuc\r\n";
             // 
@@ -77,7 +78,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label1.Location = new System.Drawing.Point(-101, 336);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(630, 120);
+            this.label1.Size = new System.Drawing.Size(713, 141);
             this.label1.TabIndex = 1;
             this.label1.Text = "                    Welcome to the Service\r\n                        Football Tour" +
     "nament\r\n                                      Management \r\n";
@@ -98,7 +99,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label3.Location = new System.Drawing.Point(569, 200);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(425, 40);
+            this.label3.Size = new System.Drawing.Size(501, 47);
             this.label3.TabIndex = 1;
             this.label3.Text = "Login in to your acconut ";
             // 
@@ -158,13 +159,13 @@
             this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(776, 650);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(258, 19);
+            this.label4.Size = new System.Drawing.Size(329, 25);
             this.label4.TabIndex = 7;
             this.label4.Text = "Tài khoản hoặc mật khẩu bi sai";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1133, 735);
@@ -177,7 +178,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "FootBall Tournament Management";
             this.Load += new System.EventHandler(this.Form1_Load);
