@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +13,7 @@ namespace FootBall_Tournament_Management.DAO
 {
     internal class AccountDAO
     {
-        readonly DatabaseHelper db = new DatabaseHelper();
+           readonly DatabaseHelper db = new DatabaseHelper();
 
         public void AddAccount(Account account)
         {
@@ -31,6 +32,7 @@ namespace FootBall_Tournament_Management.DAO
             }
         }
 
+
         public bool IsExisted(string username, string password)
         {
             using (var connection = db.GetConnection())
@@ -43,10 +45,11 @@ namespace FootBall_Tournament_Management.DAO
                     command.Parameters.AddWithValue("@Password", password);
 
                     int count = Convert.ToInt32(command.ExecuteScalar());
-                    return count > 0; 
+                    return count > 0;
                 }
             }
         }
 
     }
+
 }

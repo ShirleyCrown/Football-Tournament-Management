@@ -17,14 +17,13 @@ namespace FootBall_Tournament_Management.Forms
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Main_screen_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

@@ -114,7 +114,6 @@
             this.button4.TabIndex = 4;
             this.button4.Text = "Coach";
             this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -141,7 +140,6 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Team Management";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel4
             // 
@@ -220,6 +218,7 @@
             this.Name = "Main_screen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main_screen";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_screen_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
