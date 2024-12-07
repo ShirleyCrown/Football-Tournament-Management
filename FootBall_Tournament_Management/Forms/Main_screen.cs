@@ -23,7 +23,31 @@ namespace FootBall_Tournament_Management.Forms
             if (result == DialogResult.No)
             {
                 e.Cancel = true;
+            }          
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void btnAthle_Click(object sender, EventArgs e)
+        {
+            if (!panelUserControl.Controls.Contains(Danhsachcauthu.Instance))
+            { 
+                panelUserControl.Controls.Add(Danhsachcauthu.Instance);
+                Danhsachcauthu.Instance.Dock = DockStyle.Fill;  // Đảm bảo UserControl chiếm toàn bộ diện tích của panel
+                Danhsachcauthu.Instance.BringToFront();  // Đảm bảo UserControl hiển thị trên cùng
             }
+            else
+            {
+                // Nếu đã có, chỉ cần đưa nó lên trên cùng
+                Danhsachcauthu.Instance.BringToFront();
+            }
+        }
+
+        private void Main_screen_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

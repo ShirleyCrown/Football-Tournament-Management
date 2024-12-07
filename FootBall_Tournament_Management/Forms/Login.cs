@@ -1,6 +1,4 @@
-﻿using DevComponents.DotNetBar.Controls;
-using DevComponents.DotNetBar;
-using FootBall_Tournament_Management.DAO;
+﻿using FootBall_Tournament_Management.DAO;
 using FootBall_Tournament_Management.NewFolder1;
 using System;
 using System.Collections.Generic;
@@ -11,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FootBall_Tournament_Management.DAO;
+using MySql.Data.MySqlClient;
 
 namespace FootBall_Tournament_Management.Forms
 {

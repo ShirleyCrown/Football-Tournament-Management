@@ -30,7 +30,7 @@ namespace FootBall_Tournament_Management.DAO
             {
                 conn.Open();
             }
-            catch(Exception ex) {
+            catch(Exception ) {
                 throw new Exception("$Can't connect to database: {ex.Message}");
             }
 

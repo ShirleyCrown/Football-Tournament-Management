@@ -36,7 +36,6 @@
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.3.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
-    <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.37, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="Google.Protobuf, Version=3.26.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.26.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -100,6 +99,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\DatabaseHelper.cs" />
+    <Compile Include="Danhsachcauthu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Danhsachcauthu.Designer.cs">
+      <DependentUpon>Danhsachcauthu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Danhsachdoibong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Danhsachdoibong.Designer.cs">
+      <DependentUpon>Danhsachdoibong.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\AwardDAO.cs" />
     <Compile Include="DAO\CoachDAO.cs" />
@@ -140,6 +151,15 @@
     <Compile Include="Object\Tournament.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Thongtinnguoichoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Thongtinnguoichoi.Designer.cs">
+      <DependentUpon>Thongtinnguoichoi.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Danhsachcauthu.resx">
+      <DependentUpon>Danhsachcauthu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +172,10 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Thongtinnguoichoi.resx">
+      <DependentUpon>Thongtinnguoichoi.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="resources\Football_Tournament_Management.db" />
     <None Include="packages.config" />
@@ -159,6 +183,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -168,6 +197,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="resources\team %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\team %282%291.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
