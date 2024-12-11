@@ -29,70 +29,72 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_screen));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.heading = new System.Windows.Forms.Panel();
+            this.title = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCoach = new System.Windows.Forms.Button();
+            this.btnPlayer = new System.Windows.Forms.Button();
+            this.btnTeam = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAthle = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panelUserControl = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.logo = new System.Windows.Forms.PictureBox();
+            this.btnTournament = new System.Windows.Forms.Button();
+            this.pnlComponent = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.componentList = new System.Windows.Forms.FlowLayoutPanel();
+            this.heading.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            this.pnlComponent.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // heading
             // 
-            this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1382, 170);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.heading.BackColor = System.Drawing.Color.DodgerBlue;
+            this.heading.Controls.Add(this.title);
+            this.heading.Dock = System.Windows.Forms.DockStyle.Top;
+            this.heading.Location = new System.Drawing.Point(0, 0);
+            this.heading.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.heading.Name = "heading";
+            this.heading.Size = new System.Drawing.Size(1555, 188);
+            this.heading.TabIndex = 0;
             // 
-            // label1
+            // title
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(310, 96);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(569, 39);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "FootBall Tournament Management";
+            this.title.AutoSize = true;
+            this.title.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.ForeColor = System.Drawing.Color.White;
+            this.title.Location = new System.Drawing.Point(412, 66);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(688, 47);
+            this.title.TabIndex = 0;
+            this.title.Text = "FootBall Tournament Management";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(239)))), ((int)(((byte)(241)))));
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 170);
+            this.panel2.Location = new System.Drawing.Point(0, 188);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(400, 677);
+            this.panel2.Size = new System.Drawing.Size(450, 941);
             this.panel2.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.button4, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnCoach, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btnPlayer, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnTeam, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnAthle, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnTournament, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
@@ -100,154 +102,180 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.18182F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.18182F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.18182F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(400, 677);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(450, 941);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // button4
+            // btnCoach
             // 
-            this.button4.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(3, 556);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(394, 118);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Coach";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnCoach.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCoach.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCoach.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCoach.ForeColor = System.Drawing.Color.White;
+            this.btnCoach.Location = new System.Drawing.Point(3, 773);
+            this.btnCoach.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCoach.Name = "btnCoach";
+            this.btnCoach.Size = new System.Drawing.Size(444, 164);
+            this.btnCoach.TabIndex = 4;
+            this.btnCoach.Text = "Coaches";
+            this.btnCoach.UseVisualStyleBackColor = false;
+            this.btnCoach.Click += new System.EventHandler(this.btnCoach_Click);
+            this.btnCoach.MouseEnter += new System.EventHandler(this.btnCoach_MouseEnter);
+            this.btnCoach.MouseLeave += new System.EventHandler(this.btnCoach_MouseLeave);
             // 
-            // button3
+            // btnPlayer
             // 
-            this.button3.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(3, 433);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(394, 117);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Tournament";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnPlayer.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPlayer.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlayer.ForeColor = System.Drawing.Color.White;
+            this.btnPlayer.Location = new System.Drawing.Point(3, 602);
+            this.btnPlayer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPlayer.Name = "btnPlayer";
+            this.btnPlayer.Size = new System.Drawing.Size(444, 163);
+            this.btnPlayer.TabIndex = 3;
+            this.btnPlayer.Text = "Players";
+            this.btnPlayer.UseVisualStyleBackColor = false;
+            this.btnPlayer.Click += new System.EventHandler(this.btnPlayer_Click);
+            this.btnPlayer.MouseEnter += new System.EventHandler(this.btnPlayer_MouseEnter);
+            this.btnPlayer.MouseLeave += new System.EventHandler(this.btnPlayer_MouseLeave);
             // 
-            // button2
+            // btnTeam
             // 
-            this.button2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(3, 310);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(394, 117);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Team Management";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnTeam.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnTeam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTeam.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTeam.ForeColor = System.Drawing.Color.White;
+            this.btnTeam.Location = new System.Drawing.Point(3, 431);
+            this.btnTeam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTeam.Name = "btnTeam";
+            this.btnTeam.Size = new System.Drawing.Size(444, 163);
+            this.btnTeam.TabIndex = 2;
+            this.btnTeam.Text = "Teams";
+            this.btnTeam.UseVisualStyleBackColor = false;
+            this.btnTeam.Click += new System.EventHandler(this.btnTeam_Click);
+            this.btnTeam.MouseEnter += new System.EventHandler(this.btnTeam_MouseEnter);
+            this.btnTeam.MouseLeave += new System.EventHandler(this.btnTeam_MouseLeave);
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Controls.Add(this.logo);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Location = new System.Drawing.Point(3, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(394, 178);
+            this.panel4.Size = new System.Drawing.Size(444, 248);
             this.panel4.TabIndex = 0;
             // 
-            // label2
+            // logo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(219, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 34);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Welcome";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.logo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(9, 29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(195, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
+            this.logo.Location = new System.Drawing.Point(121, 19);
+            this.logo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(200, 211);
+            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.logo.TabIndex = 0;
+            this.logo.TabStop = false;
             // 
-            // btnAthle
+            // btnTournament
             // 
-            this.btnAthle.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAthle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAthle.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAthle.ForeColor = System.Drawing.Color.White;
-            this.btnAthle.Location = new System.Drawing.Point(3, 187);
-            this.btnAthle.Name = "btnAthle";
-            this.btnAthle.Size = new System.Drawing.Size(394, 117);
-            this.btnAthle.TabIndex = 1;
-            this.btnAthle.Text = "Athlete management";
-            this.btnAthle.UseVisualStyleBackColor = false;
-            this.btnAthle.Click += new System.EventHandler(this.btnAthle_Click);
+            this.btnTournament.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnTournament.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTournament.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTournament.ForeColor = System.Drawing.Color.White;
+            this.btnTournament.Location = new System.Drawing.Point(3, 260);
+            this.btnTournament.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTournament.Name = "btnTournament";
+            this.btnTournament.Size = new System.Drawing.Size(444, 163);
+            this.btnTournament.TabIndex = 1;
+            this.btnTournament.Text = "Tournaments";
+            this.btnTournament.UseVisualStyleBackColor = false;
+            this.btnTournament.Click += new System.EventHandler(this.btnTournament_Click);
+            this.btnTournament.MouseEnter += new System.EventHandler(this.btnTournament_MouseEnter);
+            this.btnTournament.MouseLeave += new System.EventHandler(this.btnTournament_MouseLeave);
             // 
-            // panel3
+            // pnlComponent
             // 
-            this.panel3.Controls.Add(this.panelUserControl);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(400, 170);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(982, 677);
-            this.panel3.TabIndex = 2;
+            this.pnlComponent.Controls.Add(this.btnAdd);
+            this.pnlComponent.Controls.Add(this.componentList);
+            this.pnlComponent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlComponent.Location = new System.Drawing.Point(450, 188);
+            this.pnlComponent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlComponent.Name = "pnlComponent";
+            this.pnlComponent.Size = new System.Drawing.Size(1105, 941);
+            this.pnlComponent.TabIndex = 2;
             // 
-            // panelUserControl
+            // btnAdd
             // 
-            this.panelUserControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnAdd.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(949, 7);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(144, 55);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "ADD";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.MouseEnter += new System.EventHandler(this.btnAdd_MouseEnter);
+            this.btnAdd.MouseLeave += new System.EventHandler(this.btnAdd_MouseLeave);
+            // 
+            // componentList
+            // 
+            this.componentList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelUserControl.Location = new System.Drawing.Point(3, 6);
-            this.panelUserControl.Name = "panelUserControl";
-            this.panelUserControl.Size = new System.Drawing.Size(979, 692);
-            this.panelUserControl.TabIndex = 0;
+            this.componentList.AutoScroll = true;
+            this.componentList.Location = new System.Drawing.Point(6, 68);
+            this.componentList.Name = "componentList";
+            this.componentList.Size = new System.Drawing.Size(1105, 870);
+            this.componentList.TabIndex = 0;
             // 
             // Main_screen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1382, 847);
-            this.Controls.Add(this.panel3);
+            this.ClientSize = new System.Drawing.Size(1555, 1129);
+            this.Controls.Add(this.pnlComponent);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.heading);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Main_screen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main_screen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_screen_FormClosing);
             this.Load += new System.EventHandler(this.Main_screen_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.SizeChanged += new System.EventHandler(this.Main_screen_SizeChanged);
+            this.heading.ResumeLayout(false);
+            this.heading.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            this.pnlComponent.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel heading;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label title;
+        private System.Windows.Forms.Panel pnlComponent;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panelUserControl;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnAthle;
+        private System.Windows.Forms.PictureBox logo;
+        private System.Windows.Forms.Button btnCoach;
+        private System.Windows.Forms.Button btnPlayer;
+        private System.Windows.Forms.Button btnTeam;
+        private System.Windows.Forms.Button btnTournament;
+        private System.Windows.Forms.FlowLayoutPanel componentList;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

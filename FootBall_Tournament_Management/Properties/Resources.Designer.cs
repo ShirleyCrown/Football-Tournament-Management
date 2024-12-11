@@ -63,9 +63,39 @@ namespace FootBall_Tournament_Management.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap team__2_ {
+        internal static System.Drawing.Bitmap soccer_coach {
             get {
-                object obj = ResourceManager.GetObject("team (2)", resourceCulture);
+                object obj = ResourceManager.GetObject("soccer-coach", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap soccer_player {
+            get {
+                object obj = ResourceManager.GetObject("soccer-player", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap soccer_team {
+            get {
+                object obj = ResourceManager.GetObject("soccer-team", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap soccer_tournament {
+            get {
+                object obj = ResourceManager.GetObject("soccer-tournament", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
