@@ -115,6 +115,30 @@
     <Compile Include="DAO\TeamDAO.cs" />
     <Compile Include="DAO\TeamsInTournamentDAO.cs" />
     <Compile Include="DAO\TournamentDAO.cs" />
+    <Compile Include="Forms\AddCoach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCoach.Designer.cs">
+      <DependentUpon>AddCoach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddPlayer.Designer.cs">
+      <DependentUpon>AddPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddTeam.Designer.cs">
+      <DependentUpon>AddTeam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddTournament.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddTournament.Designer.cs">
+      <DependentUpon>AddTournament.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +171,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Component.resx">
       <DependentUpon>Component.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddCoach.resx">
+      <DependentUpon>AddCoach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddPlayer.resx">
+      <DependentUpon>AddPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddTeam.resx">
+      <DependentUpon>AddTeam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddTournament.resx">
+      <DependentUpon>AddTournament.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

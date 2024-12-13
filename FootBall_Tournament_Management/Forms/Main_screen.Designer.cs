@@ -247,7 +247,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Main_screen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main_screen";
+            this.Text = "Main Screen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_screen_FormClosing);
             this.Load += new System.EventHandler(this.Main_screen_Load);
             this.SizeChanged += new System.EventHandler(this.Main_screen_SizeChanged);

@@ -13,12 +13,20 @@ namespace FootBall_Tournament_Management.NewFolder1
         private int coachID;
         private DateTime establishedDate;
 
-        public Team(int teamID, string teamName, int coachID, DateTime establishDate)
+        public Team(string teamName, int coachID, DateTime establishDate)
         {
-            this.TeamID = teamID;
+            
             this.TeamName = teamName;
             this.CoachID = coachID;
             this.EstablishedDate = establishDate;
+        }
+
+        public Team(int teamID, string teamName, int coachID, DateTime establishedDate)
+        {
+            this.teamID = teamID;
+            this.teamName = teamName;
+            this.coachID = coachID;
+            this.establishedDate = establishedDate;
         }
 
         public int TeamID { get => teamID; set => teamID = value; }

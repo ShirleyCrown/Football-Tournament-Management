@@ -16,15 +16,25 @@ namespace FootBall_Tournament_Management.NewFolder1
         private string phoneNumber;
         private int jerseyNumber;
 
-        public Player(int playerID, int teamID, string playerName, string position, DateTime dob, string phoneNumber, int jerseyNumber)
+        public Player( int teamID, string playerName, string position, DateTime dob, string phoneNumber, int jerseyNumber)
         {
-            this.PlayerID = playerID;
             this.TeamID = teamID;
             this.PlayerName = playerName;
             this.Position = position;
             this.Dob = dob;
             this.PhoneNumber = phoneNumber;
             this.JerseyNumber = jerseyNumber;
+        }
+
+        public Player(int playerID, int teamID, string playerName, string position, DateTime dob, string phoneNumber, int jerseyNumber)
+        {
+            this.playerID = playerID;
+            this.teamID = teamID;
+            this.playerName = playerName;
+            this.position = position;
+            this.dob = dob;
+            this.phoneNumber = phoneNumber;
+            this.jerseyNumber = jerseyNumber;
         }
 
         public int PlayerID { get => playerID; set => playerID = value; }

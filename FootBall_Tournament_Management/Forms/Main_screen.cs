@@ -15,21 +15,28 @@ namespace FootBall_Tournament_Management.Forms
     public partial class Main_screen : Form
     {
         private string type = "tournament";
+        private readonly string user;
 
         #region Handle for main_screen
-        public Main_screen()
+        public Main_screen(string user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void Main_screen_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure to quit?", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
+            //DialogResult result = MessageBox.Show("Are you sure to quit?", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //if (result == DialogResult.No)
+            //{
+            //    e.Cancel = true;
+            //}
+            //else
+            //{
+            //    Application.Exit();
+            //}
 
+            Application.Exit();
         }
 
         private void Main_screen_Load(object sender, EventArgs e)
@@ -211,7 +218,26 @@ namespace FootBall_Tournament_Management.Forms
         #region Handle for add button
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            if(type == "tournament")
+            {
+                AddTournament addTournament = new AddTournament(user);
+                addTournament.ShowDialog(); 
+            } 
+            else if(type == "team")
+            {
+                AddTeam addTeam = new AddTeam();
+                addTeam.ShowDialog();
+            } 
+            else if(type == "player")
+            {
+                AddPlayer addPlayer = new AddPlayer();
+                addPlayer.ShowDialog();
+            }
+            else
+            {
+                AddCoach addCoach = new AddCoach();
+                addCoach.ShowDialog();
+            }
         }
 
         private void btnAdd_MouseEnter(object sender, EventArgs e)
@@ -227,5 +253,7 @@ namespace FootBall_Tournament_Management.Forms
         }
 
         #endregion
+
+        
     }
 }

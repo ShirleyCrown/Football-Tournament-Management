@@ -14,13 +14,21 @@ namespace FootBall_Tournament_Management.NewFolder1
         private string phoneNumber;
         private string forte;
 
-        public Coach(int coachID, string coachName, DateTime dob, string phoneNumber, string forte)
+        public Coach(string coachName, DateTime dob, string phoneNumber, string forte)
         {
-            this.CoachID = coachID;
             this.CoachName = coachName;
             this.Dob = dob;
             this.PhoneNumber = phoneNumber;
             this.Forte = forte;
+        }
+
+        public Coach(int coachID, string coachName, DateTime dob, string phoneNumber, string forte)
+        {
+            this.coachID = coachID;
+            this.coachName = coachName;
+            this.dob = dob;
+            this.phoneNumber = phoneNumber;
+            this.forte = forte;
         }
 
         public int CoachID { get => coachID; set => coachID = value; }

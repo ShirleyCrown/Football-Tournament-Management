@@ -18,6 +18,8 @@ namespace FootBall_Tournament_Management.Forms
         public Login()
         {
             InitializeComponent();
+            txtLogin.Text = "admin1";
+            TxtPassword.Text = "password123";
           
         }
 
@@ -28,10 +30,6 @@ namespace FootBall_Tournament_Management.Forms
             this.KeyDown += Login_KeyDown;
             
         }
-
-
-
-       
 
         private void Login_KeyDown(object sender, KeyEventArgs e)
         {
@@ -65,16 +63,16 @@ namespace FootBall_Tournament_Management.Forms
                 TxtPassword.Focus();
                 return;
             }
+
             AccountDAO accountDAO = new AccountDAO();
             string username = txtLogin.Text.Trim();
             string password = TxtPassword.Text.Trim();
+
             if (accountDAO.IsExisted(username, password))
             {
-                MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
-                Main_screen main_Screen = new Main_screen();
+                Main_screen main_Screen = new Main_screen(txtLogin.Text.Trim());
                 main_Screen.Show();
-                
+                this.Hide();
             }
             else
             {
@@ -85,46 +83,16 @@ namespace FootBall_Tournament_Management.Forms
 
         }
 
-        private void Login_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(txtLogin.Text.Trim()))
-            {
-                MessageBox.Show("Hãy nhập usename!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtLogin.Focus();
-                return;
-            }
-            if (String.IsNullOrEmpty(TxtPassword.Text.Trim()))
-            {
-                MessageBox.Show("Hãy nhập password!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TxtPassword.Focus();
-                return;
-            }
-            AccountDAO accountDAO = new AccountDAO();
-            string username = txtLogin.Text.Trim();
-            string password = TxtPassword.Text.Trim();
-            if (accountDAO.IsExisted(username, password))
-            {
-                MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
-                Main_screen main_Screen = new Main_screen();
-                main_Screen.Show();
-
-            }
-            else
-            {
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TxtPassword.Clear();
-                TxtPassword.Focus();
-            }
-        }
+        
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
+            //DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //if (result == DialogResult.No)
+            //{
+            //    e.Cancel = true;
+            //}
+            Application.Exit();
         }
 
        
