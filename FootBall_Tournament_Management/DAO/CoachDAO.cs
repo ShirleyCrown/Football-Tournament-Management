@@ -81,7 +81,7 @@ namespace FootBall_Tournament_Management.DAO
             }
         }
 
-        public Coach GetOneCoach(int coachID)
+        public Coach GetCoachByID(int coachID)
         {
             using (var connection = db.GetConnection())
             {

@@ -30,7 +30,7 @@ namespace FootBall_Tournament_Management.Forms
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Are you sure to add new coach ?", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Are you sure to add new team ?", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
                 return;
@@ -48,7 +48,7 @@ namespace FootBall_Tournament_Management.Forms
             } 
             catch(MySqlException)
             {
-                MessageBox.Show("Coach ID not found, please try again !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Coach ID must be defined, please try again !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCoachID.Clear();
                 return;
             }

@@ -115,29 +115,47 @@
     <Compile Include="DAO\TeamDAO.cs" />
     <Compile Include="DAO\TeamsInTournamentDAO.cs" />
     <Compile Include="DAO\TournamentDAO.cs" />
-    <Compile Include="Forms\AddCoach.cs">
+    <Compile Include="Forms\Add\AddCoach.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddCoach.Designer.cs">
+    <Compile Include="Forms\Add\AddCoach.Designer.cs">
       <DependentUpon>AddCoach.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddPlayer.cs">
+    <Compile Include="Forms\Add\AddPlayer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddPlayer.Designer.cs">
+    <Compile Include="Forms\Add\AddPlayer.Designer.cs">
       <DependentUpon>AddPlayer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddTeam.cs">
+    <Compile Include="Forms\Add\AddTeam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddTeam.Designer.cs">
+    <Compile Include="Forms\Add\AddTeam.Designer.cs">
       <DependentUpon>AddTeam.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddTournament.cs">
+    <Compile Include="Forms\Add\AddTournament.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddTournament.Designer.cs">
+    <Compile Include="Forms\Add\AddTournament.Designer.cs">
       <DependentUpon>AddTournament.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Details_Update_Delete\CoachDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Details_Update_Delete\CoachDetail.Designer.cs">
+      <DependentUpon>CoachDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Details_Update_Delete\PlayerDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Details_Update_Delete\PlayerDetail.Designer.cs">
+      <DependentUpon>PlayerDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Details_Update_Delete\TeamDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Details_Update_Delete\TeamDetail.Designer.cs">
+      <DependentUpon>TeamDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
@@ -172,17 +190,26 @@
     <EmbeddedResource Include="Component.resx">
       <DependentUpon>Component.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddCoach.resx">
+    <EmbeddedResource Include="Forms\Add\AddCoach.resx">
       <DependentUpon>AddCoach.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddPlayer.resx">
+    <EmbeddedResource Include="Forms\Add\AddPlayer.resx">
       <DependentUpon>AddPlayer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddTeam.resx">
+    <EmbeddedResource Include="Forms\Add\AddTeam.resx">
       <DependentUpon>AddTeam.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddTournament.resx">
+    <EmbeddedResource Include="Forms\Add\AddTournament.resx">
       <DependentUpon>AddTournament.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Details_Update_Delete\CoachDetail.resx">
+      <DependentUpon>CoachDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Details_Update_Delete\PlayerDetail.resx">
+      <DependentUpon>PlayerDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Details_Update_Delete\TeamDetail.resx">
+      <DependentUpon>TeamDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

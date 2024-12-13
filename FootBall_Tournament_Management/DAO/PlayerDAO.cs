@@ -89,7 +89,7 @@ namespace FootBall_Tournament_Management.DAO
             }
         }
 
-        public Player GetOnePlayer(int PlayerID)
+        public Player GetPlayerByID(int PlayerID)
         {
             using (var connection = db.GetConnection())
             {

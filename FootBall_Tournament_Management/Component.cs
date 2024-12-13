@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FootBall_Tournament_Management.Forms.Details_Update_Delete;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -14,9 +15,14 @@ namespace FootBall_Tournament_Management
 {
     public partial class Component : UserControl
     {
-        public Component(string component)
+        private string component;
+        private int componentID;
+        public Component(string component, int componentID)
         {
             InitializeComponent();
+
+            this.component = component;
+            this.componentID = componentID;
 
             if (component == "tournament")
             {
@@ -41,7 +47,7 @@ namespace FootBall_Tournament_Management
 
             this.MouseEnter += Component_MouseHover;
             this.MouseLeave += Component_MouseLeave;
-            this.Click += Component_Click;
+            //this.Click += Component_Click;
             avatar.MouseEnter += Component_MouseHover;
             avatar.MouseLeave += Component_MouseLeave;
             avatar.Click += Component_Click;
@@ -124,7 +130,23 @@ namespace FootBall_Tournament_Management
 
         private void Component_Click(object sender, EventArgs e)
         {
-
+            if (component == "tournament")
+            {
+                
+                
+            }
+            else if (component == "team")
+            {
+                new TeamDetail(componentID).ShowDialog();
+            }
+            else if (component == "player")
+            {
+                new PlayerDetail(componentID).ShowDialog();
+            }
+            else
+            {
+                new CoachDetail(componentID).ShowDialog();
+            }
         }
     }
 }

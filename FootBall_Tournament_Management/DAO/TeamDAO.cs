@@ -35,7 +35,7 @@ namespace FootBall_Tournament_Management.DAO
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "UPDATE Teams SET TeamName = @TeamName, CouchID = @CouchID, EstablishedDate = @EstablishedDate WHERE TeamID = @TeamID";
+                string query = "UPDATE Teams SET TeamName = @TeamName, CoachID = @CoachID, EstablishedDate = @EstablishedDate WHERE TeamID = @TeamID";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@TeamID", team.TeamID);
@@ -79,7 +79,7 @@ namespace FootBall_Tournament_Management.DAO
             }
         }
 
-        public Team GetOneTeam(int teamID)
+        public Team GetTeamByID(int teamID)
         {
             using (var connection = db.GetConnection())
             {
