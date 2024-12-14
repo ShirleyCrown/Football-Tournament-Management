@@ -132,8 +132,7 @@ namespace FootBall_Tournament_Management
         {
             if (component == "tournament")
             {
-                
-                
+                new TournamentDetail(componentID).ShowDialog();
             }
             else if (component == "team")
             {

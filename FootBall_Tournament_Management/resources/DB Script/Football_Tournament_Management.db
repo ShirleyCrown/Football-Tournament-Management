@@ -1,5 +1,4 @@
 ﻿drop database if exists football_tournament_management;
-
 create database football_tournament_management;
 use football_tournament_management;
 
@@ -114,24 +113,79 @@ INSERT INTO Accounts (Username, Password, AccountRole) VALUES
 
 -- Thêm dữ liệu vào bảng Coachs
 INSERT INTO Coachs (CoachName, BirthDate, PhoneNumber, Forte) VALUES
-('John Smith', '1980-05-15', '1234567890', 'Offensive Strategies'),
-('Jane Doe', '1985-07-20', '0987654321', 'Defensive Tactics');
+('Pep Guardiola', '1971-01-18', '0123456789', 'Tiki-taka'),
+('Jurgen Klopp', '1967-06-16', '0987654321', 'Gegenpressing'),
+('Mikel Arteta', '1982-03-26', '0234567890', 'Possession Play'),
+('Erik ten Hag', '1970-02-02', '0345678901', 'High Press'),
+('Eddie Howe', '1977-11-29', '0456789012', 'Counter-Attack'),
+('Unai Emery', '1971-11-03', '0567890123', 'Structured Defense'),
+('Mauricio Pochettino', '1972-03-02', '0678901234', 'Quick Transition'),
+('Roberto De Zerbi', '1979-06-06', '0789012345', 'Build-up Play'),
+('Thomas Frank', '1973-10-09', '0890123456', 'Flexible Tactics'),
+('David Moyes', '1963-04-25', '0901234567', 'Defensive Organization');
 
 -- Thêm dữ liệu vào bảng Teams
 INSERT INTO Teams (TeamName, CoachID, EstablishedDate) VALUES
-('Team Alpha', 1, '2000-01-01'),
-('Team Beta', 2, '2010-06-15');
+('Manchester City', 1, '1880-04-16'),
+('Liverpool', 2, '1892-06-03'),
+('Arsenal', 3, '1886-12-01'),
+('Manchester United', 4, '1878-03-05'),
+('Newcastle United', 5, '1892-12-09'),
+('Aston Villa', 6, '1874-11-21'),
+('Chelsea', 7, '1905-03-10'),
+('Brighton', 8, '1901-06-24'),
+('Brentford', 9, '1889-10-10'),
+('West Ham United', 10, '1895-06-29');
 
 -- Thêm dữ liệu vào bảng Players
 INSERT INTO Players (TeamID, PlayerName, Position, BirthDate, PhoneNumber, JerseyNumber) VALUES
-(1, 'Alice Brown', 'Forward', '1995-03-10', '1112223333', 9),
-(1, 'Bob Green', 'Goalkeeper', '1992-08-25', '4445556666', 1),
-(2, 'Charlie White', 'Defender', '1993-12-01', '7778889999', 5);
+(1, 'Erling Haaland', 'Forward', '2000-07-21', '0911111111', 9),
+(1, 'Kevin De Bruyne', 'Midfielder', '1991-06-28', '0911111112', 17),
+(1, 'Ruben Dias', 'Defender', '1997-05-14', '0911111113', 3),
+(1, 'Ederson Moraes', 'Goalkeeper', '1993-08-17', '0911111114', 31),
+(2, 'Mohamed Salah', 'Forward', '1992-06-15', '0911111115', 11),
+(2, 'Virgil van Dijk', 'Defender', '1991-07-08', '0911111116', 4),
+(2, 'Alisson Becker', 'Goalkeeper', '1992-10-02', '0911111117', 1),
+(2, 'Trent Alexander-Arnold', 'Defender', '1998-10-07', '0911111118', 66),
+(3, 'Gabriel Jesus', 'Forward', '1997-04-03', '0911111119', 9),
+(3, 'Martin Odegaard', 'Midfielder', '1998-12-17', '0911111120', 8),
+(3, 'William Saliba', 'Defender', '2001-03-24', '0911111121', 12),
+(3, 'Aaron Ramsdale', 'Goalkeeper', '1998-05-14', '0911111122', 1),
+(4, 'Marcus Rashford', 'Forward', '1997-10-31', '0911111123', 10),
+(4, 'Bruno Fernandes', 'Midfielder', '1994-09-08', '0911111124', 8),
+(4, 'Lisandro Martinez', 'Defender', '1998-01-18', '0911111125', 6),
+(4, 'David de Gea', 'Goalkeeper', '1990-11-07', '0911111126', 1),
+(5, 'Alexander Isak', 'Forward', '1999-09-21', '0911111127', 14),
+(5, 'Bruno Guimaraes', 'Midfielder', '1997-11-16', '0911111128', 39),
+(5, 'Sven Botman', 'Defender', '2000-01-12', '0911111129', 4),
+(5, 'Nick Pope', 'Goalkeeper', '1992-04-19', '0911111130', 22),
+(6, 'Ollie Watkins', 'Forward', '1995-12-30', '0911111131', 11),
+(6, 'Douglas Luiz', 'Midfielder', '1998-05-09', '0911111132', 6),
+(6, 'Tyrone Mings', 'Defender', '1993-03-13', '0911111133', 5),
+(6, 'Emiliano Martinez', 'Goalkeeper', '1992-09-02', '0911111134', 1),
+(7, 'Raheem Sterling', 'Forward', '1994-12-08', '0911111135', 17),
+(7, 'Enzo Fernandez', 'Midfielder', '2001-01-17', '0911111136', 5),
+(7, 'Thiago Silva', 'Defender', '1984-09-22', '0911111137', 6),
+(7, 'Kepa Arrizabalaga', 'Goalkeeper', '1994-10-03', '0911111138', 1),
+(8, 'Evan Ferguson', 'Forward', '2004-10-19', '0911111139', 28),
+(8, 'Moises Caicedo', 'Midfielder', '2001-11-02', '0911111140', 25),
+(8, 'Lewis Dunk', 'Defender', '1991-11-21', '0911111141', 5),
+(8, 'Jason Steele', 'Goalkeeper', '1990-08-18', '0911111142', 23),
+(9, 'Ivan Toney', 'Forward', '1996-03-16', '0911111143', 17),
+(9, 'Christian Norgaard', 'Midfielder', '1994-03-10', '0911111144', 6),
+(9, 'Ethan Pinnock', 'Defender', '1993-05-29', '0911111145', 5),
+(9, 'David Raya', 'Goalkeeper', '1995-09-15', '0911111146', 1),
+(10, 'Michail Antonio', 'Forward', '1990-03-28', '0911111147', 9),
+(10, 'Declan Rice', 'Midfielder', '1999-01-14', '0911111148', 41),
+(10, 'Kurt Zouma', 'Defender', '1994-10-27', '0911111149', 4),
+(10, 'Lukasz Fabianski', 'Goalkeeper', '1985-04-18', '0911111150', 1);
 
 -- Thêm dữ liệu vào bảng Tournaments
 INSERT INTO Tournaments (TournamentName, StartDate, EndDate, Location, TournamentCreator) VALUES
-('Champions Cup', '2024-01-15', '2024-01-30', 'New York', 'organizer1'),
-('Winter League', '2024-02-01', '2024-02-20', 'Chicago', 'organizer1');
+('Premier League', '2023-08-11', '2024-05-19', 'England', 'organizer1'),
+('FA Cup 2024', '2024-01-06', '2024-05-15', 'England', 'organizer1'),
+('EFL Cup 2024', '2023-08-08', '2024-02-25', 'England', 'organizer1');
+
 
 -- Thêm dữ liệu vào bảng Matches
 INSERT INTO Matches (TournamentID, Team1ID, Team2ID, MatchDate, Location, TeamWin, Result) VALUES
@@ -151,5 +205,13 @@ INSERT INTO Rules (TournamentID, RuleDescription) VALUES
 -- Thêm dữ liệu vào bảng Teams_in_tournament
 INSERT INTO Teams_in_tournament (TournamentID, TeamID) VALUES
 (1, 1),
-(1, 2);
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(1, 6),
+(1, 7),
+(1, 8);
+
+
 

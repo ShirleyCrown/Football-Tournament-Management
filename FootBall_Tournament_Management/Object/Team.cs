@@ -28,6 +28,8 @@ namespace FootBall_Tournament_Management.NewFolder1
             this.coachID = coachID;
             this.establishedDate = establishedDate;
         }
+        
+        public Team() { }
 
         public int TeamID { get => teamID; set => teamID = value; }
         public string TeamName { get => teamName; set => teamName = value; }
