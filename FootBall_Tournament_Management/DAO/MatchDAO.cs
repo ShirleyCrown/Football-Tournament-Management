@@ -18,17 +18,17 @@ namespace FootBall_Tournament_Management.DAO
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "INSERT INTO Matches (TournamentID, Team1ID, Team2ID, MatchDate, Location, Result) " +
-                                "VALUES (@TournamentID, @Team1ID, @Team2ID, @MatchDate, @Location, @Result);";
+                string query = "INSERT INTO Matches (TournamentID, Team1ID, Team2ID) " +
+                                "VALUES (@TournamentID, @Team1ID, @Team2ID);";
 
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Team1ID", match.Team1ID);
                     command.Parameters.AddWithValue("@Team2ID", match.Team2ID);
                     command.Parameters.AddWithValue("@TournamentID", match.TournamentID);
-                    command.Parameters.AddWithValue("@MatchDate", match.MatchDate);
-                    command.Parameters.AddWithValue("@Location", match.Location);
-                    command.Parameters.AddWithValue("@Result", match.Result);
+                    //command.Parameters.AddWithValue("@MatchDate", match.MatchDate);
+                    //command.Parameters.AddWithValue("@Location", match.Location);
+                    //command.Parameters.AddWithValue("@Result", match.Result);
                     command.ExecuteNonQuery();
                 }
             }

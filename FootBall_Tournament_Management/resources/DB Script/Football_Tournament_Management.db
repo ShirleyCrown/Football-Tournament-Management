@@ -13,7 +13,8 @@ CREATE TABLE Accounts (
     Username VARCHAR(255) PRIMARY KEY,
     Password VARCHAR(255) NOT NULL,
     AccountRole INT,
-    FOREIGN KEY (AccountRole) REFERENCES Roles(RoleID)
+    FOREIGN KEY (AccountRole) REFERENCES Roles(RoleID),
+    IsDeleted int default 0
 );
 
 -- Tạo bảng Coachs
@@ -22,7 +23,8 @@ CREATE TABLE Coachs (
     CoachName VARCHAR(255) NOT NULL,
     BirthDate DATE,
     PhoneNumber VARCHAR(255),
-    Forte VARCHAR(255)
+    Forte VARCHAR(255),
+    IsDeleted int default 0
 );
 
 -- Tạo bảng Teams
@@ -31,7 +33,8 @@ CREATE TABLE Teams (
     TeamName VARCHAR(255) NOT NULL,
     CoachID INT,
     EstablishedDate DATE,
-    FOREIGN KEY (CoachID) REFERENCES Coachs(CoachID)
+    FOREIGN KEY (CoachID) REFERENCES Coachs(CoachID),
+    IsDeleted int default 0
 );
 
 -- Tạo bảng Players
@@ -43,7 +46,8 @@ CREATE TABLE Players (
     BirthDate DATE,
     PhoneNumber VARCHAR(255),
     JerseyNumber INT,
-    FOREIGN KEY (TeamID) REFERENCES Teams(TeamID)
+    FOREIGN KEY (TeamID) REFERENCES Teams(TeamID),
+    IsDeleted int default 0
 );
 
 -- Tạo bảng Tournaments
@@ -54,7 +58,8 @@ CREATE TABLE Tournaments (
     EndDate DATE,
     Location VARCHAR(255),
     TournamentCreator VARCHAR(255),
-    FOREIGN KEY (TournamentCreator) REFERENCES Accounts(Username)
+    FOREIGN KEY (TournamentCreator) REFERENCES Accounts(Username),
+    IsDeleted int default 0
 );
 
 -- Tạo bảng Matches
@@ -70,7 +75,8 @@ CREATE TABLE Matches (
     FOREIGN KEY (TournamentID) REFERENCES Tournaments(TournamentID),
     FOREIGN KEY (Team1ID) REFERENCES Teams(TeamID),
     FOREIGN KEY (Team2ID) REFERENCES Teams(TeamID),
-    FOREIGN KEY (TeamWin) REFERENCES Teams(TeamID)
+    FOREIGN KEY (TeamWin) REFERENCES Teams(TeamID),
+    IsDeleted int default 0
 );
 
 -- Tạo bảng Awards
@@ -79,7 +85,8 @@ CREATE TABLE Awards (
     TournamentID INT,
     AwardName VARCHAR(255),
     PrizeAmount DECIMAL(18, 2),
-    FOREIGN KEY (TournamentID) REFERENCES Tournaments(TournamentID)
+    FOREIGN KEY (TournamentID) REFERENCES Tournaments(TournamentID),
+    IsDeleted int default 0
 );
 
 -- Tạo bảng Rules
@@ -87,7 +94,8 @@ CREATE TABLE Rules (
     RuleID INT AUTO_INCREMENT PRIMARY KEY,
     TournamentID INT,
     RuleDescription TEXT,
-    FOREIGN KEY (TournamentID) REFERENCES Tournaments(TournamentID)
+    FOREIGN KEY (TournamentID) REFERENCES Tournaments(TournamentID),
+    IsDeleted int default 0
 );
 
 -- Tạo bảng Teams_in_tournament
@@ -96,7 +104,8 @@ CREATE TABLE Teams_in_tournament (
     TeamID INT,
     PRIMARY KEY (TournamentID, TeamID),
     FOREIGN KEY (TournamentID) REFERENCES Tournaments(TournamentID),
-    FOREIGN KEY (TeamID) REFERENCES Teams(TeamID)
+    FOREIGN KEY (TeamID) REFERENCES Teams(TeamID),
+    IsDeleted int default 0
 );
 
 -- Thêm dữ liệu vào bảng Roles
@@ -212,6 +221,7 @@ INSERT INTO Teams_in_tournament (TournamentID, TeamID) VALUES
 (1, 6),
 (1, 7),
 (1, 8);
+
 
 
 

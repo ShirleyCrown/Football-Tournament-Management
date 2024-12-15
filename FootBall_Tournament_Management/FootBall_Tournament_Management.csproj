@@ -157,6 +157,12 @@
     <Compile Include="Forms\Details_Update_Delete\TeamDetail.Designer.cs">
       <DependentUpon>TeamDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Details_Update_Delete\TournamentBracket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Details_Update_Delete\TournamentBracket.Designer.cs">
+      <DependentUpon>TournamentBracket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Details_Update_Delete\TournamentDetail.cs">
       <SubType>Form</SubType>
     </Compile>

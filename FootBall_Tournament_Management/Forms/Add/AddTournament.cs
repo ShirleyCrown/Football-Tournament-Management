@@ -23,6 +23,12 @@ namespace FootBall_Tournament_Management.Forms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtLocation.Text))
+            {
+                MessageBox.Show("Please insert all data !!!");
+                return;
+            }
+
             string[] sDate = dpkStart.Text.Split('/');
             DateTime sDateTime = new DateTime(int.Parse(sDate[2]), int.Parse(sDate[1]), int.Parse(sDate[0]));
 

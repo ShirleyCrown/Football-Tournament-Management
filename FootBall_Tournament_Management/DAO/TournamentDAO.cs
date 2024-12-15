@@ -37,11 +37,10 @@ namespace FootBall_Tournament_Management.DAO
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "UPDATE Tournaments  SET TournamentCreator = @TournamentCreator, TournamentName = @TournamentName, StartDate = @StartDate, EndDate = @EndDate, Location = @Location WHERE TournamentID = @TournamentID";
+                string query = "UPDATE Tournaments SET TournamentName = @TournamentName, StartDate = @StartDate, EndDate = @EndDate, Location = @Location WHERE TournamentID = @TournamentID";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@TournamentID", tournament.TournamentID);
-                    command.Parameters.AddWithValue("@TournamentCreator", tournament.TournamentCreator);
                     command.Parameters.AddWithValue("@TournamentName", tournament.TournamentName);
                     command.Parameters.AddWithValue("@StartDate", tournament.StartDate);
                     command.Parameters.AddWithValue("@EndDate", tournament.EndDate);

@@ -1,4 +1,5 @@
 ﻿using FootBall_Tournament_Management.NewFolder1;
+using FootBall_Tournament_Management.Object;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace FootBall_Tournament_Management.DAO
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "UPDATE Awards SET TournamentID = @TournamentID, AwardName = @AwardName, PrizeAmount = @PrizeAmount WHERE AwardID = @AwardID";
+                string query = "UPDATE Awards SET PrizeAmount = @PrizeAmount WHERE TournamentID = @TournamentID AND AwardName = @AwardName";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@TournamentID", award.TournamentID);
@@ -46,15 +47,16 @@ namespace FootBall_Tournament_Management.DAO
             }
         }
 
-        public void DeleteAward(int awardID)
+        public void DeleteAward(Award award)
         {
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "DELETE FROM Awards WHERE AwardID = @AwardID";
+                string query = "DELETE FROM Awards WHERE TournamentID = @TournamentID AND AwardName = @AwardName";
                 using (var command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@AwardID", awardID);
+                    command.Parameters.AddWithValue("@TournamentID", award.TournamentID);
+                    command.Parameters.AddWithValue("@AwardName", award.AwardName);
                     command.ExecuteNonQuery();
                 }
             }
@@ -77,6 +79,27 @@ namespace FootBall_Tournament_Management.DAO
                 }
             }
         }
+
+        public DataTable GetAllAwardsInTournament(int tournamentID)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "SELECT * FROM Awards WHERE TournamentID = @TournamentID";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TournamentID", tournamentID);
+
+                    using (var adapter = new MySqlDataAdapter(command))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+
     }
 
 
