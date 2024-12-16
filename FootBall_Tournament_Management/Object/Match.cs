@@ -36,6 +36,14 @@ namespace FootBall_Tournament_Management.NewFolder1
             this.Team2ID = team2ID;
         }
 
+        public Match(int matchID, int tournamentID, int team1ID, int team2ID)
+        {
+            this.MatchID = matchID;
+            this.TournamentID = tournamentID;
+            this.Team1ID = team1ID;
+            this.Team2ID = team2ID;
+            
+        }
         public int MatchID { get => matchID; set => matchID = value; }
         public int TournamentID { get => tournamentID; set => tournamentID = value; }
         public int Team1ID { get => team1ID; set => team1ID = value; }

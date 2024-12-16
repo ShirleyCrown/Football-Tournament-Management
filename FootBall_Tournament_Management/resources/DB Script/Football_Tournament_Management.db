@@ -81,10 +81,10 @@ CREATE TABLE Matches (
 
 -- Tạo bảng Awards
 CREATE TABLE Awards (
-    AwardID INT AUTO_INCREMENT PRIMARY KEY,
     TournamentID INT,
     AwardName VARCHAR(255),
     PrizeAmount DECIMAL(18, 2),
+    PRIMARY KEY (TournamentID, AwardName),
     FOREIGN KEY (TournamentID) REFERENCES Tournaments(TournamentID),
     IsDeleted int default 0
 );
@@ -203,8 +203,9 @@ INSERT INTO Matches (TournamentID, Team1ID, Team2ID, MatchDate, Location, TeamWi
 
 -- Thêm dữ liệu vào bảng Awards
 INSERT INTO Awards (TournamentID, AwardName, PrizeAmount) VALUES
-(1, 'Winner', 10000.00),
-(1, 'Runner-Up', 5000.00);
+(1, 'Champion', 10000.00),
+(1, 'Runner-Up', 5000.00),
+(1, 'Second Runner-Up', 2000.00);
 
 -- Thêm dữ liệu vào bảng Rules
 INSERT INTO Rules (TournamentID, RuleDescription) VALUES

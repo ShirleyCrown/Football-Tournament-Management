@@ -36,6 +36,7 @@
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.3.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.37, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="Google.Protobuf, Version=3.26.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.26.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -99,10 +100,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\DatabaseHelper.cs" />
-    <Compile Include="Component.cs">
+    <Compile Include="Usercontrol\Component.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Component.Designer.cs">
+    <Compile Include="Usercontrol\Component.Designer.cs">
       <DependentUpon>Component.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\AccountDAO.cs" />
@@ -144,6 +145,12 @@
     </Compile>
     <Compile Include="Forms\Details_Update_Delete\CoachDetail.Designer.cs">
       <DependentUpon>CoachDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Details_Update_Delete\MatchDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Details_Update_Delete\MatchDetails.Designer.cs">
+      <DependentUpon>MatchDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Details_Update_Delete\PlayerDetail.cs">
       <SubType>Form</SubType>
@@ -199,7 +206,13 @@
     <Compile Include="Object\Tournament.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Component.resx">
+    <Compile Include="Usercontrol\TeamInBracket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Usercontrol\TeamInBracket.Designer.cs">
+      <DependentUpon>TeamInBracket.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Usercontrol\Component.resx">
       <DependentUpon>Component.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Add\AddCoach.resx">
@@ -223,6 +236,9 @@
     <EmbeddedResource Include="Forms\Details_Update_Delete\TeamDetail.resx">
       <DependentUpon>TeamDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Details_Update_Delete\TournamentBracket.resx">
+      <DependentUpon>TournamentBracket.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Details_Update_Delete\TournamentDetail.resx">
       <DependentUpon>TournamentDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +255,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usercontrol\TeamInBracket.resx">
+      <DependentUpon>TeamInBracket.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="resources\DB Script\Football_Tournament_Management.db" />
     <None Include="packages.config" />

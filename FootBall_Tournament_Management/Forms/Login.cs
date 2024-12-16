@@ -53,13 +53,13 @@ namespace FootBall_Tournament_Management.Forms
         {
             if (String.IsNullOrEmpty(txtLogin.Text.Trim()))
             {
-                MessageBox.Show("Hãy nhập usename!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please insert username!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtLogin.Focus();
                 return;
             }
             if (String.IsNullOrEmpty(TxtPassword.Text.Trim()))
             {
-                MessageBox.Show("Hãy nhập password!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please insert password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtPassword.Focus();
                 return;
             }
@@ -76,7 +76,7 @@ namespace FootBall_Tournament_Management.Forms
             }
             else
             {
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Username or password wrong!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtPassword.Clear();
                 TxtPassword.Focus();
             }

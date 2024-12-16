@@ -1,4 +1,5 @@
-﻿using FootBall_Tournament_Management.Forms.Details_Update_Delete;
+﻿using FootBall_Tournament_Management.DAO;
+using FootBall_Tournament_Management.Forms.Details_Update_Delete;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -132,7 +133,16 @@ namespace FootBall_Tournament_Management
         {
             if (component == "tournament")
             {
-                new TournamentDetail(componentID).ShowDialog();
+                MatchDAO matchDAO = new MatchDAO();
+                if(matchDAO.GetAllMatchesInTournament(componentID).Rows.Count > 0)
+                {
+                    new TournamentBracket(componentID).ShowDialog();
+                    
+                }
+                else
+                {
+                    new TournamentDetail(componentID).ShowDialog();
+                }
             }
             else if (component == "team")
             {
