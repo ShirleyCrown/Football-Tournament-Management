@@ -79,23 +79,11 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
             for(int i = 0; i < dt.Rows.Count; i++)
             {
-                if (dt.Rows[i][6] != DBNull.Value)
-                {
-                    Match match = new Match(Convert.ToInt32(dt.Rows[i][0]), Convert.ToInt32(dt.Rows[i][1]),
-                    Convert.ToInt32(dt.Rows[i][2]), Convert.ToInt32(dt.Rows[i][3]),
-                    Convert.ToDateTime(dt.Rows[i][4]), Convert.ToString(dt.Rows[i][5]),
+                Match match = new Match(Convert.ToInt32(dt.Rows[i][0]), Convert.ToInt32(dt.Rows[i][1]),
+                    Convert.ToInt32(dt.Rows[i][2]), Convert.ToInt32(dt.Rows[i][3]), 
+                    Convert.ToDateTime(dt.Rows[i][4]), Convert.ToString(dt.Rows[i][5]), 
                     Convert.ToInt32(dt.Rows[i][6]), dt.Rows[i][7].ToString());
-
-                    matches.Add(match);
-                }
-                else
-                {
-                    Match match = new Match(Convert.ToInt32(dt.Rows[i][0]), Convert.ToInt32(dt.Rows[i][1]),
-                    Convert.ToInt32(dt.Rows[i][2]), Convert.ToInt32(dt.Rows[i][3]));
-
-                    matches.Add(match);
-                }
-                
+                matches.Add(match);
             }
 
             int index = 0;
