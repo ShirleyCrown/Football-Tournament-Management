@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FootBall_Tournament_Management.Forms;
+using FootBall_Tournament_Management.Forms.Details_Update_Delete;
 
 namespace FootBall_Tournament_Management
 {

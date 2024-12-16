@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace FootBall_Tournament_Management.DAO
@@ -13,7 +14,7 @@ namespace FootBall_Tournament_Management.DAO
     {
         private DatabaseHelper db = new DatabaseHelper();
 
-        public void AddMatch(Match match)
+        public void AddMatch(FootBall_Tournament_Management.NewFolder1.Match match)
         {
             using (var connection = db.GetConnection())
             {
@@ -50,7 +51,7 @@ namespace FootBall_Tournament_Management.DAO
             }
         }
 
-        public void UpdateMatch(Match match)
+        public void UpdateMatch(FootBall_Tournament_Management.NewFolder1.Match match)
         {
             using (var connection = db.GetConnection())
             {
@@ -96,6 +97,27 @@ namespace FootBall_Tournament_Management.DAO
 
                 using (var command = new MySqlCommand(query, connection))
                 {
+                    using (var adapter = new MySqlDataAdapter(command))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+
+        public DataTable GetAllMatchesInTournament(int tournamentID)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "SELECT * FROM Matches WHERE TournamentID = @TournamentID";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TournamentID", tournamentID);
+
                     using (var adapter = new MySqlDataAdapter(command))
                     {
                         DataTable dt = new DataTable();

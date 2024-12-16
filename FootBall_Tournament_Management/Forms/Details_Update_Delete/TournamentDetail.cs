@@ -139,36 +139,6 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             }
         }
 
-        //private void ckbUpdate_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if(ckbUpdateTeams.Checked)
-        //    {
-        //        txtName.ReadOnly = false;
-        //        txtLocation.ReadOnly = false;
-        //        dpkEnd.Enabled = true;
-        //        dpkStart.Enabled = true;
-        //        btnUpdate.Enabled = true;
-
-        //        btnMoveAllLeft.Enabled = true;
-        //        btnMoveAllRight.Enabled = true;
-        //        btnMoveLeft.Enabled = true;
-        //        btnMoveRight.Enabled = true;
-        //    }
-        //    else
-        //    {
-        //        txtName.ReadOnly = true;
-        //        txtLocation.ReadOnly = true;
-        //        dpkStart.Enabled = false;
-        //        dpkEnd.Enabled = false;
-        //        btnUpdate.Enabled = false;
-
-        //        btnMoveAllLeft.Enabled = false;
-        //        btnMoveAllRight.Enabled = false;
-        //        btnMoveLeft.Enabled = false;
-        //        btnMoveRight.Enabled = false;
-        //        Display();
-        //    }
-        //}
 
         private void btnMoveRight_Click(object sender, EventArgs e)
         {
@@ -297,6 +267,8 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             }
 
             btnStart.Enabled = false;
+            //this.Close();
+            //new TournamentBracket(tournamentID).ShowDialog();
         }
 
         private void ckbUpdateDetails_CheckedChanged(object sender, EventArgs e)
@@ -309,10 +281,6 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                 dpkStart.Enabled = true;
                 btnUpdateDetails.Enabled = true;
 
-                btnMoveAllLeft.Enabled = true;
-                btnMoveAllRight.Enabled = true;
-                btnMoveLeft.Enabled = true;
-                btnMoveRight.Enabled = true;
             }
             else
             {
@@ -491,6 +459,8 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
                 MessageBox.Show("Teams added successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnStart.Enabled = true;
+
+                count = lstTeamInTournament.Items.Count;
             }
 
             btnUpdateTeams.Enabled = false;
