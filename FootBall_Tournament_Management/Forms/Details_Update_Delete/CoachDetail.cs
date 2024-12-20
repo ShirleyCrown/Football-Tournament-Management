@@ -90,5 +90,20 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             MessageBox.Show("Add new coach successfully !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult = MessageBox.Show("Are you sure to delete this tournament ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (DialogResult == DialogResult.No)
+            {
+                return;
+            }
+
+            CoachDAO coachDAO=new CoachDAO();
+            coachDAO.DeleteCoach(coachID);
+
+            MessageBox.Show("Coach deleted !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
     }
 }

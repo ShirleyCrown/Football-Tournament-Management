@@ -40,6 +40,7 @@
             this.logo = new System.Windows.Forms.PictureBox();
             this.btnTournament = new System.Windows.Forms.Button();
             this.pnlComponent = new System.Windows.Forms.Panel();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.componentList = new System.Windows.Forms.FlowLayoutPanel();
             this.heading.SuspendLayout();
@@ -199,6 +200,7 @@
             // 
             // pnlComponent
             // 
+            this.pnlComponent.Controls.Add(this.txtSearch);
             this.pnlComponent.Controls.Add(this.btnAdd);
             this.pnlComponent.Controls.Add(this.componentList);
             this.pnlComponent.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -207,6 +209,15 @@
             this.pnlComponent.Name = "pnlComponent";
             this.pnlComponent.Size = new System.Drawing.Size(1105, 941);
             this.pnlComponent.TabIndex = 2;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(622, 17);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(300, 39);
+            this.txtSearch.TabIndex = 2;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // btnAdd
             // 
@@ -258,6 +269,7 @@
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.pnlComponent.ResumeLayout(false);
+            this.pnlComponent.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -277,5 +289,6 @@
         private System.Windows.Forms.Button btnTournament;
         private System.Windows.Forms.FlowLayoutPanel componentList;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }

@@ -58,7 +58,19 @@ namespace FootBall_Tournament_Management.DAO
                 }
             }
         }
-
+        public void DeleteAllTeams(int tournamentID)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "DELETE FROM Teams_in_tournament WHERE TournamentID = @TournamentID";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TournamentID", tournamentID);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
         public DataTable GetAllTeams()
         {
             using (var connection = db.GetConnection())

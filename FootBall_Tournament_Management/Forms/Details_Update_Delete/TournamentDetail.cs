@@ -177,69 +177,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             lstTeamInTournament.Items.Clear();
         }
 
-        //private void btnUpdate_Click(object sender, EventArgs e)
-        //{
-            
-        //    if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtLocation.Text))
-        //    {
-        //        MessageBox.Show("Please insert all data !!!");
-        //        return;
-        //    }
-
-        //    if (lstTeamInTournament.Items.Count != 8)
-        //    {
-        //        MessageBox.Show("A tournament must have 8 teams", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        return;
-        //    }
-
-        //    DialogResult result = MessageBox.Show("Are you sure to update information?", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        //    if (result == DialogResult.No)
-        //    {
-        //        return;
-        //    }
-
-        //    // Update tournament information
-        //    string[] sDate = dpkStart.Text.Split('/');
-        //    DateTime sDateTime = new DateTime(int.Parse(sDate[2]), int.Parse(sDate[1]), int.Parse(sDate[0]));
-
-        //    string[] eDate = dpkEnd.Text.Split('/');
-        //    DateTime eDateTime = new DateTime(int.Parse(eDate[2]), int.Parse(eDate[1]), int.Parse(eDate[0]));
-
-        //    Tournament tournament = new Tournament(tournamentID, txtName.Text, sDateTime, eDateTime, txtLocation.Text);
-
-        //    TournamentDAO tournamentDAO = new TournamentDAO();
-        //    tournamentDAO.UpdateTournament(tournament);
-            
-        //    if(count > 0)
-        //    {
-        //        return;
-        //        //DialogResult result = MessageBox.Show("Are you sure to update these teams to tournament ?", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        //        //if (result == DialogResult.No)
-        //        //{
-        //        //    return;
-        //        //}
-
-        //        //TeamsInTournamentDAO teamsInTournamentDAO = new TeamsInTournamentDAO();
-        //        //for (int i = 0; i < lstTeamInTournament.Items.Count; i++)
-        //        //{
-        //        //    Team team = (Team)lstTeamInTournament.Items[i].Tag;
-        //        //    teamsInTournamentDAO.ChangeTeam(tournamentID, team.TeamID);
-        //        //}
-        //    }
-        //    else
-        //    {
-        //        // Add teams to tournament
-        //        TeamsInTournamentDAO teamsInTournamentDAO = new TeamsInTournamentDAO();
-        //        for (int i = 0; i < lstTeamInTournament.Items.Count; i++)
-        //        {
-        //            Team team = (Team)lstTeamInTournament.Items[i].Tag;
-        //            teamsInTournamentDAO.addTeam(tournamentID, team.TeamID);
-        //        }
-
-        //        MessageBox.Show("Teams added successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        btnStart.Enabled = true;
-        //    }
-        //}
+        
 
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -434,19 +372,18 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
             if (count > 0)
             {
-                return;
-                //DialogResult result = MessageBox.Show("Are you sure to update these teams to tournament ?", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                //if (result == DialogResult.No)
-                //{
-                //    return;
-                //}
+                TeamsInTournamentDAO teamsInTournamentDAO = new TeamsInTournamentDAO();
+                teamsInTournamentDAO.DeleteAllTeams(tournamentID);
+                for (int i = 0; i < lstTeamInTournament.Items.Count; i++)
+                {
+                    Team team = (Team)lstTeamInTournament.Items[i].Tag;
+                    teamsInTournamentDAO.addTeam(tournamentID, team.TeamID);
+                }
 
-                //TeamsInTournamentDAO teamsInTournamentDAO = new TeamsInTournamentDAO();
-                //for (int i = 0; i < lstTeamInTournament.Items.Count; i++)
-                //{
-                //    Team team = (Team)lstTeamInTournament.Items[i].Tag;
-                //    teamsInTournamentDAO.ChangeTeam(tournamentID, team.TeamID);
-                //}
+                MessageBox.Show("Update teams successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnStart.Enabled = true;
+
+                count = lstTeamInTournament.Items.Count;
             }
             else
             {
@@ -465,5 +402,22 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
             btnUpdateTeams.Enabled = false;
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult = MessageBox.Show("Are you sure to delete this tournament ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(DialogResult == DialogResult.No)
+            {
+                return;
+            }
+
+            TournamentDAO tournamentDAO = new TournamentDAO();
+            tournamentDAO.DeleteTournament(tournamentID);
+
+            MessageBox.Show("Tournament deleted !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
+
+        
     }
 }

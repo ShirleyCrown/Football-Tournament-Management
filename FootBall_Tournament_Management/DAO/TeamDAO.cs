@@ -47,15 +47,15 @@ namespace FootBall_Tournament_Management.DAO
             }
         }
 
-        public void DeleteTeam(Team team)
+        public void DeleteTeam(int teamID)
         {
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "DELETE FROM Teams WHERE TournamentID = @TournamentID";
+                string query = "UPDATE Teams SET IsDeleted = 1 WHERE TeamID = @TeamID";
                 using (var command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@TournamentID", team.TeamID);
+                    command.Parameters.AddWithValue("@TeamID", teamID);
                     command.ExecuteNonQuery();
                 }
             }
@@ -66,7 +66,7 @@ namespace FootBall_Tournament_Management.DAO
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "SELECT * FROM Teams";
+                string query = "SELECT * FROM Teams WHERE IsDeleted = 0";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     using (var adapter = new MySqlDataAdapter(command))
@@ -100,6 +100,28 @@ namespace FootBall_Tournament_Management.DAO
                 }
             }
             return null;
+        }
+
+        public DataTable GetTeamsByNameLike(string teamName)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "SELECT * FROM Teams WHERE TeamName LIKE CONCAT('%', @TeamName, '%')";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TeamName", teamName);
+
+                    using (var adaptor = new MySqlDataAdapter(command))
+                    {
+                        DataTable dt = new DataTable();
+                        adaptor.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+            
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace FootBall_Tournament_Management.Forms
 {
     public partial class Main_screen : Form
     {
-        private string type = "tournament";
+        private string type;
         private readonly string user;
 
         #region Handle for main_screen
@@ -22,20 +23,11 @@ namespace FootBall_Tournament_Management.Forms
         {
             InitializeComponent();
             this.user = user;
+            type = "tournament";
         }
 
         private void Main_screen_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //DialogResult result = MessageBox.Show("Are you sure to quit?", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //if (result == DialogResult.No)
-            //{
-            //    e.Cancel = true;
-            //}
-            //else
-            //{
-            //    Application.Exit();
-            //}
-
             Application.Exit();
         }
 
@@ -44,7 +36,7 @@ namespace FootBall_Tournament_Management.Forms
             title.Left = (this.ClientSize.Width - title.Width) / 2;
             title.Top = (heading.ClientSize.Height - title.Height) / 2;
             btnAdd.Left = pnlComponent.ClientSize.Width - (btnAdd.Width + 90);
-
+            txtSearch.Left = pnlComponent.ClientSize.Width - (btnAdd.Width + 90 + txtSearch.Width + 30);
             TournamentDAO tournamentDAO = new TournamentDAO();
             DataTable dt = tournamentDAO.GetAllTournaments();
 
@@ -252,7 +244,90 @@ namespace FootBall_Tournament_Management.Forms
             btnAdd.ForeColor = Color.White;
         }
 
+
         #endregion
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dt;
+            int n;
+            Component[] components;
+            switch (type)
+            {
+                case "tournament":
+                    componentList.Controls.Clear();
+
+                    TournamentDAO tournamentDAO = new TournamentDAO();
+                    dt = tournamentDAO.GetTournamentsByNameLike(txtSearch.Text);
+
+                    n = dt.Rows.Count;
+
+                    components = new Component[n];
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        components[i] = new Component("tournament", Convert.ToInt32(dt.Rows[i][0]));
+                        components[i].Name = dt.Rows[i][1].ToString();
+
+                        componentList.Controls.Add(components[i]);
+                    }
+                    break;
+                case "team":
+                    componentList.Controls.Clear();
+
+                    TeamDAO teamDAO = new TeamDAO();
+                    dt = teamDAO.GetTeamsByNameLike(txtSearch.Text);
+
+                    n = dt.Rows.Count;
+
+                    components = new Component[n];
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        components[i] = new Component("team", Convert.ToInt32(dt.Rows[i][0]));
+                        components[i].Name = dt.Rows[i][1].ToString();
+
+                        componentList.Controls.Add(components[i]);
+                    }
+                    break ;
+                case "player":
+                    componentList.Controls.Clear();
+
+                    PlayerDAO playerDAO = new PlayerDAO();
+                    dt = playerDAO.GetPlayersByNameLike(txtSearch.Text);
+
+                    n = dt.Rows.Count;
+
+                    components = new Component[n];
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        components[i] = new Component("team", Convert.ToInt32(dt.Rows[i][0]));
+                        components[i].Name = dt.Rows[i][2].ToString();
+
+                        componentList.Controls.Add(components[i]);
+                    }
+                    break;
+                case "coach":
+                    componentList.Controls.Clear();
+
+                    CoachDAO coachDAO = new CoachDAO();
+                    dt = coachDAO.GetCoachsByNameLike(txtSearch.Text);
+
+                    n = dt.Rows.Count;
+
+                    components = new Component[n];
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        components[i] = new Component("team", Convert.ToInt32(dt.Rows[i][0]));
+                        components[i].Name = dt.Rows[i][1].ToString();
+
+                        componentList.Controls.Add(components[i]);
+                    }
+                    break ; 
+            }
+        }
 
         
     }

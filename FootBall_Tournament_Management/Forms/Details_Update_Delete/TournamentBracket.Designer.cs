@@ -53,6 +53,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rtbRule = new System.Windows.Forms.RichTextBox();
             this.btnNextStage = new System.Windows.Forms.Button();
+            this.btnUpdateRule = new System.Windows.Forms.Button();
             this.uctTeam8 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam4 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam7 = new FootBall_Tournament_Management.TeamInBracket();
@@ -68,6 +69,7 @@
             this.uctTeam9 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam5 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam1 = new FootBall_Tournament_Management.TeamInBracket();
+            this.ckbUpdateRule = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -84,11 +86,9 @@
             this.groupBox2.Controls.Add(this.btnUpdatePrize);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(479, 14);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(718, 22);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(432, 237);
+            this.groupBox2.Size = new System.Drawing.Size(648, 365);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Prize Information";
@@ -98,8 +98,7 @@
             this.ckbUpdatePrize.AutoSize = true;
             this.ckbUpdatePrize.BackColor = System.Drawing.SystemColors.Control;
             this.ckbUpdatePrize.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbUpdatePrize.Location = new System.Drawing.Point(13, 203);
-            this.ckbUpdatePrize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ckbUpdatePrize.Location = new System.Drawing.Point(20, 312);
             this.ckbUpdatePrize.Name = "ckbUpdatePrize";
             this.ckbUpdatePrize.Size = new System.Drawing.Size(215, 34);
             this.ckbUpdatePrize.TabIndex = 4;
@@ -110,39 +109,39 @@
             // txt2ndRunnerup
             // 
             this.txt2ndRunnerup.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt2ndRunnerup.Location = new System.Drawing.Point(228, 104);
-            this.txt2ndRunnerup.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txt2ndRunnerup.Location = new System.Drawing.Point(342, 160);
+            this.txt2ndRunnerup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt2ndRunnerup.Name = "txt2ndRunnerup";
             this.txt2ndRunnerup.ReadOnly = true;
-            this.txt2ndRunnerup.Size = new System.Drawing.Size(149, 37);
+            this.txt2ndRunnerup.Size = new System.Drawing.Size(222, 37);
             this.txt2ndRunnerup.TabIndex = 8;
             // 
             // txtChampionPrize
             // 
             this.txtChampionPrize.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChampionPrize.Location = new System.Drawing.Point(228, 35);
-            this.txtChampionPrize.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtChampionPrize.Location = new System.Drawing.Point(342, 54);
+            this.txtChampionPrize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtChampionPrize.Name = "txtChampionPrize";
             this.txtChampionPrize.ReadOnly = true;
-            this.txtChampionPrize.Size = new System.Drawing.Size(149, 37);
+            this.txtChampionPrize.Size = new System.Drawing.Size(222, 37);
             this.txtChampionPrize.TabIndex = 9;
             // 
             // txtRunnerup
             // 
             this.txtRunnerup.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRunnerup.Location = new System.Drawing.Point(228, 71);
-            this.txtRunnerup.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtRunnerup.Location = new System.Drawing.Point(342, 109);
+            this.txtRunnerup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtRunnerup.Name = "txtRunnerup";
             this.txtRunnerup.ReadOnly = true;
-            this.txtRunnerup.Size = new System.Drawing.Size(149, 37);
+            this.txtRunnerup.Size = new System.Drawing.Size(222, 37);
             this.txtRunnerup.TabIndex = 9;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(34, 106);
-            this.label9.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label9.Location = new System.Drawing.Point(51, 163);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(240, 30);
             this.label9.TabIndex = 5;
@@ -152,8 +151,8 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(34, 35);
-            this.label10.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label10.Location = new System.Drawing.Point(51, 54);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(148, 30);
             this.label10.TabIndex = 7;
@@ -163,10 +162,9 @@
             // 
             this.btnUpdatePrize.Enabled = false;
             this.btnUpdatePrize.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdatePrize.Location = new System.Drawing.Point(333, 203);
-            this.btnUpdatePrize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdatePrize.Location = new System.Drawing.Point(500, 312);
             this.btnUpdatePrize.Name = "btnUpdatePrize";
-            this.btnUpdatePrize.Size = new System.Drawing.Size(79, 29);
+            this.btnUpdatePrize.Size = new System.Drawing.Size(118, 45);
             this.btnUpdatePrize.TabIndex = 2;
             this.btnUpdatePrize.Text = "Update";
             this.btnUpdatePrize.UseVisualStyleBackColor = true;
@@ -176,8 +174,8 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(34, 71);
-            this.label12.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label12.Location = new System.Drawing.Point(51, 109);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(142, 30);
             this.label12.TabIndex = 7;
@@ -198,11 +196,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(11, 11);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(16, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(435, 240);
+            this.groupBox1.Size = new System.Drawing.Size(652, 369);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tournament Details";
@@ -212,8 +208,7 @@
             this.ckbUpdateDetails.AutoSize = true;
             this.ckbUpdateDetails.BackColor = System.Drawing.SystemColors.Control;
             this.ckbUpdateDetails.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbUpdateDetails.Location = new System.Drawing.Point(10, 206);
-            this.ckbUpdateDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ckbUpdateDetails.Location = new System.Drawing.Point(15, 317);
             this.ckbUpdateDetails.Name = "ckbUpdateDetails";
             this.ckbUpdateDetails.Size = new System.Drawing.Size(215, 34);
             this.ckbUpdateDetails.TabIndex = 4;
@@ -226,10 +221,10 @@
             this.dpkEnd.Enabled = false;
             this.dpkEnd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpkEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpkEnd.Location = new System.Drawing.Point(228, 138);
-            this.dpkEnd.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.dpkEnd.Location = new System.Drawing.Point(342, 212);
+            this.dpkEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dpkEnd.Name = "dpkEnd";
-            this.dpkEnd.Size = new System.Drawing.Size(127, 37);
+            this.dpkEnd.Size = new System.Drawing.Size(188, 37);
             this.dpkEnd.TabIndex = 10;
             // 
             // dpkStart
@@ -237,18 +232,18 @@
             this.dpkStart.Enabled = false;
             this.dpkStart.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpkStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpkStart.Location = new System.Drawing.Point(228, 104);
-            this.dpkStart.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.dpkStart.Location = new System.Drawing.Point(342, 160);
+            this.dpkStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dpkStart.Name = "dpkStart";
-            this.dpkStart.Size = new System.Drawing.Size(127, 37);
+            this.dpkStart.Size = new System.Drawing.Size(188, 37);
             this.dpkStart.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(34, 141);
-            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label3.Location = new System.Drawing.Point(51, 217);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(127, 30);
             this.label3.TabIndex = 4;
@@ -257,31 +252,30 @@
             // txtLocation
             // 
             this.txtLocation.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLocation.Location = new System.Drawing.Point(228, 172);
-            this.txtLocation.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtLocation.Location = new System.Drawing.Point(342, 265);
+            this.txtLocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtLocation.Name = "txtLocation";
             this.txtLocation.ReadOnly = true;
-            this.txtLocation.Size = new System.Drawing.Size(171, 37);
+            this.txtLocation.Size = new System.Drawing.Size(254, 37);
             this.txtLocation.TabIndex = 8;
             // 
             // txtID
             // 
             this.txtID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(228, 35);
-            this.txtID.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtID.Location = new System.Drawing.Point(342, 54);
+            this.txtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(167, 37);
+            this.txtID.Size = new System.Drawing.Size(248, 37);
             this.txtID.TabIndex = 9;
             // 
             // btnUpdateDetails
             // 
             this.btnUpdateDetails.Enabled = false;
             this.btnUpdateDetails.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateDetails.Location = new System.Drawing.Point(330, 206);
-            this.btnUpdateDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdateDetails.Location = new System.Drawing.Point(495, 317);
             this.btnUpdateDetails.Name = "btnUpdateDetails";
-            this.btnUpdateDetails.Size = new System.Drawing.Size(79, 29);
+            this.btnUpdateDetails.Size = new System.Drawing.Size(118, 45);
             this.btnUpdateDetails.TabIndex = 2;
             this.btnUpdateDetails.Text = "Update";
             this.btnUpdateDetails.UseVisualStyleBackColor = true;
@@ -290,19 +284,19 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(228, 71);
-            this.txtName.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtName.Location = new System.Drawing.Point(342, 109);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(167, 37);
+            this.txtName.Size = new System.Drawing.Size(248, 37);
             this.txtName.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(34, 174);
-            this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label4.Location = new System.Drawing.Point(51, 268);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 30);
             this.label4.TabIndex = 5;
@@ -312,8 +306,8 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(34, 35);
-            this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label5.Location = new System.Drawing.Point(51, 54);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(194, 30);
             this.label5.TabIndex = 7;
@@ -323,8 +317,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 107);
-            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label2.Location = new System.Drawing.Point(51, 165);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 30);
             this.label2.TabIndex = 6;
@@ -334,8 +328,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 71);
-            this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label1.Location = new System.Drawing.Point(51, 109);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(241, 30);
             this.label1.TabIndex = 7;
@@ -343,22 +337,23 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.ckbUpdateRule);
             this.groupBox3.Controls.Add(this.rtbRule);
+            this.groupBox3.Controls.Add(this.btnUpdateRule);
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(963, 14);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Location = new System.Drawing.Point(1444, 22);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(432, 237);
+            this.groupBox3.Size = new System.Drawing.Size(648, 365);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "About Rules";
             // 
             // rtbRule
             // 
-            this.rtbRule.Location = new System.Drawing.Point(5, 32);
+            this.rtbRule.Location = new System.Drawing.Point(7, 49);
+            this.rtbRule.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rtbRule.Name = "rtbRule";
-            this.rtbRule.Size = new System.Drawing.Size(422, 200);
+            this.rtbRule.Size = new System.Drawing.Size(634, 244);
             this.rtbRule.TabIndex = 0;
             this.rtbRule.Text = "";
             // 
@@ -366,124 +361,178 @@
             // 
             this.btnNextStage.Enabled = false;
             this.btnNextStage.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNextStage.Location = new System.Drawing.Point(1244, 777);
-            this.btnNextStage.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNextStage.Location = new System.Drawing.Point(1866, 1195);
             this.btnNextStage.Name = "btnNextStage";
-            this.btnNextStage.Size = new System.Drawing.Size(169, 45);
+            this.btnNextStage.Size = new System.Drawing.Size(254, 69);
             this.btnNextStage.TabIndex = 2;
             this.btnNextStage.Text = "Next Stage";
             this.btnNextStage.UseVisualStyleBackColor = true;
             // 
+            // btnUpdateRule
+            // 
+            this.btnUpdateRule.Enabled = false;
+            this.btnUpdateRule.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateRule.Location = new System.Drawing.Point(523, 312);
+            this.btnUpdateRule.Name = "btnUpdateRule";
+            this.btnUpdateRule.Size = new System.Drawing.Size(118, 45);
+            this.btnUpdateRule.TabIndex = 2;
+            this.btnUpdateRule.Text = "Update";
+            this.btnUpdateRule.UseVisualStyleBackColor = true;
+            this.btnUpdateRule.Click += new System.EventHandler(this.btnUpdatePrize_Click);
+            // 
             // uctTeam8
             // 
-            this.uctTeam8.Location = new System.Drawing.Point(189, 766);
+            this.uctTeam8.Location = new System.Drawing.Point(284, 1178);
+            this.uctTeam8.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam8.Name = "uctTeam8";
-            this.uctTeam8.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam8.Size = new System.Drawing.Size(302, 71);
             this.uctTeam8.TabIndex = 3;
+            this.uctTeam8.TeamName = "checkBox1";
             // 
             // uctTeam4
             // 
-            this.uctTeam4.Location = new System.Drawing.Point(189, 488);
+            this.uctTeam4.Location = new System.Drawing.Point(284, 751);
+            this.uctTeam4.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam4.Name = "uctTeam4";
-            this.uctTeam4.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam4.Size = new System.Drawing.Size(302, 71);
             this.uctTeam4.TabIndex = 3;
+            this.uctTeam4.TeamName = "checkBox1";
             // 
             // uctTeam7
             // 
-            this.uctTeam7.Location = new System.Drawing.Point(189, 696);
+            this.uctTeam7.Location = new System.Drawing.Point(284, 1071);
+            this.uctTeam7.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam7.Name = "uctTeam7";
-            this.uctTeam7.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam7.Size = new System.Drawing.Size(302, 71);
             this.uctTeam7.TabIndex = 3;
+            this.uctTeam7.TeamName = "checkBox1";
             // 
             // uctTeam3
             // 
-            this.uctTeam3.Location = new System.Drawing.Point(189, 418);
+            this.uctTeam3.Location = new System.Drawing.Point(284, 643);
+            this.uctTeam3.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam3.Name = "uctTeam3";
-            this.uctTeam3.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam3.Size = new System.Drawing.Size(302, 71);
             this.uctTeam3.TabIndex = 3;
+            this.uctTeam3.TeamName = "checkBox1";
             // 
             // uctTeam6
             // 
-            this.uctTeam6.Location = new System.Drawing.Point(189, 627);
+            this.uctTeam6.Location = new System.Drawing.Point(284, 965);
+            this.uctTeam6.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam6.Name = "uctTeam6";
-            this.uctTeam6.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam6.Size = new System.Drawing.Size(302, 71);
             this.uctTeam6.TabIndex = 3;
+            this.uctTeam6.TeamName = "checkBox1";
             // 
             // uctTeam2
             // 
-            this.uctTeam2.Location = new System.Drawing.Point(189, 349);
+            this.uctTeam2.Location = new System.Drawing.Point(284, 537);
+            this.uctTeam2.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam2.Name = "uctTeam2";
-            this.uctTeam2.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam2.Size = new System.Drawing.Size(302, 71);
             this.uctTeam2.TabIndex = 3;
+            this.uctTeam2.TeamName = "checkBox1";
             // 
             // uctTeam12
             // 
-            this.uctTeam12.Location = new System.Drawing.Point(479, 728);
+            this.uctTeam12.Location = new System.Drawing.Point(718, 1120);
+            this.uctTeam12.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam12.Name = "uctTeam12";
-            this.uctTeam12.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam12.Size = new System.Drawing.Size(302, 71);
             this.uctTeam12.TabIndex = 3;
+            this.uctTeam12.TeamName = "checkBox1";
             // 
             // uctTeam10
             // 
-            this.uctTeam10.Location = new System.Drawing.Point(479, 452);
+            this.uctTeam10.Location = new System.Drawing.Point(718, 695);
+            this.uctTeam10.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam10.Name = "uctTeam10";
-            this.uctTeam10.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam10.Size = new System.Drawing.Size(302, 71);
             this.uctTeam10.TabIndex = 3;
+            this.uctTeam10.TeamName = "checkBox1";
             // 
             // uctTeam15
             // 
-            this.uctTeam15.Location = new System.Drawing.Point(1070, 514);
+            this.uctTeam15.Location = new System.Drawing.Point(1605, 791);
+            this.uctTeam15.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam15.Name = "uctTeam15";
-            this.uctTeam15.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam15.Size = new System.Drawing.Size(302, 71);
             this.uctTeam15.TabIndex = 3;
+            this.uctTeam15.TeamName = "checkBox1";
             // 
             // uctTeam14
             // 
-            this.uctTeam14.Location = new System.Drawing.Point(788, 658);
+            this.uctTeam14.Location = new System.Drawing.Point(1182, 1012);
+            this.uctTeam14.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam14.Name = "uctTeam14";
-            this.uctTeam14.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam14.Size = new System.Drawing.Size(302, 71);
             this.uctTeam14.TabIndex = 3;
+            this.uctTeam14.TeamName = "checkBox1";
             // 
             // uctTeam13
             // 
-            this.uctTeam13.Location = new System.Drawing.Point(788, 381);
+            this.uctTeam13.Location = new System.Drawing.Point(1182, 586);
+            this.uctTeam13.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam13.Name = "uctTeam13";
-            this.uctTeam13.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam13.Size = new System.Drawing.Size(302, 71);
             this.uctTeam13.TabIndex = 3;
+            this.uctTeam13.TeamName = "checkBox1";
             // 
             // uctTeam11
             // 
-            this.uctTeam11.Location = new System.Drawing.Point(479, 592);
+            this.uctTeam11.Location = new System.Drawing.Point(718, 911);
+            this.uctTeam11.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam11.Name = "uctTeam11";
-            this.uctTeam11.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam11.Size = new System.Drawing.Size(302, 71);
             this.uctTeam11.TabIndex = 3;
+            this.uctTeam11.TeamName = "checkBox1";
             // 
             // uctTeam9
             // 
-            this.uctTeam9.Location = new System.Drawing.Point(479, 316);
+            this.uctTeam9.Location = new System.Drawing.Point(718, 486);
+            this.uctTeam9.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam9.Name = "uctTeam9";
-            this.uctTeam9.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam9.Size = new System.Drawing.Size(302, 71);
             this.uctTeam9.TabIndex = 3;
+            this.uctTeam9.TeamName = "checkBox1";
             // 
             // uctTeam5
             // 
-            this.uctTeam5.Location = new System.Drawing.Point(189, 556);
+            this.uctTeam5.Location = new System.Drawing.Point(284, 855);
+            this.uctTeam5.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam5.Name = "uctTeam5";
-            this.uctTeam5.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam5.Size = new System.Drawing.Size(302, 71);
             this.uctTeam5.TabIndex = 3;
+            this.uctTeam5.TeamName = "checkBox1";
             // 
             // uctTeam1
             // 
-            this.uctTeam1.Location = new System.Drawing.Point(189, 278);
+            this.uctTeam1.Location = new System.Drawing.Point(284, 428);
+            this.uctTeam1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.uctTeam1.Name = "uctTeam1";
-            this.uctTeam1.Size = new System.Drawing.Size(201, 46);
+            this.uctTeam1.Size = new System.Drawing.Size(302, 71);
             this.uctTeam1.TabIndex = 3;
+            this.uctTeam1.TeamName = "checkBox1";
+            // 
+            // ckbUpdateRule
+            // 
+            this.ckbUpdateRule.AutoSize = true;
+            this.ckbUpdateRule.BackColor = System.Drawing.SystemColors.Control;
+            this.ckbUpdateRule.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbUpdateRule.Location = new System.Drawing.Point(6, 317);
+            this.ckbUpdateRule.Name = "ckbUpdateRule";
+            this.ckbUpdateRule.Size = new System.Drawing.Size(215, 34);
+            this.ckbUpdateRule.TabIndex = 4;
+            this.ckbUpdateRule.Text = "Enable update";
+            this.ckbUpdateRule.UseVisualStyleBackColor = false;
+            this.ckbUpdateRule.CheckedChanged += new System.EventHandler(this.ckbUpdatePrize_CheckedChanged);
             // 
             // TournamentBracket
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1443, 858);
+            this.ClientSize = new System.Drawing.Size(2164, 1320);
             this.Controls.Add(this.uctTeam8);
             this.Controls.Add(this.uctTeam4);
             this.Controls.Add(this.uctTeam7);
@@ -503,6 +552,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "TournamentBracket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -515,6 +565,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -561,5 +612,7 @@
         private TeamInBracket uctTeam12;
         private TeamInBracket uctTeam14;
         private TeamInBracket uctTeam15;
+        private System.Windows.Forms.Button btnUpdateRule;
+        private System.Windows.Forms.CheckBox ckbUpdateRule;
     }
 }

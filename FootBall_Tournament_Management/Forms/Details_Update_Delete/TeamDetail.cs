@@ -96,5 +96,20 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             MessageBox.Show("Data updated !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult = MessageBox.Show("Are you sure to delete this tournament ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (DialogResult == DialogResult.No)
+            {
+                return;
+            }
+
+            TeamDAO teamDAO= new TeamDAO();
+            teamDAO.DeleteTeam(teamID);
+
+            MessageBox.Show("Team deleted !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
     }
 }

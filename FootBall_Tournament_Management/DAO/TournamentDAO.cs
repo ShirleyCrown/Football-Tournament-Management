@@ -50,15 +50,15 @@ namespace FootBall_Tournament_Management.DAO
             }
         }
 
-        public void DeleteTournament(Tournament tournament)
+        public void DeleteTournament(int tournamentID)
         {
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "DELETE FROM Tournaments  WHERE TournamentID = @TournamentID";
+                string query = "UPDATE Tournaments SET IsDeleted = 1 WHERE TournamentID = @TournamentID";
                 using (var command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@TournamentID", tournament.TournamentID);
+                    command.Parameters.AddWithValue("@TournamentID", tournamentID);
                     command.ExecuteNonQuery();
                 }
             }
@@ -69,7 +69,7 @@ namespace FootBall_Tournament_Management.DAO
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "SELECT * FROM Tournaments";
+                string query = "SELECT * FROM Tournaments WHERE IsDeleted = 0";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     using (var adapter = new MySqlDataAdapter(command))
@@ -103,6 +103,27 @@ namespace FootBall_Tournament_Management.DAO
                 }
             }
             return null;
+        }
+
+        public DataTable GetTournamentsByNameLike(String tournamentName)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "SELECT * FROM Tournaments WHERE TournamentName LIKE CONCAT('%', @TournamentName, '%');";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TournamentName", tournamentName);
+
+                    using (var adaptor = new MySqlDataAdapter(command))
+                    {
+                        DataTable dt = new DataTable();
+                        adaptor.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
         }
     }
 }

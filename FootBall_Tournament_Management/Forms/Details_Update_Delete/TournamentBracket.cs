@@ -149,8 +149,6 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                 dpkEnd.Enabled = true;
                 dpkStart.Enabled = true;
                 btnUpdateDetails.Enabled = true;
-
-                
             }
             else
             {

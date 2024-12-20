@@ -60,7 +60,7 @@ namespace FootBall_Tournament_Management.DAO
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "DELETE FROM Players WHERE PlayerID = @PlayerID";
+                string query = "UPDATE Players SET IsDeleted = 1 WHERE PlayerID = @PlayerID";
 
                 using (var command = new MySqlCommand(query, connection))
                 {
@@ -75,7 +75,7 @@ namespace FootBall_Tournament_Management.DAO
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "SELECT * FROM Players";
+                string query = "SELECT * FROM Players WHERE IsDeleted = 0";
 
                 using (var command = new MySqlCommand(query, connection))
                 {
@@ -110,6 +110,27 @@ namespace FootBall_Tournament_Management.DAO
                 }
             }
             return null;
+        }
+
+        public DataTable GetPlayersByNameLike(String playerName)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "SELECT * FROM Players WHERE PlayerName LIKE CONCAT('%', @PlayerName, '%');";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PlayerName", playerName);
+
+                    using (var adaptor = new MySqlDataAdapter(command))
+                    {
+                        DataTable dt = new DataTable();
+                        adaptor.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
         }
     }
 }
