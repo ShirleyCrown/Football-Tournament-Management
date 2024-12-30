@@ -32,6 +32,8 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             txtName.Text = team.TeamName;
             txtCoachID.Text = team.CoachID.ToString();
             dpkEDate.Value = team.EstablishedDate;
+
+            DisplayMembers();
         }
 
         private void ckb_CheckedChanged(object sender, EventArgs e)
@@ -111,5 +113,31 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             MessageBox.Show("Team deleted !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
+
+        public void DisplayMembers()
+        {
+            TeamDAO teamDAO= new TeamDAO();
+            DataTable dt = teamDAO.GetTeamMembers(teamID);
+            //dt.Columns.RemoveAt(1);
+            dt.Columns.RemoveAt(7);
+
+            //dt.Columns["Column1"].ColumnName = "ID";
+            //dt.Columns["Column3"].ColumnName = "Name";
+            //dt.Columns["Column4"].ColumnName = "Position";
+            //dt.Columns["Column5"].ColumnName = "Birth Date";
+            //dt.Columns["Column6"].ColumnName = "Phone Number";
+            //dt.Columns["Column7"].ColumnName = "Jersey Number";
+
+            dgvMemebers.DataSource = dt;
+
+            int width = dgvMemebers.Width / dgvMemebers.Columns.Count;
+
+            for(int i = 0; i < dgvMemebers.Columns.Count; i++)
+            {
+                dgvMemebers.Columns[i].Width = width;
+            }
+        }
+
+        
     }
 }

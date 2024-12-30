@@ -123,5 +123,29 @@ namespace FootBall_Tournament_Management.DAO
             }
             
         }
+
+        public DataTable GetTeamMembers(int teamID)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "SELECT * FROM Players WHERE TeamID = @TeamID AND IsDeleted = 0";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TeamID", teamID);
+
+                    using (var adaptor = new MySqlDataAdapter(command))
+                    {
+                        DataTable dt = new DataTable();
+                        adaptor.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+
+        }
     }
+
+
 }

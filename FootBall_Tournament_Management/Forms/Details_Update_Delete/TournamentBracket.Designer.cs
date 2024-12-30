@@ -54,6 +54,7 @@
             this.rtbRule = new System.Windows.Forms.RichTextBox();
             this.btnNextStage = new System.Windows.Forms.Button();
             this.btnUpdateRule = new System.Windows.Forms.Button();
+            this.ckbUpdateRule = new System.Windows.Forms.CheckBox();
             this.uctTeam8 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam4 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam7 = new FootBall_Tournament_Management.TeamInBracket();
@@ -69,7 +70,6 @@
             this.uctTeam9 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam5 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam1 = new FootBall_Tournament_Management.TeamInBracket();
-            this.ckbUpdateRule = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -353,6 +353,7 @@
             this.rtbRule.Location = new System.Drawing.Point(7, 49);
             this.rtbRule.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rtbRule.Name = "rtbRule";
+            this.rtbRule.ReadOnly = true;
             this.rtbRule.Size = new System.Drawing.Size(634, 244);
             this.rtbRule.TabIndex = 0;
             this.rtbRule.Text = "";
@@ -379,6 +380,19 @@
             this.btnUpdateRule.Text = "Update";
             this.btnUpdateRule.UseVisualStyleBackColor = true;
             this.btnUpdateRule.Click += new System.EventHandler(this.btnUpdatePrize_Click);
+            // 
+            // ckbUpdateRule
+            // 
+            this.ckbUpdateRule.AutoSize = true;
+            this.ckbUpdateRule.BackColor = System.Drawing.SystemColors.Control;
+            this.ckbUpdateRule.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbUpdateRule.Location = new System.Drawing.Point(6, 317);
+            this.ckbUpdateRule.Name = "ckbUpdateRule";
+            this.ckbUpdateRule.Size = new System.Drawing.Size(215, 34);
+            this.ckbUpdateRule.TabIndex = 4;
+            this.ckbUpdateRule.Text = "Enable update";
+            this.ckbUpdateRule.UseVisualStyleBackColor = false;
+            this.ckbUpdateRule.CheckedChanged += new System.EventHandler(this.ckbUpdatePrize_CheckedChanged);
             // 
             // uctTeam8
             // 
@@ -514,19 +528,6 @@
             this.uctTeam1.Size = new System.Drawing.Size(302, 71);
             this.uctTeam1.TabIndex = 3;
             this.uctTeam1.TeamName = "checkBox1";
-            // 
-            // ckbUpdateRule
-            // 
-            this.ckbUpdateRule.AutoSize = true;
-            this.ckbUpdateRule.BackColor = System.Drawing.SystemColors.Control;
-            this.ckbUpdateRule.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbUpdateRule.Location = new System.Drawing.Point(6, 317);
-            this.ckbUpdateRule.Name = "ckbUpdateRule";
-            this.ckbUpdateRule.Size = new System.Drawing.Size(215, 34);
-            this.ckbUpdateRule.TabIndex = 4;
-            this.ckbUpdateRule.Text = "Enable update";
-            this.ckbUpdateRule.UseVisualStyleBackColor = false;
-            this.ckbUpdateRule.CheckedChanged += new System.EventHandler(this.ckbUpdatePrize_CheckedChanged);
             // 
             // TournamentBracket
             // 

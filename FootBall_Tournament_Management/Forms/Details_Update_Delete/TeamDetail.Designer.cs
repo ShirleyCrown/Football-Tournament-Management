@@ -39,22 +39,28 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.ckb = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvMemebers = new System.Windows.Forms.DataGridView();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMemebers)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(296, 133);
+            this.txtName.Location = new System.Drawing.Point(195, 120);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(405, 37);
+            this.txtName.Size = new System.Drawing.Size(340, 37);
             this.txtName.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(57, 136);
+            this.label1.Location = new System.Drawing.Point(14, 120);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(168, 30);
             this.label1.TabIndex = 1;
@@ -65,10 +71,10 @@
             this.txtCoachID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtCoachID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtCoachID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCoachID.Location = new System.Drawing.Point(296, 214);
+            this.txtCoachID.Location = new System.Drawing.Point(894, 41);
             this.txtCoachID.Name = "txtCoachID";
             this.txtCoachID.ReadOnly = true;
-            this.txtCoachID.Size = new System.Drawing.Size(405, 37);
+            this.txtCoachID.Size = new System.Drawing.Size(340, 37);
             this.txtCoachID.TabIndex = 0;
             this.txtCoachID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCoachID_KeyPress);
             // 
@@ -76,7 +82,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(57, 217);
+            this.label2.Location = new System.Drawing.Point(655, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 30);
             this.label2.TabIndex = 1;
@@ -86,7 +92,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(57, 296);
+            this.label3.Location = new System.Drawing.Point(655, 123);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(217, 30);
             this.label3.TabIndex = 1;
@@ -97,16 +103,16 @@
             this.dpkEDate.Enabled = false;
             this.dpkEDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpkEDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpkEDate.Location = new System.Drawing.Point(296, 291);
+            this.dpkEDate.Location = new System.Drawing.Point(894, 118);
             this.dpkEDate.Name = "dpkEDate";
-            this.dpkEDate.Size = new System.Drawing.Size(200, 37);
+            this.dpkEDate.Size = new System.Drawing.Size(179, 37);
             this.dpkEDate.TabIndex = 2;
             // 
             // btnUpdate
             // 
             this.btnUpdate.Enabled = false;
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(470, 434);
+            this.btnUpdate.Location = new System.Drawing.Point(894, 206);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(115, 45);
             this.btnUpdate.TabIndex = 3;
@@ -117,17 +123,17 @@
             // txtTeamID
             // 
             this.txtTeamID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTeamID.Location = new System.Drawing.Point(296, 54);
+            this.txtTeamID.Location = new System.Drawing.Point(195, 41);
             this.txtTeamID.Name = "txtTeamID";
             this.txtTeamID.ReadOnly = true;
-            this.txtTeamID.Size = new System.Drawing.Size(405, 37);
+            this.txtTeamID.Size = new System.Drawing.Size(340, 37);
             this.txtTeamID.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(57, 57);
+            this.label4.Location = new System.Drawing.Point(14, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 30);
             this.label4.TabIndex = 1;
@@ -136,7 +142,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(621, 434);
+            this.btnDelete.Location = new System.Drawing.Point(1119, 206);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(115, 45);
             this.btnDelete.TabIndex = 3;
@@ -148,7 +154,7 @@
             // 
             this.ckb.AutoSize = true;
             this.ckb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckb.Location = new System.Drawing.Point(62, 439);
+            this.ckb.Location = new System.Drawing.Point(19, 211);
             this.ckb.Name = "ckb";
             this.ckb.Size = new System.Drawing.Size(215, 34);
             this.ckb.TabIndex = 4;
@@ -156,29 +162,69 @@
             this.ckb.UseVisualStyleBackColor = true;
             this.ckb.CheckedChanged += new System.EventHandler(this.ckb_CheckedChanged);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.btnDelete);
+            this.groupBox1.Controls.Add(this.ckb);
+            this.groupBox1.Controls.Add(this.btnUpdate);
+            this.groupBox1.Controls.Add(this.txtName);
+            this.groupBox1.Controls.Add(this.txtTeamID);
+            this.groupBox1.Controls.Add(this.txtCoachID);
+            this.groupBox1.Controls.Add(this.dpkEDate);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(36, 21);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1263, 266);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Details";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvMemebers);
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(36, 347);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1263, 368);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Team members";
+            // 
+            // dgvMemebers
+            // 
+            this.dgvMemebers.AllowUserToAddRows = false;
+            this.dgvMemebers.AllowUserToDeleteRows = false;
+            this.dgvMemebers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMemebers.Location = new System.Drawing.Point(19, 36);
+            this.dgvMemebers.Name = "dgvMemebers";
+            this.dgvMemebers.ReadOnly = true;
+            this.dgvMemebers.RowHeadersVisible = false;
+            this.dgvMemebers.RowHeadersWidth = 62;
+            this.dgvMemebers.RowTemplate.Height = 28;
+            this.dgvMemebers.Size = new System.Drawing.Size(1215, 326);
+            this.dgvMemebers.TabIndex = 0;
+            // 
             // TeamDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 508);
-            this.Controls.Add(this.ckb);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.dpkEDate);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtCoachID);
-            this.Controls.Add(this.txtTeamID);
-            this.Controls.Add(this.txtName);
+            this.ClientSize = new System.Drawing.Size(1344, 727);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "TeamDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Team Details";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMemebers)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -195,5 +241,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.CheckBox ckb;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dgvMemebers;
     }
 }
