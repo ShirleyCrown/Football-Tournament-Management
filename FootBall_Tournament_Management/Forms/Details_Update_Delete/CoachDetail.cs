@@ -15,11 +15,12 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
     public partial class CoachDetail : Form
     {
         private int coachID;
-
-        public CoachDetail(int coachID)
+        Main_screen screen;
+        public CoachDetail(int coachID, Main_screen screen)
         {
             InitializeComponent();
             this.coachID = coachID;
+            this.screen = screen;
             Display();
         }   
 
@@ -73,6 +74,12 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                 return;
             }
 
+            if (dpkDob.Value > DateTime.Now)
+            {
+                MessageBox.Show("Invalid DoB !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DialogResult result = MessageBox.Show("Are you sure to add new coach ?", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
@@ -82,7 +89,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             string[] date = dpkDob.Text.Split('/');
             DateTime dateTime = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]));
 
-            Coach coach = new Coach(int.Parse(txtCoachID.Text), txtName.Text, dateTime, txtPhoneNumber.Text, txtForte.Text);
+            Coach coach = new Coach(int.Parse(txtCoachID.Text), txtName.Text.Trim(), dateTime, txtPhoneNumber.Text.Trim(), txtForte.Text.Trim());
 
             CoachDAO coachDAO = new CoachDAO();
             coachDAO.UpdateCoach(coach);
@@ -103,6 +110,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             coachDAO.DeleteCoach(coachID);
 
             MessageBox.Show("Coach deleted !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            screen.InvokeButtonCoachClick();
             this.Close();
         }
     }

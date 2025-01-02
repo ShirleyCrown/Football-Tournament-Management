@@ -1,4 +1,5 @@
 ﻿using FootBall_Tournament_Management.DAO;
+using FootBall_Tournament_Management.Forms.Details_Update_Delete;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,12 +19,39 @@ namespace FootBall_Tournament_Management.Forms
         private string type;
         private readonly string user;
 
+
         #region Handle for main_screen
         public Main_screen(string user)
         {
             InitializeComponent();
             this.user = user;
             type = "tournament";
+
+            
+        }
+
+        public Main_screen()
+        {
+        }
+
+        public void InvokeButtonTournamentClick()
+        {
+            btnTournament.PerformClick(); 
+        }
+
+        public void InvokeButtonTeamClick()
+        {
+            btnTeam.PerformClick();
+        }
+
+        public void InvokeButtonPlayerClick()
+        {
+            btnPlayer.PerformClick();
+        }
+
+        public void InvokeButtonCoachClick()
+        {
+            btnCoach.PerformClick();
         }
 
         private void Main_screen_FormClosing(object sender, FormClosingEventArgs e)
@@ -66,6 +94,7 @@ namespace FootBall_Tournament_Management.Forms
 
         private void btnTournament_Click(object sender, EventArgs e)
         {
+
             type = "tournament";
             componentList.Controls.Clear();
 
@@ -78,7 +107,7 @@ namespace FootBall_Tournament_Management.Forms
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                components[i] = new Component("tournament", Convert.ToInt32(dt.Rows[i][0]));
+                components[i] = new Component("tournament", Convert.ToInt32(dt.Rows[i][0]), this);
                 components[i].Name = dt.Rows[i][1].ToString();
 
                 componentList.Controls.Add(components[i]);
@@ -109,6 +138,7 @@ namespace FootBall_Tournament_Management.Forms
 
         private void btnTeam_Click(object sender, EventArgs e)
         {
+
             type = "team";
             componentList.Controls.Clear();
 
@@ -121,7 +151,7 @@ namespace FootBall_Tournament_Management.Forms
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                components[i] = new Component("team", Convert.ToInt32(dt.Rows[i][0]));
+                components[i] = new Component("team", Convert.ToInt32(dt.Rows[i][0]), this);
                 components[i].Name = dt.Rows[i][1].ToString();
 
                 componentList.Controls.Add(components[i]);
@@ -146,6 +176,7 @@ namespace FootBall_Tournament_Management.Forms
 
         private void btnPlayer_Click(object sender, EventArgs e)
         {
+
             type = "player";
 
             componentList.Controls.Clear();
@@ -159,7 +190,7 @@ namespace FootBall_Tournament_Management.Forms
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                components[i] = new Component("player", Convert.ToInt32(dt.Rows[i][0]));
+                components[i] = new Component("player", Convert.ToInt32(dt.Rows[i][0]), this);
                 components[i].Name = dt.Rows[i][2].ToString();
 
                 componentList.Controls.Add(components[i]);
@@ -185,7 +216,9 @@ namespace FootBall_Tournament_Management.Forms
 
         private void btnCoach_Click(object sender, EventArgs e)
         {
+
             type = "coach";
+
             componentList.Controls.Clear();
 
             CoachDAO coachDAO = new CoachDAO();
@@ -197,7 +230,7 @@ namespace FootBall_Tournament_Management.Forms
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                components[i] = new Component("coach", Convert.ToInt32(dt.Rows[i][0]));
+                components[i] = new Component("coach", Convert.ToInt32(dt.Rows[i][0]), this);
                 components[i].Name = dt.Rows[i][1].ToString();
 
                 componentList.Controls.Add(components[i]);
@@ -212,22 +245,22 @@ namespace FootBall_Tournament_Management.Forms
         {
             if(type == "tournament")
             {
-                AddTournament addTournament = new AddTournament(user);
+                AddTournament addTournament = new AddTournament(user,this);
                 addTournament.ShowDialog(); 
             } 
             else if(type == "team")
             {
-                AddTeam addTeam = new AddTeam();
+                AddTeam addTeam = new AddTeam(this);
                 addTeam.ShowDialog();
             } 
             else if(type == "player")
             {
-                AddPlayer addPlayer = new AddPlayer();
+                AddPlayer addPlayer = new AddPlayer(this);
                 addPlayer.ShowDialog();
             }
             else
             {
-                AddCoach addCoach = new AddCoach();
+                AddCoach addCoach = new AddCoach(this);
                 addCoach.ShowDialog();
             }
         }
@@ -266,7 +299,7 @@ namespace FootBall_Tournament_Management.Forms
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        components[i] = new Component("tournament", Convert.ToInt32(dt.Rows[i][0]));
+                        components[i] = new Component("tournament", Convert.ToInt32(dt.Rows[i][0]), this);
                         components[i].Name = dt.Rows[i][1].ToString();
 
                         componentList.Controls.Add(components[i]);
@@ -284,7 +317,7 @@ namespace FootBall_Tournament_Management.Forms
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        components[i] = new Component("team", Convert.ToInt32(dt.Rows[i][0]));
+                        components[i] = new Component("team", Convert.ToInt32(dt.Rows[i][0]), this);
                         components[i].Name = dt.Rows[i][1].ToString();
 
                         componentList.Controls.Add(components[i]);
@@ -302,7 +335,7 @@ namespace FootBall_Tournament_Management.Forms
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        components[i] = new Component("team", Convert.ToInt32(dt.Rows[i][0]));
+                        components[i] = new Component("team", Convert.ToInt32(dt.Rows[i][0]), this);
                         components[i].Name = dt.Rows[i][2].ToString();
 
                         componentList.Controls.Add(components[i]);
@@ -320,7 +353,7 @@ namespace FootBall_Tournament_Management.Forms
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        components[i] = new Component("team", Convert.ToInt32(dt.Rows[i][0]));
+                        components[i] = new Component("team", Convert.ToInt32(dt.Rows[i][0]), this);
                         components[i].Name = dt.Rows[i][1].ToString();
 
                         componentList.Controls.Add(components[i]);

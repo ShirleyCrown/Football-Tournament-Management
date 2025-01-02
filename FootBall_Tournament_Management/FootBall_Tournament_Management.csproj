@@ -207,6 +207,9 @@
     <Compile Include="Object\Tournament.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usercontrol\RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Usercontrol\TeamInBracket.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -30,11 +30,11 @@
         {
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCoachID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dpkEDate = new System.Windows.Forms.DateTimePicker();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.cbbCoachName = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtName
@@ -55,26 +55,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Team Name:";
             // 
-            // txtCoachID
-            // 
-            this.txtCoachID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtCoachID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtCoachID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCoachID.Location = new System.Drawing.Point(298, 137);
-            this.txtCoachID.Name = "txtCoachID";
-            this.txtCoachID.Size = new System.Drawing.Size(405, 37);
-            this.txtCoachID.TabIndex = 0;
-            this.txtCoachID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCoachID_KeyPress);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(59, 140);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 30);
+            this.label2.Size = new System.Drawing.Size(103, 30);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Coach ID:";
+            this.label2.Text = "Coach:";
             // 
             // label3
             // 
@@ -106,23 +95,34 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // cbbCoachName
+            // 
+            this.cbbCoachName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCoachName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbCoachName.FormattingEnabled = true;
+            this.cbbCoachName.Location = new System.Drawing.Point(298, 137);
+            this.cbbCoachName.Name = "cbbCoachName";
+            this.cbbCoachName.Size = new System.Drawing.Size(405, 38);
+            this.cbbCoachName.TabIndex = 4;
+            // 
             // AddTeam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 406);
+            this.Controls.Add(this.cbbCoachName);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dpkEDate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtCoachID);
             this.Controls.Add(this.txtName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "AddTeam";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add New Team";
+            this.Load += new System.EventHandler(this.AddTeam_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,10 +132,10 @@
 
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCoachID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dpkEDate;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ComboBox cbbCoachName;
     }
 }

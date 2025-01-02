@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Drawing.Drawing2D;
 
 namespace FootBall_Tournament_Management.Forms
 {
@@ -20,7 +21,7 @@ namespace FootBall_Tournament_Management.Forms
             InitializeComponent();
             txtLogin.Text = "admin1";
             TxtPassword.Text = "password123";
-          
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -95,6 +96,52 @@ namespace FootBall_Tournament_Management.Forms
             Application.Exit();
         }
 
-       
+
+        private void btnLogin_Click_1(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtLogin.Text.Trim()))
+            {
+                MessageBox.Show("Please insert username!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtLogin.Focus();
+                return;
+            }
+            if (String.IsNullOrEmpty(TxtPassword.Text.Trim()))
+            {
+                MessageBox.Show("Please insert password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtPassword.Focus();
+                return;
+            }
+
+            AccountDAO accountDAO = new AccountDAO();
+            string username = txtLogin.Text.Trim();
+            string password = TxtPassword.Text.Trim();
+
+            if (accountDAO.IsExisted(username, password))
+            {
+                Main_screen main_Screen = new Main_screen(txtLogin.Text.Trim());
+                main_Screen.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Username or password wrong!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtPassword.Clear();
+                TxtPassword.Focus();
+            }
+        }
+
+        private void btnLogin_MouseEnter(object sender, EventArgs e)
+        {
+            btnLogin.BackColor = Color.White;
+            btnLogin.ForeColor = Color.DodgerBlue;
+            btnLogin.BorderColor = Color.DodgerBlue;
+        }
+
+        private void btnLogin_MouseLeave(object sender, EventArgs e)
+        {
+            btnLogin.BackColor = Color.DodgerBlue;
+            btnLogin.ForeColor = Color.White;
+            btnLogin.BorderColor = Color.White;
+        }
     }
 }

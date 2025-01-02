@@ -18,7 +18,8 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
     {
         private int tournamentID;
         private int count;
-        public TournamentDetail(int tournamentID)
+        Main_screen screen;
+        public TournamentDetail(int tournamentID, Main_screen screen)
         {
             InitializeComponent();
             this.tournamentID = tournamentID;
@@ -27,7 +28,8 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             OptimizeDualListView();
             count = lstTeamInTournament.Items.Count;
 
-            if (lstTeamInTournament.Items.Count > 0) {
+            if (lstTeamInTournament.Items.Count > 0)
+            {
                 btnMoveAllLeft.Enabled = false;
                 btnMoveAllRight.Enabled = false;
                 btnMoveLeft.Enabled = false;
@@ -35,6 +37,8 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                 btnUpdateTeams.Enabled = false;
                 btnStart.Enabled = true;
             }
+
+            this.screen = screen;
         }
 
         public void DisplayDetails()
@@ -291,6 +295,12 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                 return;
             }
 
+            if (dpkStart.Value > dpkEnd.Value)
+            {
+                MessageBox.Show("Invalid start date !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DialogResult result = MessageBox.Show("Are you sure to update details?", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
@@ -303,7 +313,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             string[] eDate = dpkEnd.Text.Split('/');
             DateTime eDateTime = new DateTime(int.Parse(eDate[2]), int.Parse(eDate[1]), int.Parse(eDate[0]));
 
-            Tournament tournament = new Tournament(tournamentID, txtName.Text, sDateTime, eDateTime, txtLocation.Text);
+            Tournament tournament = new Tournament(tournamentID, txtName.Text.Trim(), sDateTime, eDateTime, txtLocation.Text.Trim());
 
             TournamentDAO tournamentDAO = new TournamentDAO();
             tournamentDAO.UpdateTournament(tournament);
@@ -320,6 +330,14 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                 return;
             }
 
+            int a = int.Parse(txtChampionPrize.Text.Trim());
+            int b = int.Parse(txtRunnerup.Text.Trim());
+            int c = int.Parse(txt2ndRunnerup.Text.Trim());
+            if ( a == 0 || b == 0 || c == 0)
+            {
+                MessageBox.Show("Prize can't be 0 !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
             Award champion = new Award(tournamentID, "Champion", long.Parse(txtChampionPrize.Text));
             Award runnerup = new Award(tournamentID, "Runner-Up", long.Parse(txtRunnerup.Text));
@@ -415,6 +433,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             tournamentDAO.DeleteTournament(tournamentID);
 
             MessageBox.Show("Tournament deleted !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            screen.InvokeButtonTournamentClick();
             this.Close();
         }
 

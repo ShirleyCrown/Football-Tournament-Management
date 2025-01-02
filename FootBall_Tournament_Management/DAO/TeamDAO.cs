@@ -145,6 +145,29 @@ namespace FootBall_Tournament_Management.DAO
             }
 
         }
+
+        public string GetNameByID(int teamID)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "SELECT TeamName FROM Teams WHERE TeamID = @TeamID;";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TeamID", teamID);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return reader.GetString(0); 
+                        }
+                    }
+                }
+            }
+            return "";
+        }
     }
 
 

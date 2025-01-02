@@ -124,5 +124,28 @@ namespace FootBall_Tournament_Management.DAO
                 }
             }
         }
+
+        public string GetNameByID(int coachID)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "SELECT CoachName FROM Coachs WHERE CoachID = @CoachID;";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@CoachID", coachID);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            return "";
+        }
     }
 }

@@ -51,10 +51,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.rtbRule = new System.Windows.Forms.RichTextBox();
-            this.btnNextStage = new System.Windows.Forms.Button();
-            this.btnUpdateRule = new System.Windows.Forms.Button();
             this.ckbUpdateRule = new System.Windows.Forms.CheckBox();
+            this.rtbRule = new System.Windows.Forms.RichTextBox();
+            this.btnUpdateRule = new System.Windows.Forms.Button();
+            this.btnNextStage = new System.Windows.Forms.Button();
             this.uctTeam8 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam4 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam7 = new FootBall_Tournament_Management.TeamInBracket();
@@ -110,31 +110,34 @@
             // 
             this.txt2ndRunnerup.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt2ndRunnerup.Location = new System.Drawing.Point(342, 160);
-            this.txt2ndRunnerup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt2ndRunnerup.Margin = new System.Windows.Forms.Padding(2);
             this.txt2ndRunnerup.Name = "txt2ndRunnerup";
             this.txt2ndRunnerup.ReadOnly = true;
             this.txt2ndRunnerup.Size = new System.Drawing.Size(222, 37);
             this.txt2ndRunnerup.TabIndex = 8;
+            this.txt2ndRunnerup.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtChampionPrize_KeyPress);
             // 
             // txtChampionPrize
             // 
             this.txtChampionPrize.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChampionPrize.Location = new System.Drawing.Point(342, 54);
-            this.txtChampionPrize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtChampionPrize.Margin = new System.Windows.Forms.Padding(2);
             this.txtChampionPrize.Name = "txtChampionPrize";
             this.txtChampionPrize.ReadOnly = true;
             this.txtChampionPrize.Size = new System.Drawing.Size(222, 37);
             this.txtChampionPrize.TabIndex = 9;
+            this.txtChampionPrize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtChampionPrize_KeyPress);
             // 
             // txtRunnerup
             // 
             this.txtRunnerup.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRunnerup.Location = new System.Drawing.Point(342, 109);
-            this.txtRunnerup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtRunnerup.Margin = new System.Windows.Forms.Padding(2);
             this.txtRunnerup.Name = "txtRunnerup";
             this.txtRunnerup.ReadOnly = true;
             this.txtRunnerup.Size = new System.Drawing.Size(222, 37);
             this.txtRunnerup.TabIndex = 9;
+            this.txtRunnerup.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtChampionPrize_KeyPress);
             // 
             // label9
             // 
@@ -222,7 +225,7 @@
             this.dpkEnd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpkEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpkEnd.Location = new System.Drawing.Point(342, 212);
-            this.dpkEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dpkEnd.Margin = new System.Windows.Forms.Padding(2);
             this.dpkEnd.Name = "dpkEnd";
             this.dpkEnd.Size = new System.Drawing.Size(188, 37);
             this.dpkEnd.TabIndex = 10;
@@ -233,7 +236,7 @@
             this.dpkStart.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpkStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpkStart.Location = new System.Drawing.Point(342, 160);
-            this.dpkStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dpkStart.Margin = new System.Windows.Forms.Padding(2);
             this.dpkStart.Name = "dpkStart";
             this.dpkStart.Size = new System.Drawing.Size(188, 37);
             this.dpkStart.TabIndex = 11;
@@ -253,7 +256,7 @@
             // 
             this.txtLocation.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLocation.Location = new System.Drawing.Point(342, 265);
-            this.txtLocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLocation.Margin = new System.Windows.Forms.Padding(2);
             this.txtLocation.Name = "txtLocation";
             this.txtLocation.ReadOnly = true;
             this.txtLocation.Size = new System.Drawing.Size(254, 37);
@@ -263,7 +266,7 @@
             // 
             this.txtID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(342, 54);
-            this.txtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(248, 37);
@@ -285,7 +288,7 @@
             // 
             this.txtName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(342, 109);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(248, 37);
@@ -348,6 +351,19 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "About Rules";
             // 
+            // ckbUpdateRule
+            // 
+            this.ckbUpdateRule.AutoSize = true;
+            this.ckbUpdateRule.BackColor = System.Drawing.SystemColors.Control;
+            this.ckbUpdateRule.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbUpdateRule.Location = new System.Drawing.Point(6, 317);
+            this.ckbUpdateRule.Name = "ckbUpdateRule";
+            this.ckbUpdateRule.Size = new System.Drawing.Size(215, 34);
+            this.ckbUpdateRule.TabIndex = 4;
+            this.ckbUpdateRule.Text = "Enable update";
+            this.ckbUpdateRule.UseVisualStyleBackColor = false;
+            this.ckbUpdateRule.CheckedChanged += new System.EventHandler(this.ckbUpdatePrize_CheckedChanged);
+            // 
             // rtbRule
             // 
             this.rtbRule.Location = new System.Drawing.Point(7, 49);
@@ -357,17 +373,6 @@
             this.rtbRule.Size = new System.Drawing.Size(634, 244);
             this.rtbRule.TabIndex = 0;
             this.rtbRule.Text = "";
-            // 
-            // btnNextStage
-            // 
-            this.btnNextStage.Enabled = false;
-            this.btnNextStage.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNextStage.Location = new System.Drawing.Point(1866, 1195);
-            this.btnNextStage.Name = "btnNextStage";
-            this.btnNextStage.Size = new System.Drawing.Size(254, 69);
-            this.btnNextStage.TabIndex = 2;
-            this.btnNextStage.Text = "Next Stage";
-            this.btnNextStage.UseVisualStyleBackColor = true;
             // 
             // btnUpdateRule
             // 
@@ -381,18 +386,16 @@
             this.btnUpdateRule.UseVisualStyleBackColor = true;
             this.btnUpdateRule.Click += new System.EventHandler(this.btnUpdatePrize_Click);
             // 
-            // ckbUpdateRule
+            // btnNextStage
             // 
-            this.ckbUpdateRule.AutoSize = true;
-            this.ckbUpdateRule.BackColor = System.Drawing.SystemColors.Control;
-            this.ckbUpdateRule.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbUpdateRule.Location = new System.Drawing.Point(6, 317);
-            this.ckbUpdateRule.Name = "ckbUpdateRule";
-            this.ckbUpdateRule.Size = new System.Drawing.Size(215, 34);
-            this.ckbUpdateRule.TabIndex = 4;
-            this.ckbUpdateRule.Text = "Enable update";
-            this.ckbUpdateRule.UseVisualStyleBackColor = false;
-            this.ckbUpdateRule.CheckedChanged += new System.EventHandler(this.ckbUpdatePrize_CheckedChanged);
+            this.btnNextStage.Enabled = false;
+            this.btnNextStage.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNextStage.Location = new System.Drawing.Point(1866, 1195);
+            this.btnNextStage.Name = "btnNextStage";
+            this.btnNextStage.Size = new System.Drawing.Size(254, 69);
+            this.btnNextStage.TabIndex = 2;
+            this.btnNextStage.Text = "Next Stage";
+            this.btnNextStage.UseVisualStyleBackColor = true;
             // 
             // uctTeam8
             // 

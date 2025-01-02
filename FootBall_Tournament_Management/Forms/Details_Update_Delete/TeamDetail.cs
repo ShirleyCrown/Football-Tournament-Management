@@ -1,4 +1,5 @@
-﻿using FootBall_Tournament_Management.DAO;
+﻿using DevComponents.DotNetBar;
+using FootBall_Tournament_Management.DAO;
 using FootBall_Tournament_Management.NewFolder1;
 using MySql.Data.MySqlClient;
 using System;
@@ -16,24 +17,66 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
     public partial class TeamDetail : Form
     {
         private int teamID;
-        public TeamDetail(int teamID)
+        private Main_screen screen;
+
+        public TeamDetail(int teamID, Main_screen screen)
         {
             InitializeComponent();
             this.teamID = teamID;
+            LoadCoachList();
             Display();
+            this.screen = screen;
         }
 
-        public void Display()
+        private void Display()
         {
             TeamDAO teamDAO = new TeamDAO();
             Team team = teamDAO.GetTeamByID(teamID);
 
             txtTeamID.Text = team.TeamID.ToString();
             txtName.Text = team.TeamName;
-            txtCoachID.Text = team.CoachID.ToString();
+
+            cbbCoachName.SelectedIndex = GetItemIndex(team.CoachID);
             dpkEDate.Value = team.EstablishedDate;
 
             DisplayMembers();
+        }
+
+        private int GetItemIndex(int id)
+        {
+            int index = 0;
+            foreach (ComboBoxItem item in cbbCoachName.Items)
+            {
+                if (int.Parse(item.Tag.ToString()) == id)
+                {
+                    return index; 
+                }
+                index++; 
+            }
+
+            return -1; 
+        }
+
+
+        private void LoadCoachList()
+        {
+            cbbCoachName.DataSource = null;
+            cbbCoachName.Items.Clear();
+
+            CoachDAO coachDAO = new CoachDAO();
+            DataTable dt = coachDAO.GetAllCoaches();
+
+            List<ComboBoxItem> items = dt.AsEnumerable()
+                .Select(row => new ComboBoxItem
+                {
+                    Tag = row[0].ToString(),
+                    Text = coachDAO.GetNameByID(int.Parse(row[0].ToString())).Trim()
+                })
+                .ToList();
+
+            cbbCoachName.DisplayMember = "Text";
+            cbbCoachName.ValueMember = "Tag";
+            cbbCoachName.DataSource = items;
         }
 
         private void ckb_CheckedChanged(object sender, EventArgs e)
@@ -41,14 +84,14 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             if(ckb.Checked)
             {
                 txtName.ReadOnly = false;
-                txtCoachID.ReadOnly = false;
+                cbbCoachName.Enabled = true;
                 dpkEDate.Enabled = true;
                 btnUpdate.Enabled = true;   
             }
             else
             {
                 txtName.ReadOnly = true;
-                txtCoachID.ReadOnly = true;
+                cbbCoachName.Enabled = false;
                 dpkEDate.Enabled = false;
                 btnUpdate.Enabled = false;
 
@@ -66,9 +109,15 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtCoachID.Text))
+            if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(cbbCoachName.Text))
             {
                 MessageBox.Show("Please enter all data !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (dpkEDate.Value > DateTime.Now)
+            {
+                MessageBox.Show("Invalid Establish Date !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -81,7 +130,8 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             string[] date = dpkEDate.Text.Split('/');
             DateTime dt = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]));
 
-            Team team = new Team(int.Parse(txtTeamID.Text), txtName.Text, int.Parse(txtCoachID.Text), dt);
+            var item = cbbCoachName.SelectedItem as ComboBoxItem;
+            Team team = new Team(int.Parse(txtTeamID.Text), txtName.Text.Trim(), int.Parse(item.Tag.ToString()), dt);
 
             TeamDAO teamDAO = new TeamDAO();
             try
@@ -91,7 +141,6 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             catch (MySqlException)
             {
                 MessageBox.Show("Coach ID must be defined, please try again !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtCoachID.Clear();
                 return;
             }
 
@@ -101,7 +150,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult = MessageBox.Show("Are you sure to delete this tournament ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult = MessageBox.Show("Are you sure to delete this team ? All player in the team will be also deleted !", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DialogResult == DialogResult.No)
             {
                 return;
@@ -110,7 +159,11 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             TeamDAO teamDAO= new TeamDAO();
             teamDAO.DeleteTeam(teamID);
 
+            PlayerDAO playerDAO= new PlayerDAO();
+            playerDAO.DeletePlayerByTeamID(teamID);
+
             MessageBox.Show("Team deleted !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            screen.InvokeButtonTeamClick();
             this.Close();
         }
 
@@ -118,7 +171,6 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
         {
             TeamDAO teamDAO= new TeamDAO();
             DataTable dt = teamDAO.GetTeamMembers(teamID);
-            //dt.Columns.RemoveAt(1);
             dt.Columns.RemoveAt(7);
 
             //dt.Columns["Column1"].ColumnName = "ID";

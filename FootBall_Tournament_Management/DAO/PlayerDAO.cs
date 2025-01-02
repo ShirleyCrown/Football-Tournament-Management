@@ -70,6 +70,21 @@ namespace FootBall_Tournament_Management.DAO
             }
         }
 
+        public void DeletePlayerByTeamID(int teamID)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "UPDATE Players SET IsDeleted = 1 WHERE TeamID = @TeamID";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TeamID", teamID);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         public DataTable GetAllPlayers()
         {
             using (var connection = db.GetConnection())
@@ -131,6 +146,29 @@ namespace FootBall_Tournament_Management.DAO
                     }
                 }
             }
+        }
+
+        public string GetNameByID(int PlayerID)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "SELECT PlayerName FROM Players WHERE PlayerID = @PlayerID;";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PlayerID", PlayerID);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            return "";
         }
     }
 }

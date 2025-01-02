@@ -1,4 +1,5 @@
 ﻿using FootBall_Tournament_Management.DAO;
+using FootBall_Tournament_Management.Forms;
 using FootBall_Tournament_Management.Forms.Details_Update_Delete;
 using System;
 using System.Collections.Generic;
@@ -18,12 +19,14 @@ namespace FootBall_Tournament_Management
     {
         private string component;
         private int componentID;
-        public Component(string component, int componentID)
+        private Main_screen screen;
+        public Component(string component, int componentID, Main_screen screen)
         {
             InitializeComponent();
 
             this.component = component;
             this.componentID = componentID;
+            this.screen = screen;
 
             if (component == "tournament")
             {
@@ -48,7 +51,6 @@ namespace FootBall_Tournament_Management
 
             this.MouseEnter += Component_MouseHover;
             this.MouseLeave += Component_MouseLeave;
-            //this.Click += Component_Click;
             avatar.MouseEnter += Component_MouseHover;
             avatar.MouseLeave += Component_MouseLeave;
             avatar.Click += Component_Click;
@@ -141,20 +143,20 @@ namespace FootBall_Tournament_Management
                 }
                 else
                 {
-                    new TournamentDetail(componentID).ShowDialog();
+                    new TournamentDetail(componentID, screen).ShowDialog();
                 }
             }
             else if (component == "team")
             {
-                new TeamDetail(componentID).ShowDialog();
+                new TeamDetail(componentID, screen).ShowDialog();
             }
             else if (component == "player")
             {
-                new PlayerDetail(componentID).ShowDialog();
+                new PlayerDetail(componentID, screen).ShowDialog();
             }
             else
             {
-                new CoachDetail(componentID).ShowDialog();
+                new CoachDetail(componentID, screen).ShowDialog();
             }
         }
     }

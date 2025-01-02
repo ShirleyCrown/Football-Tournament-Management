@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTeamID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.nudJerseyNum = new System.Windows.Forms.NumericUpDown();
             this.btnAdd = new System.Windows.Forms.Button();
             this.cbbPos = new System.Windows.Forms.ComboBox();
+            this.cbbTeamName = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudJerseyNum)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,19 +51,9 @@
             this.label1.Location = new System.Drawing.Point(32, 41);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 30);
+            this.label1.Size = new System.Drawing.Size(168, 30);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Team ID:";
-            // 
-            // txtTeamID
-            // 
-            this.txtTeamID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTeamID.Location = new System.Drawing.Point(275, 38);
-            this.txtTeamID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtTeamID.Name = "txtTeamID";
-            this.txtTeamID.Size = new System.Drawing.Size(385, 37);
-            this.txtTeamID.TabIndex = 1;
-            this.txtTeamID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTeamID_KeyPress);
+            this.label1.Text = "Team Name:";
             // 
             // label2
             // 
@@ -172,35 +162,35 @@
             // 
             // cbbPos
             // 
+            this.cbbPos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbPos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbPos.FormattingEnabled = true;
             this.cbbPos.Items.AddRange(new object[] {
-            "Goal Keeper",
-            "Center-Back",
-            "Full-Back",
-            "Left-Back",
-            "Right-back",
-            "Wing-Back",
-            "Sweeper",
-            "Central-Midfielder",
-            "Defensive Midfielder",
-            "Attacking Midfielder",
-            "Wide Midfielder",
-            "Striker",
-            "Center-Forward",
-            "Second-Striker",
-            "Left-Winger",
-            "Right-Winger"});
+            "Goalkeeper",
+            "Midfielder",
+            "Forward",
+            "Defender"});
             this.cbbPos.Location = new System.Drawing.Point(275, 174);
             this.cbbPos.Name = "cbbPos";
             this.cbbPos.Size = new System.Drawing.Size(385, 38);
             this.cbbPos.TabIndex = 5;
+            // 
+            // cbbTeamName
+            // 
+            this.cbbTeamName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbTeamName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTeamName.FormattingEnabled = true;
+            this.cbbTeamName.Location = new System.Drawing.Point(275, 38);
+            this.cbbTeamName.Name = "cbbTeamName";
+            this.cbbTeamName.Size = new System.Drawing.Size(385, 38);
+            this.cbbTeamName.TabIndex = 5;
             // 
             // AddPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 534);
+            this.Controls.Add(this.cbbTeamName);
             this.Controls.Add(this.cbbPos);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.nudJerseyNum);
@@ -212,7 +202,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtTeamID);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -231,7 +220,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtTeamID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
@@ -243,5 +231,6 @@
         private System.Windows.Forms.NumericUpDown nudJerseyNum;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ComboBox cbbPos;
+        private System.Windows.Forms.ComboBox cbbTeamName;
     }
 }

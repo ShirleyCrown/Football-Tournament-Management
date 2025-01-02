@@ -1,4 +1,5 @@
-﻿using FootBall_Tournament_Management.DAO;
+﻿using DevComponents.DotNetBar;
+using FootBall_Tournament_Management.DAO;
 using FootBall_Tournament_Management.NewFolder1;
 using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
@@ -17,23 +18,29 @@ namespace FootBall_Tournament_Management.Forms
 {
     public partial class AddPlayer : Form
     {
+        Main_screen screen;
+
         string[] list;
-        public AddPlayer()
+        public AddPlayer(Main_screen screen)
         {
             InitializeComponent();
             list = new string[cbbPos.Items.Count];
+            this.screen = screen;
+            
         }
 
-        private void AddPlayer_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtTeamID.Text) || string.IsNullOrWhiteSpace(txtPhoneNumber.Text) || string.IsNullOrWhiteSpace(cbbPos.Text) || nudJerseyNum.Value == 0) 
+            if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(cbbTeamName.Text) || string.IsNullOrWhiteSpace(txtPhoneNumber.Text) || string.IsNullOrWhiteSpace(cbbPos.Text) || nudJerseyNum.Value == 0) 
             {
                 MessageBox.Show("Please enter all data !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (dpkDob.Value > DateTime.Now)
+            {
+                MessageBox.Show("Invalid DoB !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -46,26 +53,25 @@ namespace FootBall_Tournament_Management.Forms
             string[] date = dpkDob.Text.Split('/');
             DateTime dt = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]));
 
-            Player player = new Player(int.Parse(txtTeamID.Text), txtName.Text, cbbPos.Text, dt, txtPhoneNumber.Text, (int) nudJerseyNum.Value);
+            var item = cbbTeamName.SelectedItem as ComboBoxItem;
+            Player player = new Player(int.Parse(item.Tag.ToString()), txtName.Text.Trim(), cbbPos.Text, dt, txtPhoneNumber.Text.Trim(), (int) nudJerseyNum.Value);
 
             PlayerDAO playerDAO = new PlayerDAO();
             try
             {
                 playerDAO.AddPlayer(player);
+                MessageBox.Show("Add new player successfully !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             catch (MySqlException)
             {
                 MessageBox.Show("Team ID not found, please try again !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTeamID.Clear();
+                
                 return;
             }
 
-            txtTeamID.Clear();
-            txtName.Clear();
-            txtPhoneNumber.Clear();
-            cbbPos.Text = string.Empty;
-            dpkDob.Value = DateTime.Now;
-            nudJerseyNum.Value = 0;
+            screen.InvokeButtonPlayerClick();
+            this.Close();
         }
 
         private void txtTeamID_KeyPress(object sender, KeyPressEventArgs e)
@@ -82,6 +88,33 @@ namespace FootBall_Tournament_Management.Forms
             {
                 e.Handled = true;
             }
+        }
+
+        public void LoadTeamList()
+        {
+            cbbTeamName.DataSource = null;
+            cbbTeamName.Items.Clear();    
+
+            TeamDAO teamDAO = new TeamDAO();
+            DataTable dt = teamDAO.GetAllTeams();
+
+            List<ComboBoxItem> items = dt.AsEnumerable()
+                .Select(row => new ComboBoxItem
+                {
+                    Tag = row[0].ToString(),
+                    Text = teamDAO.GetNameByID(int.Parse(row[0].ToString())).Trim()
+                })
+                .ToList();
+
+            cbbTeamName.DisplayMember = "Text"; 
+            cbbTeamName.ValueMember = "Tag";   
+            cbbTeamName.DataSource = items;    
+        }
+
+
+        private void AddPlayer_Load(object sender, EventArgs e)
+        {
+            LoadTeamList();
         }
     }
 }
