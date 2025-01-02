@@ -46,30 +46,32 @@ namespace FootBall_Tournament_Management.DAO
             }
         }
 
-        public void DeleteRule(int ruleId)
+        public void DeleteRuleInTournament(int tournamentID)
         {
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "DELETE FROM Rules WHERE RuleID = @RuleID;";
+                string query = "DELETE FROM Rules WHERE TournamentID = @TournamentID;";
 
                 using (var command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@RuleID", ruleId);
+                    command.Parameters.AddWithValue("@TournamentID", tournamentID);
                     command.ExecuteNonQuery();
                 }
             }
         }
 
-        public DataTable GetAllRules()
+        public DataTable GetAllRulesInTournament(int tournamentID)
         {
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "SELECT * FROM Rules;";
+                string query = "SELECT * FROM Rules WHERE TournamentID = @TournamentID;";
 
                 using (var command = new MySqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@TournamentID", tournamentID);
+
                     using (var adapter = new MySqlDataAdapter(command))
                     {
                         DataTable dt = new DataTable();

@@ -19,6 +19,12 @@ namespace FootBall_Tournament_Management.NewFolder1
             this.RuleDescription = ruleDescription;
         }
 
+        public Rules(int tournamentID, string ruleDescription)
+        {
+            this.TournamentID = tournamentID;
+            this.RuleDescription = ruleDescription;
+        }
+
         public int RuleID { get => ruleID; set => ruleID = value; }
         public int TournamentID { get => tournamentID; set => tournamentID = value; }
         public string RuleDescription { get => ruleDescription; set => ruleDescription = value; }

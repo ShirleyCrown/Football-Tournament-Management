@@ -362,7 +362,7 @@
             this.ckbUpdateRule.TabIndex = 4;
             this.ckbUpdateRule.Text = "Enable update";
             this.ckbUpdateRule.UseVisualStyleBackColor = false;
-            this.ckbUpdateRule.CheckedChanged += new System.EventHandler(this.ckbUpdatePrize_CheckedChanged);
+            this.ckbUpdateRule.CheckedChanged += new System.EventHandler(this.ckbUpdateRule_CheckedChanged);
             // 
             // rtbRule
             // 
@@ -384,7 +384,7 @@
             this.btnUpdateRule.TabIndex = 2;
             this.btnUpdateRule.Text = "Update";
             this.btnUpdateRule.UseVisualStyleBackColor = true;
-            this.btnUpdateRule.Click += new System.EventHandler(this.btnUpdatePrize_Click);
+            this.btnUpdateRule.Click += new System.EventHandler(this.btnUpdateRule_Click);
             // 
             // btnNextStage
             // 
@@ -562,7 +562,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TournamentBracket";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.TournamentBracket_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.TournamentBracket_Paint);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

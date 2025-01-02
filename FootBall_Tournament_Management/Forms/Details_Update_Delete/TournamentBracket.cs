@@ -23,6 +23,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             DisplayDetails();
             DisplayPrize();
             DisplayBracketDetails();
+            DisplayRule();
         }
 
         private void DoPaint(int x1, int y1, int x2, int y2, PaintEventArgs e)
@@ -121,6 +122,32 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
         }
 
+        private void DisplayRule()
+        {
+            rtbRule.Clear();
+
+            RuleDAO ruleDAO = new RuleDAO();
+            DataTable dt = ruleDAO.GetAllRulesInTournament(tournamentID);
+
+            if(dt.Rows.Count == 0)
+            {
+                return;
+            }
+
+            List<string> rules = new List<string>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                rules.Add(row[2].ToString());
+            }
+
+            rtbRule.AppendText("1. " + rules[0]);
+            for (int i = 1;i < rules.Count;i++)
+            {
+                rtbRule.AppendText(Environment.NewLine + (i+1) + ". " + rules[i].ToString());
+            }
+        }
+
         private void TournamentBracket_Paint(object sender, PaintEventArgs e)
         {
             DoPaint(uctTeam1.Location.X, uctTeam1.Location.Y, uctTeam9.Location.X, uctTeam9.Location.Y, e);
@@ -179,6 +206,22 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                 btnUpdatePrize.Enabled = false;
 
                 DisplayPrize();
+            }
+        }
+
+        private void ckbUpdateRule_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbUpdateRule.Checked)
+            {
+                rtbRule.ReadOnly = false;
+                btnUpdateRule.Enabled = true;
+            }
+            else
+            {
+                rtbRule.ReadOnly = true;
+                btnUpdateRule.Enabled = false;
+
+                DisplayRule();
             }
         }
 
@@ -269,9 +312,25 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             ckbUpdatePrize.Checked = false;
         }
 
-        private void TournamentBracket_Load(object sender, EventArgs e)
+        private void btnUpdateRule_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Are you sure to update rule?", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
 
+            RuleDAO ruleDAO = new RuleDAO();
+            ruleDAO.DeleteRuleInTournament(tournamentID);
+
+            string[] lines = rtbRule.Lines;
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                ruleDAO.AddRule(new Rules(tournamentID, lines[i].Remove(0, 3)));
+            }
+
+            MessageBox.Show("Update rule successfully !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void txtChampionPrize_KeyPress(object sender, KeyPressEventArgs e)
@@ -281,5 +340,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                 e.Handled = true;
             }
         }
+
+        
     }
 }
