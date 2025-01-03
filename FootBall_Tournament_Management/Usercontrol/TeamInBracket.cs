@@ -34,6 +34,18 @@ namespace FootBall_Tournament_Management
             set { ckbTeamName.Text = value; }
         }
 
+        public bool IsCheck
+        {
+            get { return ckbTeamName.Checked; }
+            set { ckbTeamName.Checked = value; }
+        }
+
+        public bool IsEnabled
+        {
+            get { return ckbTeamName.Enabled;}
+            set { ckbTeamName.Enabled = value;}
+        }
+
         private void TeamInBracket_Load(object sender, EventArgs e)
         {
             ckbTeamName.Left = (this.ClientSize.Width - ckbTeamName.Width) / 2;
@@ -83,10 +95,7 @@ namespace FootBall_Tournament_Management
             
         }
 
-        private void TeamInBracket_Click(object sender, EventArgs e)
-        {
-            ckbTeamName.Checked = !ckbTeamName.Checked;
-        }
+        
 
         private void showDetail_Click(object sender, EventArgs e)
         {

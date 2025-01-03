@@ -39,11 +39,12 @@
             // 
             this.ckbTeamName.AutoSize = true;
             this.ckbTeamName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbTeamName.Location = new System.Drawing.Point(19, 9);
+            this.ckbTeamName.Location = new System.Drawing.Point(28, 14);
+            this.ckbTeamName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ckbTeamName.Name = "ckbTeamName";
-            this.ckbTeamName.Size = new System.Drawing.Size(169, 34);
+            this.ckbTeamName.Size = new System.Drawing.Size(104, 34);
             this.ckbTeamName.TabIndex = 0;
-            this.ckbTeamName.Text = "checkBox1";
+            this.ckbTeamName.Text = "None";
             this.ckbTeamName.UseVisualStyleBackColor = true;
             // 
             // detail
@@ -52,24 +53,24 @@
             this.detail.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showDetail});
             this.detail.Name = "detail";
-            this.detail.Size = new System.Drawing.Size(241, 69);
+            this.detail.Size = new System.Drawing.Size(185, 36);
             // 
             // showDetail
             // 
             this.showDetail.Name = "showDetail";
-            this.showDetail.Size = new System.Drawing.Size(240, 32);
+            this.showDetail.Size = new System.Drawing.Size(184, 32);
             this.showDetail.Text = "Show details";
             this.showDetail.Click += new System.EventHandler(this.showDetail_Click);
             // 
             // TeamInBracket
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ckbTeamName);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "TeamInBracket";
-            this.Size = new System.Drawing.Size(201, 46);
+            this.Size = new System.Drawing.Size(302, 71);
             this.Load += new System.EventHandler(this.TeamInBracket_Load);
-            this.Click += new System.EventHandler(this.TeamInBracket_Click);
             this.detail.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -78,7 +79,7 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckBox ckbTeamName;
+        public System.Windows.Forms.CheckBox ckbTeamName;
         private System.Windows.Forms.ContextMenuStrip detail;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem showDetail;

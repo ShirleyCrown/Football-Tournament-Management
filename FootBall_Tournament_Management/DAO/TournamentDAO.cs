@@ -99,7 +99,7 @@ namespace FootBall_Tournament_Management.DAO
                     {
                         if (reader.Read())
                         {
-                            return new Tournament(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetDateTime(3), reader.GetString(4), reader.GetString(7));
+                            return new Tournament(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetDateTime(3), reader.GetString(4), reader.GetString(7), reader.GetInt32(8));
                         }
                     }
                 }

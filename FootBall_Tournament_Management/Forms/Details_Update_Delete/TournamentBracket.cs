@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,23 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             dpkStart.Value = tournament.StartDate;
             dpkEnd.Value = tournament.EndDate;
             txtLocation.Text = tournament.Location;
+
+            if (string.IsNullOrEmpty(tournament.AvatarPath))
+            {
+                return;
+            }
+
+            string fullPath = GetFullImagePath(tournament.AvatarPath);
+            if (File.Exists(fullPath))
+            {
+                avatar.Image = new Bitmap(fullPath);
+            }
+        }
+
+        private string GetFullImagePath(string relativePath)
+        {
+            string rootFolder = AppDomain.CurrentDomain.BaseDirectory;
+            return Path.Combine(rootFolder, relativePath);
         }
 
         public void DisplayPrize()
@@ -107,7 +125,15 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                 team2 = teamDAO.GetTeamByID(matches[i].Team2ID);
 
                 controls[index].TeamName = team1.TeamName;
+
                 controls[index + 1].TeamName = team2.TeamName;
+
+                if (matches[i].TeamWin != 0)
+                {
+                    controls[index].ckbTeamName.Enabled = false;
+                    controls[index + 1].ckbTeamName.Enabled = false;
+
+                }
 
                 index += 2;
 
@@ -115,11 +141,55 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                 {
                     Team champion = teamDAO.GetTeamByID(matches[6].TeamWin);
                     uctTeam15.TeamName = champion.TeamName;
+                    uctTeam15.Enabled = false;
                 }
             }
 
-            
+            SetWinTeam(matches, controls);
 
+        }
+
+        public void SetWinTeam(List<Match> matches, List<TeamInBracket> controls)
+        {
+            int index = 0;
+            for(int i = 0; i < controls.Count; i+=2)
+            {
+                if (matches[index].TeamWin == 0)
+                {
+                    index++;
+                    if (i == 12 || index == matches.Count)
+                    {
+                        break;
+                    }
+                    continue;
+                }
+                else
+                {
+                    if (matches[index].TeamWin == matches[index].Team1ID)
+                    {
+                        controls[i].IsCheck = true;
+                        controls[i].BackColor = Color.Tomato;
+                    }
+                    else
+                    {
+                        controls[i + 1].IsCheck = true;
+                        controls[i + 1].BackColor = Color.Tomato;
+
+                    }
+                    index++;
+                }
+
+                if(i == 12 || index == matches.Count)
+                {
+                    break;
+                }
+            }
+
+            if (matches.Count == 7)
+            {
+                controls[14].IsCheck = true;
+                controls[14].BackColor = Color.Tomato;
+            }
         }
 
         private void DisplayRule()

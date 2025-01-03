@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FootBall_Tournament_Management.NewFolder1
 {
-    internal class Match
+    public class Match
     {
         private int matchID;
         private int tournamentID;

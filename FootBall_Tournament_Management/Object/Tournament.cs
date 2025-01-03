@@ -15,7 +15,7 @@ namespace FootBall_Tournament_Management.NewFolder1
         private DateTime endDate;
         private string location;
         private string avatarPath;
-
+        private int stage;
         public Tournament(string tournamentCreator,  string tournamentName, DateTime startDate, DateTime endDate, string location)
         {
             this.TournamentCreator = tournamentCreator;
@@ -72,6 +72,17 @@ namespace FootBall_Tournament_Management.NewFolder1
             this.avatarPath = avatarPath;
         }
 
+        public Tournament(int tournamentID, string tournamentName, DateTime startDate, DateTime endDate, string location, string avatarPath, int stage)
+        {
+            this.tournamentID = tournamentID;
+            this.tournamentName = tournamentName;
+            this.startDate = startDate;
+            this.endDate = endDate;
+            this.location = location;
+            this.avatarPath = avatarPath;
+            this.stage = stage;
+        }
+
         public string TournamentCreator { get => tournamentCreator; set => tournamentCreator = value; }
         public int TournamentID { get => tournamentID; set => tournamentID = value; }
         public string TournamentName { get => tournamentName; set => tournamentName = value; }
@@ -79,5 +90,6 @@ namespace FootBall_Tournament_Management.NewFolder1
         public DateTime EndDate { get => endDate; set => endDate = value; }
         public string Location { get => location; set => location = value; }
         public string AvatarPath { get => avatarPath; set => avatarPath = value; }
+        public int Stage { get => stage; set => stage = value; }
     }
 }
