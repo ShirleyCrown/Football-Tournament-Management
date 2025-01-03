@@ -55,6 +55,8 @@
             this.rtbRule = new System.Windows.Forms.RichTextBox();
             this.btnUpdateRule = new System.Windows.Forms.Button();
             this.btnNextStage = new System.Windows.Forms.Button();
+            this.avatar = new System.Windows.Forms.PictureBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.uctTeam8 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam4 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam7 = new FootBall_Tournament_Management.TeamInBracket();
@@ -70,8 +72,6 @@
             this.uctTeam9 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam5 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam1 = new FootBall_Tournament_Management.TeamInBracket();
-            this.avatar = new System.Windows.Forms.PictureBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -392,7 +392,6 @@
             // 
             // btnNextStage
             // 
-            this.btnNextStage.Enabled = false;
             this.btnNextStage.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNextStage.Location = new System.Drawing.Point(1866, 1195);
             this.btnNextStage.Name = "btnNextStage";
@@ -400,171 +399,7 @@
             this.btnNextStage.TabIndex = 2;
             this.btnNextStage.Text = "Next Stage";
             this.btnNextStage.UseVisualStyleBackColor = true;
-            // 
-            // uctTeam8
-            // 
-            this.uctTeam8.IsCheck = false;
-            this.uctTeam8.IsEnabled = true;
-            this.uctTeam8.Location = new System.Drawing.Point(284, 1178);
-            this.uctTeam8.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam8.Name = "uctTeam8";
-            this.uctTeam8.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam8.TabIndex = 3;
-            this.uctTeam8.TeamName = "checkBox1";
-            // 
-            // uctTeam4
-            // 
-            this.uctTeam4.IsCheck = false;
-            this.uctTeam4.IsEnabled = true;
-            this.uctTeam4.Location = new System.Drawing.Point(284, 751);
-            this.uctTeam4.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam4.Name = "uctTeam4";
-            this.uctTeam4.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam4.TabIndex = 3;
-            this.uctTeam4.TeamName = "checkBox1";
-            // 
-            // uctTeam7
-            // 
-            this.uctTeam7.IsCheck = false;
-            this.uctTeam7.IsEnabled = true;
-            this.uctTeam7.Location = new System.Drawing.Point(284, 1071);
-            this.uctTeam7.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam7.Name = "uctTeam7";
-            this.uctTeam7.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam7.TabIndex = 3;
-            this.uctTeam7.TeamName = "checkBox1";
-            // 
-            // uctTeam3
-            // 
-            this.uctTeam3.IsCheck = false;
-            this.uctTeam3.IsEnabled = true;
-            this.uctTeam3.Location = new System.Drawing.Point(284, 643);
-            this.uctTeam3.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam3.Name = "uctTeam3";
-            this.uctTeam3.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam3.TabIndex = 3;
-            this.uctTeam3.TeamName = "checkBox1";
-            // 
-            // uctTeam6
-            // 
-            this.uctTeam6.IsCheck = false;
-            this.uctTeam6.IsEnabled = true;
-            this.uctTeam6.Location = new System.Drawing.Point(284, 965);
-            this.uctTeam6.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam6.Name = "uctTeam6";
-            this.uctTeam6.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam6.TabIndex = 3;
-            this.uctTeam6.TeamName = "checkBox1";
-            // 
-            // uctTeam2
-            // 
-            this.uctTeam2.IsCheck = false;
-            this.uctTeam2.IsEnabled = true;
-            this.uctTeam2.Location = new System.Drawing.Point(284, 537);
-            this.uctTeam2.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam2.Name = "uctTeam2";
-            this.uctTeam2.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam2.TabIndex = 3;
-            this.uctTeam2.TeamName = "checkBox1";
-            // 
-            // uctTeam12
-            // 
-            this.uctTeam12.IsCheck = false;
-            this.uctTeam12.IsEnabled = true;
-            this.uctTeam12.Location = new System.Drawing.Point(718, 1120);
-            this.uctTeam12.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam12.Name = "uctTeam12";
-            this.uctTeam12.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam12.TabIndex = 3;
-            this.uctTeam12.TeamName = "None";
-            // 
-            // uctTeam10
-            // 
-            this.uctTeam10.IsCheck = false;
-            this.uctTeam10.IsEnabled = true;
-            this.uctTeam10.Location = new System.Drawing.Point(718, 695);
-            this.uctTeam10.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam10.Name = "uctTeam10";
-            this.uctTeam10.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam10.TabIndex = 3;
-            this.uctTeam10.TeamName = "None";
-            // 
-            // uctTeam15
-            // 
-            this.uctTeam15.IsCheck = false;
-            this.uctTeam15.IsEnabled = true;
-            this.uctTeam15.Location = new System.Drawing.Point(1605, 791);
-            this.uctTeam15.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam15.Name = "uctTeam15";
-            this.uctTeam15.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam15.TabIndex = 3;
-            this.uctTeam15.TeamName = "None";
-            // 
-            // uctTeam14
-            // 
-            this.uctTeam14.IsCheck = false;
-            this.uctTeam14.IsEnabled = true;
-            this.uctTeam14.Location = new System.Drawing.Point(1182, 1012);
-            this.uctTeam14.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam14.Name = "uctTeam14";
-            this.uctTeam14.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam14.TabIndex = 3;
-            this.uctTeam14.TeamName = "None";
-            // 
-            // uctTeam13
-            // 
-            this.uctTeam13.IsCheck = false;
-            this.uctTeam13.IsEnabled = true;
-            this.uctTeam13.Location = new System.Drawing.Point(1182, 586);
-            this.uctTeam13.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam13.Name = "uctTeam13";
-            this.uctTeam13.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam13.TabIndex = 3;
-            this.uctTeam13.TeamName = "None";
-            // 
-            // uctTeam11
-            // 
-            this.uctTeam11.IsCheck = false;
-            this.uctTeam11.IsEnabled = true;
-            this.uctTeam11.Location = new System.Drawing.Point(718, 911);
-            this.uctTeam11.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam11.Name = "uctTeam11";
-            this.uctTeam11.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam11.TabIndex = 3;
-            this.uctTeam11.TeamName = "None";
-            // 
-            // uctTeam9
-            // 
-            this.uctTeam9.IsCheck = false;
-            this.uctTeam9.IsEnabled = true;
-            this.uctTeam9.Location = new System.Drawing.Point(718, 486);
-            this.uctTeam9.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam9.Name = "uctTeam9";
-            this.uctTeam9.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam9.TabIndex = 3;
-            this.uctTeam9.TeamName = "None";
-            // 
-            // uctTeam5
-            // 
-            this.uctTeam5.IsCheck = false;
-            this.uctTeam5.IsEnabled = true;
-            this.uctTeam5.Location = new System.Drawing.Point(284, 855);
-            this.uctTeam5.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam5.Name = "uctTeam5";
-            this.uctTeam5.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam5.TabIndex = 3;
-            this.uctTeam5.TeamName = "checkBox1";
-            // 
-            // uctTeam1
-            // 
-            this.uctTeam1.IsCheck = false;
-            this.uctTeam1.IsEnabled = true;
-            this.uctTeam1.Location = new System.Drawing.Point(284, 428);
-            this.uctTeam1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.uctTeam1.Name = "uctTeam1";
-            this.uctTeam1.Size = new System.Drawing.Size(302, 71);
-            this.uctTeam1.TabIndex = 3;
-            this.uctTeam1.TeamName = "checkBox1";
+            this.btnNextStage.Click += new System.EventHandler(this.btnNextStage_Click);
             // 
             // avatar
             // 
@@ -585,6 +420,186 @@
             this.groupBox4.TabIndex = 7;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Logo";
+            // 
+            // uctTeam8
+            // 
+            this.uctTeam8.IsCheck = false;
+            this.uctTeam8.IsEnabled = true;
+            this.uctTeam8.Location = new System.Drawing.Point(284, 1178);
+            this.uctTeam8.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam8.Name = "uctTeam8";
+            this.uctTeam8.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam8.TabIndex = 3;
+            this.uctTeam8.TeamID = 0;
+            this.uctTeam8.TeamName = "checkBox1";
+            // 
+            // uctTeam4
+            // 
+            this.uctTeam4.IsCheck = false;
+            this.uctTeam4.IsEnabled = true;
+            this.uctTeam4.Location = new System.Drawing.Point(284, 751);
+            this.uctTeam4.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam4.Name = "uctTeam4";
+            this.uctTeam4.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam4.TabIndex = 3;
+            this.uctTeam4.TeamID = 0;
+            this.uctTeam4.TeamName = "checkBox1";
+            // 
+            // uctTeam7
+            // 
+            this.uctTeam7.IsCheck = false;
+            this.uctTeam7.IsEnabled = true;
+            this.uctTeam7.Location = new System.Drawing.Point(284, 1071);
+            this.uctTeam7.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam7.Name = "uctTeam7";
+            this.uctTeam7.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam7.TabIndex = 3;
+            this.uctTeam7.TeamID = 0;
+            this.uctTeam7.TeamName = "checkBox1";
+            // 
+            // uctTeam3
+            // 
+            this.uctTeam3.IsCheck = false;
+            this.uctTeam3.IsEnabled = true;
+            this.uctTeam3.Location = new System.Drawing.Point(284, 643);
+            this.uctTeam3.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam3.Name = "uctTeam3";
+            this.uctTeam3.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam3.TabIndex = 3;
+            this.uctTeam3.TeamID = 0;
+            this.uctTeam3.TeamName = "checkBox1";
+            // 
+            // uctTeam6
+            // 
+            this.uctTeam6.IsCheck = false;
+            this.uctTeam6.IsEnabled = true;
+            this.uctTeam6.Location = new System.Drawing.Point(284, 965);
+            this.uctTeam6.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam6.Name = "uctTeam6";
+            this.uctTeam6.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam6.TabIndex = 3;
+            this.uctTeam6.TeamID = 0;
+            this.uctTeam6.TeamName = "checkBox1";
+            // 
+            // uctTeam2
+            // 
+            this.uctTeam2.IsCheck = false;
+            this.uctTeam2.IsEnabled = true;
+            this.uctTeam2.Location = new System.Drawing.Point(284, 537);
+            this.uctTeam2.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam2.Name = "uctTeam2";
+            this.uctTeam2.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam2.TabIndex = 3;
+            this.uctTeam2.TeamID = 0;
+            this.uctTeam2.TeamName = "checkBox1";
+            // 
+            // uctTeam12
+            // 
+            this.uctTeam12.IsCheck = false;
+            this.uctTeam12.IsEnabled = true;
+            this.uctTeam12.Location = new System.Drawing.Point(718, 1120);
+            this.uctTeam12.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam12.Name = "uctTeam12";
+            this.uctTeam12.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam12.TabIndex = 3;
+            this.uctTeam12.TeamID = 0;
+            this.uctTeam12.TeamName = "None";
+            // 
+            // uctTeam10
+            // 
+            this.uctTeam10.IsCheck = false;
+            this.uctTeam10.IsEnabled = true;
+            this.uctTeam10.Location = new System.Drawing.Point(718, 695);
+            this.uctTeam10.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam10.Name = "uctTeam10";
+            this.uctTeam10.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam10.TabIndex = 3;
+            this.uctTeam10.TeamID = 0;
+            this.uctTeam10.TeamName = "None";
+            // 
+            // uctTeam15
+            // 
+            this.uctTeam15.IsCheck = false;
+            this.uctTeam15.IsEnabled = true;
+            this.uctTeam15.Location = new System.Drawing.Point(1605, 791);
+            this.uctTeam15.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam15.Name = "uctTeam15";
+            this.uctTeam15.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam15.TabIndex = 3;
+            this.uctTeam15.TeamID = 0;
+            this.uctTeam15.TeamName = "None";
+            // 
+            // uctTeam14
+            // 
+            this.uctTeam14.IsCheck = false;
+            this.uctTeam14.IsEnabled = true;
+            this.uctTeam14.Location = new System.Drawing.Point(1182, 1012);
+            this.uctTeam14.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam14.Name = "uctTeam14";
+            this.uctTeam14.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam14.TabIndex = 3;
+            this.uctTeam14.TeamID = 0;
+            this.uctTeam14.TeamName = "None";
+            // 
+            // uctTeam13
+            // 
+            this.uctTeam13.IsCheck = false;
+            this.uctTeam13.IsEnabled = true;
+            this.uctTeam13.Location = new System.Drawing.Point(1182, 586);
+            this.uctTeam13.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam13.Name = "uctTeam13";
+            this.uctTeam13.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam13.TabIndex = 3;
+            this.uctTeam13.TeamID = 0;
+            this.uctTeam13.TeamName = "None";
+            // 
+            // uctTeam11
+            // 
+            this.uctTeam11.IsCheck = false;
+            this.uctTeam11.IsEnabled = true;
+            this.uctTeam11.Location = new System.Drawing.Point(718, 911);
+            this.uctTeam11.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam11.Name = "uctTeam11";
+            this.uctTeam11.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam11.TabIndex = 3;
+            this.uctTeam11.TeamID = 0;
+            this.uctTeam11.TeamName = "None";
+            // 
+            // uctTeam9
+            // 
+            this.uctTeam9.IsCheck = false;
+            this.uctTeam9.IsEnabled = true;
+            this.uctTeam9.Location = new System.Drawing.Point(718, 486);
+            this.uctTeam9.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam9.Name = "uctTeam9";
+            this.uctTeam9.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam9.TabIndex = 3;
+            this.uctTeam9.TeamID = 0;
+            this.uctTeam9.TeamName = "None";
+            // 
+            // uctTeam5
+            // 
+            this.uctTeam5.IsCheck = false;
+            this.uctTeam5.IsEnabled = true;
+            this.uctTeam5.Location = new System.Drawing.Point(284, 855);
+            this.uctTeam5.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam5.Name = "uctTeam5";
+            this.uctTeam5.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam5.TabIndex = 3;
+            this.uctTeam5.TeamID = 0;
+            this.uctTeam5.TeamName = "checkBox1";
+            // 
+            // uctTeam1
+            // 
+            this.uctTeam1.IsCheck = false;
+            this.uctTeam1.IsEnabled = true;
+            this.uctTeam1.Location = new System.Drawing.Point(284, 428);
+            this.uctTeam1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam1.Name = "uctTeam1";
+            this.uctTeam1.Size = new System.Drawing.Size(302, 71);
+            this.uctTeam1.TabIndex = 3;
+            this.uctTeam1.TeamID = 0;
+            this.uctTeam1.TeamName = "checkBox1";
             // 
             // TournamentBracket
             // 

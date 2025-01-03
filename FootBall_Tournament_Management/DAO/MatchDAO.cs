@@ -51,23 +51,34 @@ namespace FootBall_Tournament_Management.DAO
             }
         }
 
-        public void UpdateMatch(FootBall_Tournament_Management.NewFolder1.Match match)
+        public void UpdateMatchInfo(FootBall_Tournament_Management.NewFolder1.Match match)
         {
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "UPDATE Matches SET TournamentID = @TournamentID, Team1ID = @Team1ID, Team2ID = @Team2ID, MatchDate = @MatchDate, Location = @Location, TeamWin = @TeamWin, Result = @Result WHERE MatchID = @MatchID";
+                string query = "UPDATE Matches SET MatchDate = @MatchDate, Location = @Location, Result = @Result WHERE MatchID = @MatchID";
 
                 using (var command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@MatchID", match.MatchID);
-                    command.Parameters.AddWithValue("@Team1ID", match.Team1ID);
-                    command.Parameters.AddWithValue("@Team2ID", match.Team2ID);
-                    command.Parameters.AddWithValue("@TournamentID", match.TournamentID);
                     command.Parameters.AddWithValue("@MatchDate", match.MatchDate);
                     command.Parameters.AddWithValue("@Location", match.Location);
-                    command.Parameters.AddWithValue("@TeamWin", match.TeamWin);
                     command.Parameters.AddWithValue("@Result", match.Result);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void UpdateMatchWinner(FootBall_Tournament_Management.NewFolder1.Match match, int winner)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "UPDATE Matches SET TeamWin = @TeamWin WHERE MatchID = @MatchID";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TeamWin", winner);
+                    command.Parameters.AddWithValue("@MatchID", match.MatchID); ;
                     command.ExecuteNonQuery();
                 }
             }

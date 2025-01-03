@@ -66,6 +66,22 @@ namespace FootBall_Tournament_Management.DAO
             }
         }
 
+        public void UpdateStage(int tournamentID, int stage)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "UPDATE Tournaments SET Stage = @Stage WHERE TournamentID = @TournamentID";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TournamentID", tournamentID);
+                    command.Parameters.AddWithValue("@Stage", stage);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         public DataTable GetAllTournaments()
         {
             using (var connection = db.GetConnection())

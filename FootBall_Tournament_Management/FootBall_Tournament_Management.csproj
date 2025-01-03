@@ -195,16 +195,16 @@
     <Compile Include="Forms\Main_screen.Designer.cs">
       <DependentUpon>Main_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Object\Account.cs" />
-    <Compile Include="Object\Award.cs" />
-    <Compile Include="Object\Coach.cs" />
-    <Compile Include="Object\Match.cs" />
-    <Compile Include="Object\Player.cs" />
-    <Compile Include="Object\Role.cs" />
-    <Compile Include="Object\Rules.cs" />
-    <Compile Include="Object\Team.cs" />
-    <Compile Include="Object\TeamsInTournament.cs" />
-    <Compile Include="Object\Tournament.cs" />
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Award.cs" />
+    <Compile Include="Model\Coach.cs" />
+    <Compile Include="Model\Match.cs" />
+    <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\Rules.cs" />
+    <Compile Include="Model\Team.cs" />
+    <Compile Include="Model\TeamsInTournament.cs" />
+    <Compile Include="Model\Tournament.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usercontrol\RoundedButton.cs">

@@ -16,11 +16,11 @@ namespace FootBall_Tournament_Management
 {
     public partial class TeamInBracket : UserControl
     {
-        private string teamID;
-        public TeamInBracket(string teamID, string teamName)
+        private int teamID;
+        public TeamInBracket(int teamID, string teamName)
         {
             InitializeComponent();
-            this.teamID = teamID;
+            this.TeamID = teamID;
         }
 
         public TeamInBracket()
@@ -45,6 +45,8 @@ namespace FootBall_Tournament_Management
             get { return ckbTeamName.Enabled;}
             set { ckbTeamName.Enabled = value;}
         }
+
+        public int TeamID { get => teamID; set => teamID = value; }
 
         private void TeamInBracket_Load(object sender, EventArgs e)
         {
@@ -95,11 +97,14 @@ namespace FootBall_Tournament_Management
             
         }
 
-        
-
         private void showDetail_Click(object sender, EventArgs e)
         {
             new MatchDetails().ShowDialog();   
+        }
+
+        private void TeamInBracket_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(teamID.ToString());
         }
     }
 }

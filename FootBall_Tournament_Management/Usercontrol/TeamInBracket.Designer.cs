@@ -71,6 +71,7 @@
             this.Name = "TeamInBracket";
             this.Size = new System.Drawing.Size(302, 71);
             this.Load += new System.EventHandler(this.TeamInBracket_Load);
+            this.Click += new System.EventHandler(this.TeamInBracket_Click);
             this.detail.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

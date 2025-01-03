@@ -16,7 +16,9 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 {
     public partial class TournamentBracket : Form
     {
+        private int stage;
         private int tournamentID;
+        private List<Match> matches = new List<Match>();
         public TournamentBracket(int tournamentID)
         {
             this.tournamentID = tournamentID;
@@ -49,6 +51,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             dpkStart.Value = tournament.StartDate;
             dpkEnd.Value = tournament.EndDate;
             txtLocation.Text = tournament.Location;
+            this.stage = tournament.Stage;
 
             if (string.IsNullOrEmpty(tournament.AvatarPath))
             {
@@ -88,22 +91,18 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             txt2ndRunnerup.Text = award3.PrizeAmount.ToString();
         }
 
-        public void DisplayBracketDetails()
+        private void GetMatches()
         {
+            matches.Clear();
             MatchDAO matchDAO = new MatchDAO();
             DataTable dt = matchDAO.GetAllMatchesInTournament(tournamentID);
-
-            List<TeamInBracket> controls = new List<TeamInBracket> { uctTeam1, uctTeam2, uctTeam3, uctTeam4, uctTeam5, uctTeam6, uctTeam7, uctTeam8, uctTeam9, uctTeam10, uctTeam11, uctTeam12, uctTeam13, uctTeam14, uctTeam15 };
-            List<Match> matches = new List<Match>();
-
-            for(int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 if (dt.Rows[i][6] != DBNull.Value)
                 {
                     Match match = new Match(Convert.ToInt32(dt.Rows[i][0]), Convert.ToInt32(dt.Rows[i][1]),
                     Convert.ToInt32(dt.Rows[i][2]), Convert.ToInt32(dt.Rows[i][3]),
-                    Convert.ToDateTime(dt.Rows[i][4]), Convert.ToString(dt.Rows[i][5]),
-                    Convert.ToInt32(dt.Rows[i][6]), dt.Rows[i][7].ToString());
+                    Convert.ToInt32(dt.Rows[i][6]));
                     matches.Add(match);
                 }
                 else
@@ -113,7 +112,13 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                     matches.Add(match);
                 }
             }
+        }
 
+        public void DisplayBracketDetails()
+        {
+            GetMatches();
+            List<TeamInBracket> controls = new List<TeamInBracket> { uctTeam1, uctTeam2, uctTeam3, uctTeam4, uctTeam5, uctTeam6, uctTeam7, uctTeam8, uctTeam9, uctTeam10, uctTeam11, uctTeam12, uctTeam13, uctTeam14, uctTeam15 };
+            
             int index = 0;
             for(int i = 0; i < matches.Count; i++)
             {
@@ -125,8 +130,10 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                 team2 = teamDAO.GetTeamByID(matches[i].Team2ID);
 
                 controls[index].TeamName = team1.TeamName;
+                controls[index].TeamID = matches[i].Team1ID;
 
                 controls[index + 1].TeamName = team2.TeamName;
+                controls[index + 1].TeamID = matches[i].Team2ID;
 
                 if (matches[i].TeamWin != 0)
                 {
@@ -137,7 +144,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
                 index += 2;
 
-                if(matches.Count == 7 )
+                if(matches.Count == 7 && matches[6].TeamWin != 0)
                 {
                     Team champion = teamDAO.GetTeamByID(matches[6].TeamWin);
                     uctTeam15.TeamName = champion.TeamName;
@@ -185,7 +192,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                 }
             }
 
-            if (matches.Count == 7)
+            if (matches.Count == 7 && matches[6].TeamWin != 0)
             {
                 controls[14].IsCheck = true;
                 controls[14].BackColor = Color.Tomato;
@@ -411,6 +418,189 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             }
         }
 
-        
+        private void CheckTick(int stage)
+        {
+            List<TeamInBracket> stage1 = new List<TeamInBracket> {uctTeam1, uctTeam2, uctTeam3, uctTeam4, uctTeam5, uctTeam6, uctTeam7, uctTeam8};
+
+        }
+        private void btnNextStage_Click(object sender, EventArgs e)
+        {
+            if(stage == 1)
+            {
+                List<TeamInBracket> stage1 = new List<TeamInBracket> { uctTeam1, uctTeam2, uctTeam3, uctTeam4, uctTeam5, uctTeam6, uctTeam7, uctTeam8 };
+                List<TeamInBracket> stage2 = new List<TeamInBracket> { uctTeam9, uctTeam10, uctTeam11, uctTeam12 };
+
+                int count = 0;
+                for (int i = 0; i < stage1.Count; i++)
+                {
+                    if (stage1[i].ckbTeamName.Checked)
+                    {
+                        count++;
+                    }
+                }
+
+                bool match1 = uctTeam1.ckbTeamName.Checked || uctTeam2.ckbTeamName.Checked ? true : false;
+                bool match2 = uctTeam3.ckbTeamName.Checked || uctTeam4.ckbTeamName.Checked ? true : false;
+                bool match3 = uctTeam5.ckbTeamName.Checked || uctTeam6.ckbTeamName.Checked ? true : false;
+                bool match4 = uctTeam7.ckbTeamName.Checked || uctTeam8.ckbTeamName.Checked ? true : false;
+
+                
+                if(count == 4 && match1 && match2 && match3 && match4)
+                {
+                    DialogResult result = MessageBox.Show("Are you sure to finish this stage? This action can't be returned !!!", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+
+                    List<int> winner = new List<int>();
+                    MatchDAO matchDAO = new MatchDAO();
+                    int index = 0;
+                    for(int i = 0; i < 8; i+=2)
+                    {
+                        if (stage1[i].ckbTeamName.Checked)
+                        {
+                            matchDAO.UpdateMatchWinner(matches[index], stage1[i].TeamID);
+                            winner.Add(stage1[i].TeamID);
+                            stage2[index].TeamID = stage1[i].TeamID;
+                            stage2[index].TeamName = stage1[i].TeamName;
+                        }
+                        else
+                        {
+                            matchDAO.UpdateMatchWinner(matches[index], stage1[i+1].TeamID);
+                            winner.Add(stage1[i+1].TeamID);
+                            stage2[index].TeamID = stage1[i+1].TeamID;
+                            stage2[index].TeamName = stage1[i+1].TeamName;
+                        }
+
+                        index++;
+                    }
+                    MessageBox.Show("Stage finished !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    stage++;
+                    new TournamentDAO().UpdateStage(tournamentID, stage);
+                    new MatchDAO().AddMatch(new Match(tournamentID, winner[0], winner[1]));
+                    new MatchDAO().AddMatch(new Match(tournamentID, winner[2], winner[3]));
+                }
+                else
+                {
+                    MessageBox.Show("Error ! Please try again !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            else if(stage == 2)
+            {
+                List<TeamInBracket> stage2 = new List<TeamInBracket> { uctTeam9, uctTeam10, uctTeam11, uctTeam12 };
+                List<TeamInBracket> stage3 = new List<TeamInBracket> { uctTeam13, uctTeam14 };
+
+                int count = 0;
+                for (int i = 0; i < stage2.Count; i++)
+                {
+                    if (stage2[i].ckbTeamName.Checked)
+                    {
+                        count++;
+                    }
+                }
+
+                bool match5 = uctTeam9.ckbTeamName.Checked || uctTeam10.ckbTeamName.Checked ? true : false;
+                bool match6 = uctTeam11.ckbTeamName.Checked || uctTeam12.ckbTeamName.Checked ? true : false;
+
+                if (count == 2 && match5 && match6)
+                {
+                    DialogResult result = MessageBox.Show("Are you sure to finish this stage? This action can't be returned !!!", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+
+                    List<int> winner = new List<int>();
+                    MatchDAO matchDAO = new MatchDAO();
+                    GetMatches();
+                    int matchIndex = 4;
+                    int index = 0;
+                    for (int i = 0; i < 4; i += 2)
+                    {
+                        if (stage2[i].ckbTeamName.Checked)
+                        {
+                            matchDAO.UpdateMatchWinner(matches[matchIndex], stage2[i].TeamID);
+                            winner.Add(stage2[i].TeamID);
+                            stage3[index].TeamID = stage2[i].TeamID;
+                            stage3[index].TeamName = stage2[i].TeamName;
+                        }
+                        else
+                        {
+                            matchDAO.UpdateMatchWinner(matches[matchIndex], stage2[i + 1].TeamID);
+                            winner.Add(stage2[i + 1].TeamID);
+                            stage3[index].TeamID = stage2[i + 1].TeamID;
+                            stage3[index].TeamName = stage2[i + 1].TeamName;
+                        }
+
+                        index++;
+                        matchIndex++;
+                    }
+                    MessageBox.Show("Stage finished !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    stage++;
+                    new TournamentDAO().UpdateStage(tournamentID, stage);
+                    new MatchDAO().AddMatch(new Match(tournamentID, winner[0], winner[1]));
+                }
+                else
+                {
+                    MessageBox.Show("Error ! Please try again !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else if(stage == 3)
+            {
+                List<TeamInBracket> stage3 = new List<TeamInBracket> { uctTeam13, uctTeam14 };
+
+                int count = 0;
+                for (int i = 0; i < stage3.Count; i++)
+                {
+                    if (stage3[i].ckbTeamName.Checked)
+                    {
+                        count++;
+                    }
+                }
+
+                bool match7 = uctTeam13.ckbTeamName.Checked || uctTeam14.ckbTeamName.Checked ? true : false;
+
+                if (count == 1 && match7)
+                {
+                    DialogResult result = MessageBox.Show("Are you sure to finish this stage? This action can't be returned !!!", "Verify", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+
+                    List<int> winner = new List<int>();
+                    MatchDAO matchDAO = new MatchDAO();
+                    GetMatches();
+
+                    if (stage3[0].ckbTeamName.Checked)
+                    {
+                        matchDAO.UpdateMatchWinner(matches[6], stage3[0].TeamID);
+                        winner.Add(stage3[0].TeamID);
+                        uctTeam15.TeamID = stage3[0].TeamID;
+                        uctTeam15.TeamName = stage3[0].TeamName;
+                    }
+                    else
+                    {
+                        matchDAO.UpdateMatchWinner(matches[6], stage3[1].TeamID);
+                        winner.Add(stage3[1].TeamID);
+                        uctTeam15.TeamID = stage3[1].TeamID;
+                        uctTeam15.TeamName = stage3[1].TeamName;
+                    }
+
+                    MessageBox.Show("Stage finished !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    stage++;
+                    new TournamentDAO().UpdateStage(tournamentID, stage);
+                }
+                else
+                {
+                    MessageBox.Show("Error ! Please try again !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+        }
     }
 }

@@ -36,14 +36,24 @@ namespace FootBall_Tournament_Management.NewFolder1
             this.Team2ID = team2ID;
         }
 
-        public Match(int matchID, int tournamentID, int team1ID, int team2ID)
+        public Match(int matchID, int tournamentID, int team1ID, int team2ID, int teamWin)
         {
             this.MatchID = matchID;
             this.TournamentID = tournamentID;
             this.Team1ID = team1ID;
             this.Team2ID = team2ID;
+            this.teamWin = teamWin;
             
         }
+
+        public Match(int matchID, int tournamentID, int team1ID, int team2ID)
+        {
+            this.matchID = matchID;
+            this.tournamentID = tournamentID;
+            this.team1ID = team1ID;
+            this.team2ID = team2ID;
+        }
+
         public int MatchID { get => matchID; set => matchID = value; }
         public int TournamentID { get => tournamentID; set => tournamentID = value; }
         public int Team1ID { get => team1ID; set => team1ID = value; }
@@ -52,5 +62,7 @@ namespace FootBall_Tournament_Management.NewFolder1
         public string Location { get => location; set => location = value; }
         public int TeamWin { get => teamWin; set => teamWin = value; }
         public string Result { get => result; set => result = value; }
+
+        
     }
 }
