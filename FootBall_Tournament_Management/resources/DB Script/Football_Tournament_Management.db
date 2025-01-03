@@ -24,7 +24,8 @@ CREATE TABLE Coachs (
     BirthDate DATE,
     PhoneNumber VARCHAR(255),
     Forte VARCHAR(255),
-    IsDeleted int default 0
+    IsDeleted int default 0,
+    AvatarPath VARCHAR(255)
 );
 
 -- Tạo bảng Teams
@@ -34,7 +35,8 @@ CREATE TABLE Teams (
     CoachID INT,
     EstablishedDate DATE,
     FOREIGN KEY (CoachID) REFERENCES Coachs(CoachID),
-    IsDeleted int default 0
+    IsDeleted int default 0,
+    AvatarPath VARCHAR(255)
 );
 
 -- Tạo bảng Players
@@ -47,7 +49,8 @@ CREATE TABLE Players (
     PhoneNumber VARCHAR(255),
     JerseyNumber INT,
     FOREIGN KEY (TeamID) REFERENCES Teams(TeamID),
-    IsDeleted int default 0
+    IsDeleted int default 0,
+    AvatarPath VARCHAR(255)
 );
 
 -- Tạo bảng Tournaments
@@ -59,7 +62,8 @@ CREATE TABLE Tournaments (
     Location VARCHAR(255),
     TournamentCreator VARCHAR(255),
     FOREIGN KEY (TournamentCreator) REFERENCES Accounts(Username),
-    IsDeleted int default 0
+    IsDeleted int default 0,
+    AvatarPath VARCHAR(255)
 );
 
 -- Tạo bảng Matches
@@ -121,80 +125,81 @@ INSERT INTO Accounts (Username, Password, AccountRole) VALUES
 ('coach1', 'coachpass', 3);
 
 -- Thêm dữ liệu vào bảng Coachs
-INSERT INTO Coachs (CoachName, BirthDate, PhoneNumber, Forte) VALUES
-('Pep Guardiola', '1971-01-18', '0123456789', 'Tiki-taka'),
-('Jurgen Klopp', '1967-06-16', '0987654321', 'Gegenpressing'),
-('Mikel Arteta', '1982-03-26', '0234567890', 'Possession Play'),
-('Erik ten Hag', '1970-02-02', '0345678901', 'High Press'),
-('Eddie Howe', '1977-11-29', '0456789012', 'Counter-Attack'),
-('Unai Emery', '1971-11-03', '0567890123', 'Structured Defense'),
-('Mauricio Pochettino', '1972-03-02', '0678901234', 'Quick Transition'),
-('Roberto De Zerbi', '1979-06-06', '0789012345', 'Build-up Play'),
-('Thomas Frank', '1973-10-09', '0890123456', 'Flexible Tactics'),
-('David Moyes', '1963-04-25', '0901234567', 'Defensive Organization');
+INSERT INTO Coachs (CoachName, BirthDate, PhoneNumber, Forte, AvatarPath) VALUES
+('Pep Guardiola', '1971-01-18', '0123456789', 'Tiki-taka', 'Avatars\\Coachs\\Pep_Guardiola.jpg'),
+('Jurgen Klopp', '1967-06-16', '0987654321', 'Gegenpressing', 'Avatars\\Coachs\\Jurgen_Klopp.jpg'),
+('Mikel Arteta', '1982-03-26', '0234567890', 'Possession Play', 'Avatars\\Coachs\\Mikel_Arteta.jpg'),
+('Erik ten Hag', '1970-02-02', '0345678901', 'High Press', 'Avatars\\Coachs\\Erik_ten_Hag.jpg'),
+('Eddie Howe', '1977-11-29', '0456789012', 'Counter-Attack', 'Avatars\\Coachs\\Eddie_Howe.jpg'),
+('Unai Emery', '1971-11-03', '0567890123', 'Structured Defense', 'Avatars\\Coachs\\Unai_Emery.jpg'),
+('Mauricio Pochettino', '1972-03-02', '0678901234', 'Quick Transition', 'Avatars\\Coachs\\Mauricio_Pochettino.jpg'),
+('Roberto De Zerbi', '1979-06-06', '0789012345', 'Build-up Play', 'Avatars\\Coachs\\Roberto_De_Zerbi.jpg'),
+('Thomas Frank', '1973-10-09', '0890123456', 'Flexible Tactics', 'Avatars\\Coachs\\Thomas_Frank.jpg'),
+('David Moyes', '1963-04-25', '0901234567', 'Defensive Organization', 'Avatars\\Coachs\\David_Moyes.jpg');
 
 -- Thêm dữ liệu vào bảng Teams
-INSERT INTO Teams (TeamName, CoachID, EstablishedDate) VALUES
-('Manchester City', 1, '1880-04-16'),
-('Liverpool', 2, '1892-06-03'),
-('Arsenal', 3, '1886-12-01'),
-('Manchester United', 4, '1878-03-05'),
-('Newcastle United', 5, '1892-12-09'),
-('Aston Villa', 6, '1874-11-21'),
-('Chelsea', 7, '1905-03-10'),
-('Brighton', 8, '1901-06-24'),
-('Brentford', 9, '1889-10-10'),
-('West Ham United', 10, '1895-06-29');
+INSERT INTO Teams (TeamName, CoachID, EstablishedDate, AvatarPath) VALUES
+('Manchester City', 1, '1880-04-16', 'Avatars\\Teams\\Manchester_City.jpg'),
+('Liverpool', 2, '1892-06-03', 'Avatars\\Teams\\Liverpool.jpg'),
+('Arsenal', 3, '1886-12-01', 'Avatars\\Teams\\Arsenal.jpg'),
+('Manchester United', 4, '1878-03-05', 'Avatars\\Teams\\Manchester_United.jpg'),
+('Newcastle United', 5, '1892-12-09', 'Avatars\\Teams\\Newcastle_United.png'),
+('Aston Villa', 6, '1874-11-21', 'Avatars\\Teams\\Aston_Villa.png'),
+('Chelsea', 7, '1905-03-10', 'Avatars\\Teams\\Chelsea.jpg'),
+('Brighton', 8, '1901-06-24', 'Avatars\\Teams\\Brighton.jpg'),
+('Brentford', 9, '1889-10-10', 'Avatars\\Teams\\Brentford.png'),
+('West Ham United', 10, '1895-06-29', 'Avatars\\Teams\\West_Ham_United.jpg');
 
 -- Thêm dữ liệu vào bảng Players
-INSERT INTO Players (TeamID, PlayerName, Position, BirthDate, PhoneNumber, JerseyNumber) VALUES
-(1, 'Erling Haaland', 'Forward', '2000-07-21', '0911111111', 9),
-(1, 'Kevin De Bruyne', 'Midfielder', '1991-06-28', '0911111112', 17),
-(1, 'Ruben Dias', 'Defender', '1997-05-14', '0911111113', 3),
-(1, 'Ederson Moraes', 'Goalkeeper', '1993-08-17', '0911111114', 31),
-(2, 'Mohamed Salah', 'Forward', '1992-06-15', '0911111115', 11),
-(2, 'Virgil van Dijk', 'Defender', '1991-07-08', '0911111116', 4),
-(2, 'Alisson Becker', 'Goalkeeper', '1992-10-02', '0911111117', 1),
-(2, 'Trent Alexander-Arnold', 'Defender', '1998-10-07', '0911111118', 66),
-(3, 'Gabriel Jesus', 'Forward', '1997-04-03', '0911111119', 9),
-(3, 'Martin Odegaard', 'Midfielder', '1998-12-17', '0911111120', 8),
-(3, 'William Saliba', 'Defender', '2001-03-24', '0911111121', 12),
-(3, 'Aaron Ramsdale', 'Goalkeeper', '1998-05-14', '0911111122', 1),
-(4, 'Marcus Rashford', 'Forward', '1997-10-31', '0911111123', 10),
-(4, 'Bruno Fernandes', 'Midfielder', '1994-09-08', '0911111124', 8),
-(4, 'Lisandro Martinez', 'Defender', '1998-01-18', '0911111125', 6),
-(4, 'David de Gea', 'Goalkeeper', '1990-11-07', '0911111126', 1),
-(5, 'Alexander Isak', 'Forward', '1999-09-21', '0911111127', 14),
-(5, 'Bruno Guimaraes', 'Midfielder', '1997-11-16', '0911111128', 39),
-(5, 'Sven Botman', 'Defender', '2000-01-12', '0911111129', 4),
-(5, 'Nick Pope', 'Goalkeeper', '1992-04-19', '0911111130', 22),
-(6, 'Ollie Watkins', 'Forward', '1995-12-30', '0911111131', 11),
-(6, 'Douglas Luiz', 'Midfielder', '1998-05-09', '0911111132', 6),
-(6, 'Tyrone Mings', 'Defender', '1993-03-13', '0911111133', 5),
-(6, 'Emiliano Martinez', 'Goalkeeper', '1992-09-02', '0911111134', 1),
-(7, 'Raheem Sterling', 'Forward', '1994-12-08', '0911111135', 17),
-(7, 'Enzo Fernandez', 'Midfielder', '2001-01-17', '0911111136', 5),
-(7, 'Thiago Silva', 'Defender', '1984-09-22', '0911111137', 6),
-(7, 'Kepa Arrizabalaga', 'Goalkeeper', '1994-10-03', '0911111138', 1),
-(8, 'Evan Ferguson', 'Forward', '2004-10-19', '0911111139', 28),
-(8, 'Moises Caicedo', 'Midfielder', '2001-11-02', '0911111140', 25),
-(8, 'Lewis Dunk', 'Defender', '1991-11-21', '0911111141', 5),
-(8, 'Jason Steele', 'Goalkeeper', '1990-08-18', '0911111142', 23),
-(9, 'Ivan Toney', 'Forward', '1996-03-16', '0911111143', 17),
-(9, 'Christian Norgaard', 'Midfielder', '1994-03-10', '0911111144', 6),
-(9, 'Ethan Pinnock', 'Defender', '1993-05-29', '0911111145', 5),
-(9, 'David Raya', 'Goalkeeper', '1995-09-15', '0911111146', 1),
-(10, 'Michail Antonio', 'Forward', '1990-03-28', '0911111147', 9),
-(10, 'Declan Rice', 'Midfielder', '1999-01-14', '0911111148', 41),
-(10, 'Kurt Zouma', 'Defender', '1994-10-27', '0911111149', 4),
-(10, 'Lukasz Fabianski', 'Goalkeeper', '1985-04-18', '0911111150', 1);
+INSERT INTO Players (TeamID, PlayerName, Position, BirthDate, PhoneNumber, JerseyNumber, AvatarPath) VALUES
+(1, 'Erling Haaland', 'Forward', '2000-07-21', '0911111111', 9, 'Avatars\\Players\\Erling_Haaland.jpg'),
+(1, 'Kevin De Bruyne', 'Midfielder', '1991-06-28', '0911111112', 17, 'Avatars\\Players\\Kevin_De_Bruyne.jpg'),
+(1, 'Ruben Dias', 'Defender', '1997-05-14', '0911111113', 3, 'Avatars\\Players\\Ruben_Dias.jpg'),
+(1, 'Ederson Moraes', 'Goalkeeper', '1993-08-17', '0911111114', 31, 'Avatars\\Players\\Ederson_Moraes.jpg'),
+(2, 'Mohamed Salah', 'Forward', '1992-06-15', '0912222221', 11, 'Avatars\\Players\\Mohamed_Salah.jpg'),
+(2, 'Virgil van Dijk', 'Defender', '1991-07-08', '0912222222', 4, 'Avatars\\Players\\Virgil_van_Dijk.jpg'),
+(2, 'Alisson Becker', 'Goalkeeper', '1992-10-02', '0912222223', 1, 'Avatars\\Players\\Alisson_Becker.jpg'),
+(2, 'Trent Alexander-Arnold', 'Defender', '1998-10-07', '0912222224', 66, 'Avatars\\Players\\Trent_Alexander-Arnold.jpg'),
+(3, 'Bukayo Saka', 'Forward', '2001-09-05', '0913333331', 7, 'Avatars\\Players\\Bukayo_Saka.jpg'),
+(3, 'Martin Odegaard', 'Midfielder', '1998-12-17', '0913333332', 8, 'Avatars\\Players\\Martin_Odegaard.jpg'),
+(3, 'Aaron Ramsdale', 'Goalkeeper', '1998-05-14', '0913333333', 1, 'Avatars\\Players\\Aaron_Ramsdale.jpg'),
+(3, 'Gabriel Magalhaes', 'Defender', '1997-12-19', '0913333334', 6, 'Avatars\\Players\\Gabriel_Magalhaes.jpg'),
+(4, 'Marcus Rashford', 'Forward', '1997-10-31', '0914444441', 10, 'Avatars\\Players\\Marcus_Rashford.jpg'),
+(4, 'Bruno Fernandes', 'Midfielder', '1994-09-08', '0914444442', 8, 'Avatars\\Players\\Bruno_Fernandes.jpg'),
+(4, 'David De Gea', 'Goalkeeper', '1990-11-07', '0914444443', 1, 'Avatars\\Players\\David_De_Gea.jpg'),
+(4, 'Lisandro Martinez', 'Defender', '1998-01-18', '0914444444', 6, 'Avatars\\Players\\Lisandro_Martinez.jpg'),
+(5, 'Alexander Isak', 'Forward', '1999-09-21', '0915555551', 14, 'Avatars\\Players\\Alexander_Isak.jpg'),
+(5, 'Bruno Guimaraes', 'Midfielder', '1997-11-16', '0915555552', 39, 'Avatars\\Players\\Bruno_Guimaraes.jpg'),
+(5, 'Nick Pope', 'Goalkeeper', '1992-04-19', '0915555553', 22, 'Avatars\\Players\\Nick_Pope.jpg'),
+(5, 'Sven Botman', 'Defender', '2000-01-12', '0915555554', 4, 'Avatars\\Players\\Sven_Botman.jpg'),
+(6, 'Ollie Watkins', 'Forward', '1995-12-30', '0916666661', 11, 'Avatars\\Players\\Ollie_Watkins.jpg'),
+(6, 'John McGinn', 'Midfielder', '1994-10-18', '0916666662', 7, 'Avatars\\Players\\John_McGinn.jpg'),
+(6, 'Emiliano Martinez', 'Goalkeeper', '1992-09-02', '0916666663', 1, 'Avatars\\Players\\Emiliano_Martinez.jpg'),
+(6, 'Tyrone Mings', 'Defender', '1993-03-13', '0916666664', 5, 'Avatars\\Players\\Tyrone_Mings.jpg'),
+(7, 'Raheem Sterling', 'Forward', '1994-12-08', '0917777771', 17, 'Avatars\\Players\\Raheem_Sterling.jpg'),
+(7, 'Enzo Fernandez', 'Midfielder', '2001-01-17', '0917777772', 5, 'Avatars\\Players\\Enzo_Fernandez.jpg'),
+(7, 'Kepa Arrizabalaga', 'Goalkeeper', '1994-10-03', '0917777773', 1, 'Avatars\\Players\\Kepa_Arrizabalaga.jpg'),
+(7, 'Thiago Silva', 'Defender', '1984-09-22', '0917777774', 6, 'Avatars\\Players\\Thiago_Silva.jpg'),
+(8, 'Evan Ferguson', 'Forward', '2004-10-19', '0918888881', 28, 'Avatars\\Players\\Evan_Ferguson.jpg'),
+(8, 'Pascal Gross', 'Midfielder', '1991-06-15', '0918888882', 13, 'Avatars\\Players\\Pascal_Gross.jpg'),
+(8, 'Jason Steele', 'Goalkeeper', '1990-08-18', '0918888883', 23, 'Avatars\\Players\\Jason_Steele.jpg'),
+(8, 'Lewis Dunk', 'Defender', '1991-11-21', '0918888884', 5, 'Avatars\\Players\\Lewis_Dunk.jpg'),
+(9, 'Ivan Toney', 'Forward', '1996-03-16', '0919999991', 17, 'Avatars\\Players\\Ivan_Toney.jpg'),
+(9, 'Christian Norgaard', 'Midfielder', '1994-03-10', '0919999992', 6, 'Avatars\\Players\\Christian_Norgaard.jpg'),
+(9, 'David Raya', 'Goalkeeper', '1995-09-15', '0919999993', 1, 'Avatars\\Players\\David_Raya.jpg'),
+(9, 'Pontus Jansson', 'Defender', '1991-02-13', '0919999994', 18, 'Avatars\\Players\\Pontus_Jansson.jpg'),
+(10, 'Michail Antonio', 'Forward', '1990-03-28', '0920000001', 9, 'Avatars\\Players\\Michail_Antonio.jpg'),
+(10, 'Declan Rice', 'Midfielder', '1999-01-14', '0920000002', 41, 'Avatars\\Players\\Declan_Rice.jpg'),
+(10, 'Lukasz Fabianski', 'Goalkeeper', '1985-04-18', '0920000003', 1, 'Avatars\\Players\\Lukasz_Fabianski.jpg'),
+(10, 'Kurt Zouma', 'Defender', '1994-10-27', '0920000004', 4, 'Avatars\\Players\\Kurt_Zouma.jpg');
+
+
 
 -- Thêm dữ liệu vào bảng Tournaments
-INSERT INTO Tournaments (TournamentName, StartDate, EndDate, Location, TournamentCreator) VALUES
-('Premier League', '2023-08-11', '2024-05-19', 'England', 'organizer1'),
-('FA Cup 2024', '2024-01-06', '2024-05-15', 'England', 'organizer1'),
-('EFL Cup 2024', '2023-08-08', '2024-02-25', 'England', 'organizer1');
-
+INSERT INTO Tournaments (TournamentName, StartDate, EndDate, Location, TournamentCreator, AvatarPath) VALUES
+('Premier League', '2023-08-11', '2024-05-19', 'England', 'organizer1', 'Avatars\\Tournaments\\Premier_League.jpg'),
+('FA Cup 2024', '2024-01-06', '2024-05-15', 'England', 'organizer1', 'Avatars\\Tournaments\\FA_Cup_2024.png'),
+('EFL Cup 2024', '2023-08-08', '2024-02-25', 'England', 'organizer1', 'Avatars\\Tournaments\\EFL_Cup_2024.png');
 
 -- Thêm dữ liệu vào bảng Matches
 INSERT INTO Matches (TournamentID, Team1ID, Team2ID, MatchDate, Location, TeamWin, Result) VALUES
@@ -227,10 +232,6 @@ INSERT INTO Teams_in_tournament (TournamentID, TeamID) VALUES
 (1, 6),
 (1, 7),
 (1, 8);
-
-
-
-
 
 
 

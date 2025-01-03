@@ -45,7 +45,9 @@
             this.ckbUpdate = new System.Windows.Forms.CheckBox();
             this.cbbTeamName = new System.Windows.Forms.ComboBox();
             this.txtPlayerID = new System.Windows.Forms.TextBox();
+            this.avatar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudJerseyNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -131,7 +133,7 @@
             this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.ReadOnly = true;
-            this.txtPhoneNumber.Size = new System.Drawing.Size(385, 37);
+            this.txtPhoneNumber.Size = new System.Drawing.Size(599, 37);
             this.txtPhoneNumber.TabIndex = 1;
             this.txtPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTeamID_KeyPress);
             // 
@@ -161,7 +163,7 @@
             // 
             this.btnUpdate.Enabled = false;
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(438, 565);
+            this.btnUpdate.Location = new System.Drawing.Point(635, 565);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(109, 53);
@@ -182,7 +184,7 @@
             "Defender"});
             this.cbbPos.Location = new System.Drawing.Point(292, 247);
             this.cbbPos.Name = "cbbPos";
-            this.cbbPos.Size = new System.Drawing.Size(385, 38);
+            this.cbbPos.Size = new System.Drawing.Size(599, 38);
             this.cbbPos.TabIndex = 5;
             // 
             // label7
@@ -199,7 +201,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(585, 565);
+            this.btnDelete.Location = new System.Drawing.Point(782, 565);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(109, 53);
@@ -241,11 +243,22 @@
             this.txtPlayerID.Size = new System.Drawing.Size(385, 37);
             this.txtPlayerID.TabIndex = 1;
             // 
+            // avatar
+            // 
+            this.avatar.Enabled = false;
+            this.avatar.Location = new System.Drawing.Point(701, 39);
+            this.avatar.Name = "avatar";
+            this.avatar.Size = new System.Drawing.Size(190, 175);
+            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.avatar.TabIndex = 8;
+            this.avatar.TabStop = false;
+            // 
             // PlayerDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 652);
+            this.ClientSize = new System.Drawing.Size(934, 652);
+            this.Controls.Add(this.avatar);
             this.Controls.Add(this.cbbTeamName);
             this.Controls.Add(this.ckbUpdate);
             this.Controls.Add(this.cbbPos);
@@ -271,6 +284,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Player Details";
             ((System.ComponentModel.ISupportInitialize)(this.nudJerseyNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,5 +309,6 @@
         private System.Windows.Forms.CheckBox ckbUpdate;
         private System.Windows.Forms.ComboBox cbbTeamName;
         private System.Windows.Forms.TextBox txtPlayerID;
+        private System.Windows.Forms.PictureBox avatar;
     }
 }

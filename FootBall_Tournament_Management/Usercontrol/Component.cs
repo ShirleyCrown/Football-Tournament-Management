@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,13 +21,15 @@ namespace FootBall_Tournament_Management
         private string component;
         private int componentID;
         private Main_screen screen;
-        public Component(string component, int componentID, Main_screen screen)
+        private string avatarPath;
+        public Component(string component, int componentID, Main_screen screen, string avatarPath)
         {
             InitializeComponent();
 
             this.component = component;
             this.componentID = componentID;
             this.screen = screen;
+            this.avatarPath = avatarPath;
 
             if (component == "tournament")
             {
@@ -71,9 +74,28 @@ namespace FootBall_Tournament_Management
             set { avatar.Image = value; }
         }
 
+        private string GetFullImagePath(string relativePath)
+        {
+            string rootFolder = AppDomain.CurrentDomain.BaseDirectory; 
+            return Path.Combine(rootFolder, relativePath); 
+        }
+
         private void Component_Load(object sender, EventArgs e)
         {
             name.Left = (this.ClientSize.Width - name.Width) / 2;
+
+            if (string.IsNullOrEmpty(avatarPath))
+            {
+                return;
+            }
+
+            string fullPath = GetFullImagePath(avatarPath);
+
+            if (File.Exists(fullPath))
+            {
+                avatar.Image = new Bitmap(fullPath);
+            }
+            
         }
 
         protected override void OnPaint(PaintEventArgs e)

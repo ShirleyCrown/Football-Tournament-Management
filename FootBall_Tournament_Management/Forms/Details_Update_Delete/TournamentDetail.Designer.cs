@@ -63,9 +63,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.ckbUpdateTeams = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.avatar = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -83,9 +87,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(64, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(652, 369);
+            this.groupBox1.Size = new System.Drawing.Size(561, 369);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tournament Details";
@@ -108,7 +112,7 @@
             this.dpkEnd.Enabled = false;
             this.dpkEnd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpkEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpkEnd.Location = new System.Drawing.Point(342, 212);
+            this.dpkEnd.Location = new System.Drawing.Point(280, 214);
             this.dpkEnd.Margin = new System.Windows.Forms.Padding(2);
             this.dpkEnd.Name = "dpkEnd";
             this.dpkEnd.Size = new System.Drawing.Size(188, 37);
@@ -119,7 +123,7 @@
             this.dpkStart.Enabled = false;
             this.dpkStart.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpkStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpkStart.Location = new System.Drawing.Point(342, 160);
+            this.dpkStart.Location = new System.Drawing.Point(280, 162);
             this.dpkStart.Margin = new System.Windows.Forms.Padding(2);
             this.dpkStart.Name = "dpkStart";
             this.dpkStart.Size = new System.Drawing.Size(188, 37);
@@ -129,7 +133,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(51, 217);
+            this.label3.Location = new System.Drawing.Point(28, 217);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(127, 30);
@@ -139,7 +143,7 @@
             // txtLocation
             // 
             this.txtLocation.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLocation.Location = new System.Drawing.Point(342, 265);
+            this.txtLocation.Location = new System.Drawing.Point(280, 267);
             this.txtLocation.Margin = new System.Windows.Forms.Padding(2);
             this.txtLocation.Name = "txtLocation";
             this.txtLocation.ReadOnly = true;
@@ -149,7 +153,7 @@
             // txtID
             // 
             this.txtID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(342, 54);
+            this.txtID.Location = new System.Drawing.Point(280, 56);
             this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
@@ -160,7 +164,7 @@
             // 
             this.btnUpdateDetails.Enabled = false;
             this.btnUpdateDetails.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateDetails.Location = new System.Drawing.Point(495, 317);
+            this.btnUpdateDetails.Location = new System.Drawing.Point(416, 312);
             this.btnUpdateDetails.Name = "btnUpdateDetails";
             this.btnUpdateDetails.Size = new System.Drawing.Size(118, 45);
             this.btnUpdateDetails.TabIndex = 2;
@@ -171,7 +175,7 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(342, 109);
+            this.txtName.Location = new System.Drawing.Point(280, 111);
             this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
@@ -182,7 +186,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(51, 268);
+            this.label4.Location = new System.Drawing.Point(28, 268);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 30);
@@ -193,7 +197,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(51, 54);
+            this.label5.Location = new System.Drawing.Point(28, 54);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(194, 30);
@@ -204,7 +208,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(51, 165);
+            this.label2.Location = new System.Drawing.Point(28, 165);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 30);
@@ -215,7 +219,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(51, 109);
+            this.label1.Location = new System.Drawing.Point(28, 109);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(241, 30);
@@ -258,9 +262,9 @@
             this.groupBox2.Controls.Add(this.btnUpdatePrize);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(766, 17);
+            this.groupBox2.Location = new System.Drawing.Point(579, 16);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(648, 365);
+            this.groupBox2.Size = new System.Drawing.Size(548, 365);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Prize Information";
@@ -281,7 +285,7 @@
             // txt2ndRunnerup
             // 
             this.txt2ndRunnerup.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt2ndRunnerup.Location = new System.Drawing.Point(342, 160);
+            this.txt2ndRunnerup.Location = new System.Drawing.Point(287, 161);
             this.txt2ndRunnerup.Margin = new System.Windows.Forms.Padding(2);
             this.txt2ndRunnerup.Name = "txt2ndRunnerup";
             this.txt2ndRunnerup.ReadOnly = true;
@@ -292,7 +296,7 @@
             // txtChampionPrize
             // 
             this.txtChampionPrize.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChampionPrize.Location = new System.Drawing.Point(342, 54);
+            this.txtChampionPrize.Location = new System.Drawing.Point(287, 55);
             this.txtChampionPrize.Margin = new System.Windows.Forms.Padding(2);
             this.txtChampionPrize.Name = "txtChampionPrize";
             this.txtChampionPrize.ReadOnly = true;
@@ -303,7 +307,7 @@
             // txtRunnerup
             // 
             this.txtRunnerup.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRunnerup.Location = new System.Drawing.Point(342, 109);
+            this.txtRunnerup.Location = new System.Drawing.Point(287, 110);
             this.txtRunnerup.Margin = new System.Windows.Forms.Padding(2);
             this.txtRunnerup.Name = "txtRunnerup";
             this.txtRunnerup.ReadOnly = true;
@@ -315,7 +319,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(51, 163);
+            this.label9.Location = new System.Drawing.Point(32, 164);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(240, 30);
@@ -326,7 +330,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(51, 54);
+            this.label10.Location = new System.Drawing.Point(32, 55);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(148, 30);
@@ -337,7 +341,7 @@
             // 
             this.btnUpdatePrize.Enabled = false;
             this.btnUpdatePrize.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdatePrize.Location = new System.Drawing.Point(500, 312);
+            this.btnUpdatePrize.Location = new System.Drawing.Point(391, 302);
             this.btnUpdatePrize.Name = "btnUpdatePrize";
             this.btnUpdatePrize.Size = new System.Drawing.Size(118, 45);
             this.btnUpdatePrize.TabIndex = 2;
@@ -349,7 +353,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(51, 109);
+            this.label12.Location = new System.Drawing.Point(32, 110);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(142, 30);
@@ -360,7 +364,7 @@
             // 
             this.lstTeamInDB.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstTeamInDB.HideSelection = false;
-            this.lstTeamInDB.Location = new System.Drawing.Point(186, 83);
+            this.lstTeamInDB.Location = new System.Drawing.Point(214, 85);
             this.lstTeamInDB.Name = "lstTeamInDB";
             this.lstTeamInDB.Size = new System.Drawing.Size(408, 322);
             this.lstTeamInDB.TabIndex = 1;
@@ -372,7 +376,7 @@
             // 
             this.lstTeamInTournament.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstTeamInTournament.HideSelection = false;
-            this.lstTeamInTournament.Location = new System.Drawing.Point(774, 83);
+            this.lstTeamInTournament.Location = new System.Drawing.Point(802, 85);
             this.lstTeamInTournament.Name = "lstTeamInTournament";
             this.lstTeamInTournament.Size = new System.Drawing.Size(414, 322);
             this.lstTeamInTournament.TabIndex = 1;
@@ -382,8 +386,9 @@
             // 
             // btnMoveRight
             // 
+            this.btnMoveRight.Enabled = false;
             this.btnMoveRight.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoveRight.Location = new System.Drawing.Point(645, 105);
+            this.btnMoveRight.Location = new System.Drawing.Point(673, 107);
             this.btnMoveRight.Name = "btnMoveRight";
             this.btnMoveRight.Size = new System.Drawing.Size(72, 45);
             this.btnMoveRight.TabIndex = 2;
@@ -393,8 +398,9 @@
             // 
             // btnMoveLeft
             // 
+            this.btnMoveLeft.Enabled = false;
             this.btnMoveLeft.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoveLeft.Location = new System.Drawing.Point(645, 171);
+            this.btnMoveLeft.Location = new System.Drawing.Point(673, 173);
             this.btnMoveLeft.Name = "btnMoveLeft";
             this.btnMoveLeft.Size = new System.Drawing.Size(72, 45);
             this.btnMoveLeft.TabIndex = 2;
@@ -404,8 +410,9 @@
             // 
             // btnMoveAllRight
             // 
+            this.btnMoveAllRight.Enabled = false;
             this.btnMoveAllRight.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoveAllRight.Location = new System.Drawing.Point(645, 288);
+            this.btnMoveAllRight.Location = new System.Drawing.Point(673, 290);
             this.btnMoveAllRight.Name = "btnMoveAllRight";
             this.btnMoveAllRight.Size = new System.Drawing.Size(72, 45);
             this.btnMoveAllRight.TabIndex = 2;
@@ -416,7 +423,7 @@
             // btnUpdateTeams
             // 
             this.btnUpdateTeams.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateTeams.Location = new System.Drawing.Point(1202, 423);
+            this.btnUpdateTeams.Location = new System.Drawing.Point(1317, 413);
             this.btnUpdateTeams.Name = "btnUpdateTeams";
             this.btnUpdateTeams.Size = new System.Drawing.Size(118, 45);
             this.btnUpdateTeams.TabIndex = 2;
@@ -426,8 +433,9 @@
             // 
             // btnMoveAllLeft
             // 
+            this.btnMoveAllLeft.Enabled = false;
             this.btnMoveAllLeft.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoveAllLeft.Location = new System.Drawing.Point(645, 352);
+            this.btnMoveAllLeft.Location = new System.Drawing.Point(673, 354);
             this.btnMoveAllLeft.Name = "btnMoveAllLeft";
             this.btnMoveAllLeft.Size = new System.Drawing.Size(72, 45);
             this.btnMoveAllLeft.TabIndex = 2;
@@ -439,7 +447,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(182, 42);
+            this.label6.Location = new System.Drawing.Point(210, 44);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(262, 28);
             this.label6.TabIndex = 3;
@@ -449,7 +457,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(768, 42);
+            this.label7.Location = new System.Drawing.Point(796, 44);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(254, 28);
             this.label7.TabIndex = 3;
@@ -485,17 +493,38 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox3.Size = new System.Drawing.Size(1350, 477);
+            this.groupBox3.Size = new System.Drawing.Size(1451, 477);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Teams in tournament";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.avatar);
+            this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(1133, 16);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(383, 365);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Logo";
+            // 
+            // avatar
+            // 
+            this.avatar.Location = new System.Drawing.Point(19, 55);
+            this.avatar.Name = "avatar";
+            this.avatar.Size = new System.Drawing.Size(347, 245);
+            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.avatar.TabIndex = 0;
+            this.avatar.TabStop = false;
             // 
             // TournamentDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1472, 977);
+            this.ClientSize = new System.Drawing.Size(1528, 977);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnStart);
@@ -512,6 +541,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -553,5 +584,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox ckbUpdateTeams;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.PictureBox avatar;
     }
 }

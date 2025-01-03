@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,17 +15,19 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 {
     public partial class CoachDetail : Form
     {
-        private int coachID;
-        Main_screen screen;
+        private readonly int coachID;
+        private Main_screen screen;
+        private string selectedImagePath;
+        private string imagePath;
         public CoachDetail(int coachID, Main_screen screen)
         {
             InitializeComponent();
             this.coachID = coachID;
             this.screen = screen;
             Display();
-        }   
+        }
 
-        public void Display()
+        private void Display()
         {
             CoachDAO coachDAO = new CoachDAO();
             Coach coach = coachDAO.GetCoachByID(coachID);
@@ -34,6 +37,24 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             dpkDob.Value = coach.Dob;
             txtPhoneNumber.Text = coach.PhoneNumber;
             txtForte.Text = coach.Forte;
+            this.imagePath = coach.AvatarPath;
+
+            if (string.IsNullOrEmpty(coach.AvatarPath))
+            {
+                return;
+            }
+
+            string fullPath = GetFullImagePath(coach.AvatarPath);
+            if (File.Exists(fullPath))
+            {
+                avatar.Image = new Bitmap(fullPath);
+            }
+        }
+
+        private string GetFullImagePath(string relativePath)
+        {
+            string rootFolder = AppDomain.CurrentDomain.BaseDirectory;
+            return Path.Combine(rootFolder, relativePath);
         }
 
         private void txtPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
@@ -100,18 +121,19 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult = MessageBox.Show("Are you sure to delete this tournament ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (DialogResult == DialogResult.No)
+            DialogResult result = MessageBox.Show("Are you sure to delete this coach?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
             {
                 return;
             }
 
-            CoachDAO coachDAO=new CoachDAO();
+            CoachDAO coachDAO = new CoachDAO();
             coachDAO.DeleteCoach(coachID);
 
-            MessageBox.Show("Coach deleted !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Coach deleted successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             screen.InvokeButtonCoachClick();
             this.Close();
         }
+
     }
 }

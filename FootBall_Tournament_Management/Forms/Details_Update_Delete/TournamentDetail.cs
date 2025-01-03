@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +52,23 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             dpkStart.Value = tournament.StartDate;
             dpkEnd.Value = tournament.EndDate;
             txtLocation.Text = tournament.Location;
+
+            if (string.IsNullOrEmpty(tournament.AvatarPath))
+            {
+                return;
+            }
+
+            string fullPath = GetFullImagePath(tournament.AvatarPath);
+            if (File.Exists(fullPath))
+            {
+                avatar.Image = new Bitmap(fullPath);
+            }
+        }
+
+        private string GetFullImagePath(string relativePath)
+        {
+            string rootFolder = AppDomain.CurrentDomain.BaseDirectory;
+            return Path.Combine(rootFolder, relativePath);
         }
 
         public void DisplayPrize()
@@ -268,10 +286,11 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             }
             else
             {
-                txtName.ReadOnly = true;
-                txtLocation.ReadOnly = true;
-                dpkStart.Enabled = false;
-                dpkEnd.Enabled = false;
+                btnMoveAllLeft.Enabled = false;
+                btnMoveAllRight.Enabled = false;
+                btnMoveLeft.Enabled = false;
+                btnMoveRight.Enabled = false;
+
                 btnUpdateTeams.Enabled = false;
 
                 OptimizeDualListView();

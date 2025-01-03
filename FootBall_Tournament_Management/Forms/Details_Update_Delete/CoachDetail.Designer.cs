@@ -41,6 +41,8 @@
             this.txtCoachID = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.ckbUpdate = new System.Windows.Forms.CheckBox();
+            this.avatar = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -59,7 +61,7 @@
             this.txtName.Location = new System.Drawing.Point(302, 117);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(477, 37);
+            this.txtName.Size = new System.Drawing.Size(406, 37);
             this.txtName.TabIndex = 1;
             // 
             // label2
@@ -98,7 +100,7 @@
             this.txtPhoneNumber.Location = new System.Drawing.Point(302, 268);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.ReadOnly = true;
-            this.txtPhoneNumber.Size = new System.Drawing.Size(477, 37);
+            this.txtPhoneNumber.Size = new System.Drawing.Size(625, 37);
             this.txtPhoneNumber.TabIndex = 1;
             this.txtPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneNumber_KeyPress);
             // 
@@ -118,14 +120,14 @@
             this.txtForte.Location = new System.Drawing.Point(302, 342);
             this.txtForte.Name = "txtForte";
             this.txtForte.ReadOnly = true;
-            this.txtForte.Size = new System.Drawing.Size(477, 37);
+            this.txtForte.Size = new System.Drawing.Size(625, 37);
             this.txtForte.TabIndex = 1;
             // 
             // btnUpdate
             // 
             this.btnUpdate.Enabled = false;
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(554, 481);
+            this.btnUpdate.Location = new System.Drawing.Point(672, 473);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(111, 49);
             this.btnUpdate.TabIndex = 3;
@@ -149,13 +151,13 @@
             this.txtCoachID.Location = new System.Drawing.Point(302, 49);
             this.txtCoachID.Name = "txtCoachID";
             this.txtCoachID.ReadOnly = true;
-            this.txtCoachID.Size = new System.Drawing.Size(477, 37);
+            this.txtCoachID.Size = new System.Drawing.Size(406, 37);
             this.txtCoachID.TabIndex = 1;
             // 
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(698, 481);
+            this.btnDelete.Location = new System.Drawing.Point(816, 473);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(111, 49);
             this.btnDelete.TabIndex = 3;
@@ -175,11 +177,23 @@
             this.ckbUpdate.UseVisualStyleBackColor = true;
             this.ckbUpdate.CheckedChanged += new System.EventHandler(this.ckbUpdate_CheckedChanged);
             // 
+            // avatar
+            // 
+            this.avatar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.avatar.Enabled = false;
+            this.avatar.Location = new System.Drawing.Point(727, 49);
+            this.avatar.Name = "avatar";
+            this.avatar.Size = new System.Drawing.Size(200, 200);
+            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.avatar.TabIndex = 5;
+            this.avatar.TabStop = false;
+            // 
             // CoachDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 563);
+            this.ClientSize = new System.Drawing.Size(1013, 563);
+            this.Controls.Add(this.avatar);
             this.Controls.Add(this.ckbUpdate);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -198,6 +212,7 @@
             this.Name = "CoachDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add New Coach";
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,5 +233,6 @@
         private System.Windows.Forms.TextBox txtCoachID;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.CheckBox ckbUpdate;
+        private System.Windows.Forms.PictureBox avatar;
     }
 }

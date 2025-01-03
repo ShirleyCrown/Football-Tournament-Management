@@ -18,7 +18,7 @@ namespace FootBall_Tournament_Management.DAO
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "INSERT INTO Coachs (CoachName, BirthDate, PhoneNumber, Forte) VALUES (@CoachName, @BirthDate, @PhoneNumber, @Forte);";
+                string query = "INSERT INTO Coachs (CoachName, BirthDate, PhoneNumber, Forte, AvatarPath) VALUES (@CoachName, @BirthDate, @PhoneNumber, @Forte, @AvatarPath);";
 
                 using (var command = new MySqlCommand(query, connection))
                 {
@@ -26,6 +26,7 @@ namespace FootBall_Tournament_Management.DAO
                     command.Parameters.AddWithValue("@BirthDate", coach.Dob);
                     command.Parameters.AddWithValue("@PhoneNumber", coach.PhoneNumber);
                     command.Parameters.AddWithValue("@Forte", coach.Forte);
+                    command.Parameters.AddWithValue("@AvatarPath", string.IsNullOrEmpty(coach.AvatarPath) ? null : coach.AvatarPath);
                     command.ExecuteNonQuery();
                 }
             }
@@ -36,7 +37,7 @@ namespace FootBall_Tournament_Management.DAO
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "UPDATE Coachs SET CoachName = @CoachName, BirthDate = @BirthDate, PhoneNumber = @PhoneNumber, Forte = @Forte WHERE CoachID = @CoachID";
+                string query = "UPDATE Coachs SET CoachName = @CoachName, BirthDate = @BirthDate, PhoneNumber = @PhoneNumber, Forte = @Forte, AvatarPath = @AvatarPath WHERE CoachID = @CoachID";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@CoachID", coach.CoachID);
@@ -44,6 +45,8 @@ namespace FootBall_Tournament_Management.DAO
                     command.Parameters.AddWithValue("@BirthDate", coach.Dob);
                     command.Parameters.AddWithValue("@PhoneNumber", coach.PhoneNumber);
                     command.Parameters.AddWithValue("@Forte", coach.Forte);
+                    command.Parameters.AddWithValue("@AvatarPath", coach.AvatarPath);
+
                     command.ExecuteNonQuery();
                 }
             }
@@ -96,7 +99,7 @@ namespace FootBall_Tournament_Management.DAO
                     {
                         if (reader.Read())
                         {
-                            return new Coach(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetString(3), reader.GetString(4));
+                            return new Coach(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetString(3), reader.GetString(4), reader.GetString(6));
                         }
                     }
                 }

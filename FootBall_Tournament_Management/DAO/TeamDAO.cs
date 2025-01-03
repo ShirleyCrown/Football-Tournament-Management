@@ -18,13 +18,15 @@ namespace FootBall_Tournament_Management.DAO
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "INSERT INTO Teams (TeamName, CoachID, EstablishedDate) VALUES (@TeamName, @CoachID, @EstablishedDate);";
+                string query = "INSERT INTO Teams (TeamName, CoachID, EstablishedDate, AvatarPath) VALUES (@TeamName, @CoachID, @EstablishedDate, @AvatarPath);";
 
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@TeamName", team.TeamName);
                     command.Parameters.AddWithValue("@CoachID", team.CoachID);
                     command.Parameters.AddWithValue("@EstablishedDate", team.EstablishedDate);
+                    command.Parameters.AddWithValue("@AvatarPath", team.AvatarPath);
+
                     command.ExecuteNonQuery();
                 }
             }
@@ -94,7 +96,7 @@ namespace FootBall_Tournament_Management.DAO
                     {
                         if (reader.Read()) 
                         {
-                            return new Team(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3));
+                            return new Team(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3), reader.GetString(5));
                         }
                     }
                 }

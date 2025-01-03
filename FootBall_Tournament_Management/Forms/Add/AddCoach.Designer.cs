@@ -37,6 +37,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtForte = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.avatar = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -123,15 +126,38 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // avatar
+            // 
+            this.avatar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.avatar.Location = new System.Drawing.Point(843, 58);
+            this.avatar.Name = "avatar";
+            this.avatar.Size = new System.Drawing.Size(300, 300);
+            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.avatar.TabIndex = 4;
+            this.avatar.TabStop = false;
+            this.avatar.Click += new System.EventHandler(this.avatar_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(949, 384);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 30);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Avatar";
+            // 
             // AddCoach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 474);
+            this.ClientSize = new System.Drawing.Size(1210, 474);
+            this.Controls.Add(this.avatar);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dpkDob);
             this.Controls.Add(this.txtForte);
             this.Controls.Add(this.txtPhoneNumber);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label3);
@@ -142,6 +168,7 @@
             this.Name = "AddCoach";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add New Coach";
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,5 +185,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtForte;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.PictureBox avatar;
+        private System.Windows.Forms.Label label5;
     }
 }

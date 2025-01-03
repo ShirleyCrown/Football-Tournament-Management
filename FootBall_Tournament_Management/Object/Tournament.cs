@@ -52,6 +52,16 @@ namespace FootBall_Tournament_Management.NewFolder1
             this.location = location;
         }
 
+        public Tournament(string tournamentCreator, string tournamentName, DateTime startDate, DateTime endDate, string location, string avatarPath)
+        {
+            this.tournamentCreator = tournamentCreator;
+            this.tournamentName = tournamentName;
+            this.startDate = startDate;
+            this.endDate = endDate;
+            this.location = location;
+            this.avatarPath = avatarPath;
+        }
+
         public Tournament(int tournamentID, string tournamentName, DateTime startDate, DateTime endDate, string location, string avatarPath)
         {
             this.tournamentID = tournamentID;

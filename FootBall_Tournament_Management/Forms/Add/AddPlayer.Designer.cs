@@ -41,7 +41,10 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.cbbPos = new System.Windows.Forms.ComboBox();
             this.cbbTeamName = new System.Windows.Forms.ComboBox();
+            this.avatar = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudJerseyNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -151,7 +154,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(266, 452);
+            this.btnAdd.Location = new System.Drawing.Point(477, 454);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(109, 53);
@@ -185,17 +188,41 @@
             this.cbbTeamName.Size = new System.Drawing.Size(385, 38);
             this.cbbTeamName.TabIndex = 5;
             // 
+            // avatar
+            // 
+            this.avatar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.avatar.Location = new System.Drawing.Point(704, 38);
+            this.avatar.Name = "avatar";
+            this.avatar.Size = new System.Drawing.Size(300, 300);
+            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.avatar.TabIndex = 6;
+            this.avatar.TabStop = false;
+            this.avatar.Click += new System.EventHandler(this.avatar_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(804, 383);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 30);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Avatar";
+            // 
             // AddPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 534);
+            this.ClientSize = new System.Drawing.Size(1055, 534);
+            this.Controls.Add(this.avatar);
             this.Controls.Add(this.cbbTeamName);
             this.Controls.Add(this.cbbPos);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.nudJerseyNum);
             this.Controls.Add(this.dpkDob);
             this.Controls.Add(this.txtPhoneNumber);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -212,6 +239,7 @@
             this.Text = "AddPlayer";
             this.Load += new System.EventHandler(this.AddPlayer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudJerseyNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,5 +260,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ComboBox cbbPos;
         private System.Windows.Forms.ComboBox cbbTeamName;
+        private System.Windows.Forms.PictureBox avatar;
+        private System.Windows.Forms.Label label7;
     }
 }

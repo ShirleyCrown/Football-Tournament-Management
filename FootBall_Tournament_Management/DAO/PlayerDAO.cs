@@ -18,7 +18,7 @@ namespace FootBall_Tournament_Management.DAO
             using (var connection = db.GetConnection())
             {
                 connection.Open();
-                string query = "INSERT INTO Players (TeamID, PlayerName, Position, BirthDate, PhoneNumber, JerseyNumber) VALUES (@TeamID, @PlayerName, @Position, @BirthDate, @PhoneNumber, @JerseyNumber);";
+                string query = "INSERT INTO Players (TeamID, PlayerName, Position, BirthDate, PhoneNumber, JerseyNumber, AvatarPath) VALUES (@TeamID, @PlayerName, @Position, @BirthDate, @PhoneNumber, @JerseyNumber, @AvatarPath);";
 
                 using (var command = new MySqlCommand(query, connection))
                 {
@@ -28,6 +28,8 @@ namespace FootBall_Tournament_Management.DAO
                     command.Parameters.AddWithValue("@BirthDate", player.Dob);
                     command.Parameters.AddWithValue("@PhoneNumber", player.PhoneNumber);
                     command.Parameters.AddWithValue("@JerseyNumber", player.JerseyNumber);
+                    command.Parameters.AddWithValue("@AvatarPath", player.AvatarPath);
+
                     command.ExecuteNonQuery();
                 }
             }
@@ -50,6 +52,7 @@ namespace FootBall_Tournament_Management.DAO
                     command.Parameters.AddWithValue("@BirthDate", player.Dob);
                     command.Parameters.AddWithValue("@PhoneNumber", player.PhoneNumber);
                     command.Parameters.AddWithValue("@JerseyNumber", player.JerseyNumber);
+
                     command.ExecuteNonQuery();
                 }
             }
@@ -119,7 +122,7 @@ namespace FootBall_Tournament_Management.DAO
                     {
                         if (reader.Read())
                         {
-                            return new Player(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4), reader.GetString(5), reader.GetInt32(6));
+                            return new Player(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4), reader.GetString(5), reader.GetInt32(6), reader.GetString(8));
                         }
                     }
                 }

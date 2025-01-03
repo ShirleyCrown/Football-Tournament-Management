@@ -35,6 +35,9 @@
             this.dpkEDate = new System.Windows.Forms.DateTimePicker();
             this.btnAdd = new System.Windows.Forms.Button();
             this.cbbCoachName = new System.Windows.Forms.ComboBox();
+            this.avatar = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -105,15 +108,38 @@
             this.cbbCoachName.Size = new System.Drawing.Size(405, 38);
             this.cbbCoachName.TabIndex = 4;
             // 
+            // avatar
+            // 
+            this.avatar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.avatar.Location = new System.Drawing.Point(774, 56);
+            this.avatar.Name = "avatar";
+            this.avatar.Size = new System.Drawing.Size(230, 230);
+            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.avatar.TabIndex = 5;
+            this.avatar.TabStop = false;
+            this.avatar.Click += new System.EventHandler(this.avatar_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(845, 329);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(92, 30);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Avatar";
+            // 
             // AddTeam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 406);
+            this.ClientSize = new System.Drawing.Size(1079, 406);
+            this.Controls.Add(this.avatar);
             this.Controls.Add(this.cbbCoachName);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dpkEDate);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
@@ -123,6 +149,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add New Team";
             this.Load += new System.EventHandler(this.AddTeam_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +164,7 @@
         private System.Windows.Forms.DateTimePicker dpkEDate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ComboBox cbbCoachName;
+        private System.Windows.Forms.PictureBox avatar;
+        private System.Windows.Forms.Label label4;
     }
 }

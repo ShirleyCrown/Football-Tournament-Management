@@ -39,21 +39,23 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.ckb = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbbCoachName = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvMemebers = new System.Windows.Forms.DataGridView();
-            this.cbbCoachName = new System.Windows.Forms.ComboBox();
+            this.avatar = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemebers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(195, 120);
+            this.txtName.Location = new System.Drawing.Point(178, 120);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(340, 37);
+            this.txtName.Size = new System.Drawing.Size(266, 37);
             this.txtName.TabIndex = 0;
             // 
             // label1
@@ -70,7 +72,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(655, 44);
+            this.label2.Location = new System.Drawing.Point(483, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 30);
             this.label2.TabIndex = 1;
@@ -80,7 +82,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(655, 123);
+            this.label3.Location = new System.Drawing.Point(483, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(217, 30);
             this.label3.TabIndex = 1;
@@ -91,7 +93,7 @@
             this.dpkEDate.Enabled = false;
             this.dpkEDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpkEDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpkEDate.Location = new System.Drawing.Point(894, 118);
+            this.dpkEDate.Location = new System.Drawing.Point(701, 121);
             this.dpkEDate.Name = "dpkEDate";
             this.dpkEDate.Size = new System.Drawing.Size(195, 37);
             this.dpkEDate.TabIndex = 2;
@@ -100,7 +102,7 @@
             // 
             this.btnUpdate.Enabled = false;
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(894, 206);
+            this.btnUpdate.Location = new System.Drawing.Point(701, 206);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(115, 45);
             this.btnUpdate.TabIndex = 3;
@@ -111,10 +113,10 @@
             // txtTeamID
             // 
             this.txtTeamID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTeamID.Location = new System.Drawing.Point(195, 41);
+            this.txtTeamID.Location = new System.Drawing.Point(178, 41);
             this.txtTeamID.Name = "txtTeamID";
             this.txtTeamID.ReadOnly = true;
-            this.txtTeamID.Size = new System.Drawing.Size(340, 37);
+            this.txtTeamID.Size = new System.Drawing.Size(266, 37);
             this.txtTeamID.TabIndex = 0;
             // 
             // label4
@@ -130,7 +132,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(1119, 206);
+            this.btnDelete.Location = new System.Drawing.Point(926, 206);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(115, 45);
             this.btnDelete.TabIndex = 3;
@@ -152,6 +154,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.avatar);
             this.groupBox1.Controls.Add(this.cbbCoachName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnDelete);
@@ -166,10 +169,20 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(36, 21);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1263, 266);
+            this.groupBox1.Size = new System.Drawing.Size(1396, 266);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Details";
+            // 
+            // cbbCoachName
+            // 
+            this.cbbCoachName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCoachName.Enabled = false;
+            this.cbbCoachName.FormattingEnabled = true;
+            this.cbbCoachName.Location = new System.Drawing.Point(701, 41);
+            this.cbbCoachName.Name = "cbbCoachName";
+            this.cbbCoachName.Size = new System.Drawing.Size(340, 38);
+            this.cbbCoachName.TabIndex = 5;
             // 
             // groupBox2
             // 
@@ -177,7 +190,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(36, 347);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1263, 368);
+            this.groupBox2.Size = new System.Drawing.Size(1396, 368);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Team members";
@@ -186,6 +199,7 @@
             // 
             this.dgvMemebers.AllowUserToAddRows = false;
             this.dgvMemebers.AllowUserToDeleteRows = false;
+            this.dgvMemebers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMemebers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMemebers.Location = new System.Drawing.Point(19, 36);
             this.dgvMemebers.Name = "dgvMemebers";
@@ -193,24 +207,25 @@
             this.dgvMemebers.RowHeadersVisible = false;
             this.dgvMemebers.RowHeadersWidth = 62;
             this.dgvMemebers.RowTemplate.Height = 28;
-            this.dgvMemebers.Size = new System.Drawing.Size(1215, 326);
+            this.dgvMemebers.Size = new System.Drawing.Size(1360, 326);
             this.dgvMemebers.TabIndex = 0;
             // 
-            // cbbCoachName
+            // avatar
             // 
-            this.cbbCoachName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCoachName.Enabled = false;
-            this.cbbCoachName.FormattingEnabled = true;
-            this.cbbCoachName.Location = new System.Drawing.Point(894, 38);
-            this.cbbCoachName.Name = "cbbCoachName";
-            this.cbbCoachName.Size = new System.Drawing.Size(340, 38);
-            this.cbbCoachName.TabIndex = 5;
+            this.avatar.BackColor = System.Drawing.SystemColors.Control;
+            this.avatar.Enabled = false;
+            this.avatar.Location = new System.Drawing.Point(1120, 41);
+            this.avatar.Name = "avatar";
+            this.avatar.Size = new System.Drawing.Size(226, 194);
+            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.avatar.TabIndex = 6;
+            this.avatar.TabStop = false;
             // 
             // TeamDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 727);
+            this.ClientSize = new System.Drawing.Size(1444, 727);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -222,6 +237,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemebers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -242,5 +258,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvMemebers;
         private System.Windows.Forms.ComboBox cbbCoachName;
+        private System.Windows.Forms.PictureBox avatar;
     }
 }

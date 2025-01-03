@@ -2,11 +2,13 @@
 using FootBall_Tournament_Management.DAO;
 using FootBall_Tournament_Management.NewFolder1;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Crypto.Macs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +41,23 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             dpkDob.Value = player.Dob;
             txtPhoneNumber.Text = player.PhoneNumber.ToString();
             nudJerseyNum.Value = player.JerseyNumber;
+
+            if (string.IsNullOrEmpty(player.AvatarPath))
+            {
+                return;
+            }
+
+            string fullPath = GetFullImagePath(player.AvatarPath);
+            if (File.Exists(fullPath))
+            {
+                avatar.Image = new Bitmap(fullPath);
+            }
+        }
+
+        private string GetFullImagePath(string relativePath)
+        {
+            string rootFolder = AppDomain.CurrentDomain.BaseDirectory;
+            return Path.Combine(rootFolder, relativePath);
         }
 
         public void LoadTeamList()

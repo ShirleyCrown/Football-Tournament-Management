@@ -1,12 +1,16 @@
 ﻿using DevComponents.DotNetBar;
+using DevComponents.DotNetBar.Controls;
 using FootBall_Tournament_Management.DAO;
 using FootBall_Tournament_Management.NewFolder1;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Relational;
+using Org.BouncyCastle.Crypto.Macs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +43,24 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             cbbCoachName.SelectedIndex = GetItemIndex(team.CoachID);
             dpkEDate.Value = team.EstablishedDate;
 
+            if (string.IsNullOrEmpty(team.AvatarPath))
+            {
+                return;
+            }
+
+            string fullPath = GetFullImagePath(team.AvatarPath);
+            if (File.Exists(fullPath))
+            {
+                avatar.Image = new Bitmap(fullPath);
+            }
+
             DisplayMembers();
+        }
+
+        private string GetFullImagePath(string relativePath)
+        {
+            string rootFolder = AppDomain.CurrentDomain.BaseDirectory;
+            return Path.Combine(rootFolder, relativePath);
         }
 
         private int GetItemIndex(int id)
@@ -169,27 +190,43 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
         public void DisplayMembers()
         {
-            TeamDAO teamDAO= new TeamDAO();
+            TeamDAO teamDAO = new TeamDAO();
             DataTable dt = teamDAO.GetTeamMembers(teamID);
-            dt.Columns.RemoveAt(7);
 
-            //dt.Columns["Column1"].ColumnName = "ID";
-            //dt.Columns["Column3"].ColumnName = "Name";
-            //dt.Columns["Column4"].ColumnName = "Position";
-            //dt.Columns["Column5"].ColumnName = "Birth Date";
-            //dt.Columns["Column6"].ColumnName = "Phone Number";
-            //dt.Columns["Column7"].ColumnName = "Jersey Number";
+
+            dt.Columns.RemoveAt(7);
+            dt.Columns.RemoveAt(1);
+
+            dt.Columns.Add("Avatar", typeof(Image));
+
+            string rootFolder = AppDomain.CurrentDomain.BaseDirectory;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string relativePath = row["AvatarPath"].ToString(); 
+                string fullPath = Path.Combine(rootFolder, relativePath);
+
+                if (File.Exists(fullPath))
+                {
+                    row["Avatar"] = Image.FromFile(fullPath);
+                }
+                else
+                {
+                    row["Avatar"] = null; 
+                }
+            }
 
             dgvMemebers.DataSource = dt;
 
-            int width = dgvMemebers.Width / dgvMemebers.Columns.Count;
+            dgvMemebers.Columns["AvatarPath"].Visible = false;
 
-            for(int i = 0; i < dgvMemebers.Columns.Count; i++)
-            {
-                dgvMemebers.Columns[i].Width = width;
-            }
+            dgvMemebers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            DataGridViewImageColumn imageColumn = (DataGridViewImageColumn)dgvMemebers.Columns["Avatar"];
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
         }
 
-        
+
+
     }
 }

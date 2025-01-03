@@ -15,6 +15,7 @@ namespace FootBall_Tournament_Management.NewFolder1
         private DateTime dob;
         private string phoneNumber;
         private int jerseyNumber;
+        private string avatarPath;
 
         public Player( int teamID, string playerName, string position, DateTime dob, string phoneNumber, int jerseyNumber)
         {
@@ -37,6 +38,29 @@ namespace FootBall_Tournament_Management.NewFolder1
             this.jerseyNumber = jerseyNumber;
         }
 
+        public Player(int teamID, string playerName, string position, DateTime dob, string phoneNumber, int jerseyNumber, string avatarPath)
+        {
+            this.teamID = teamID;
+            this.playerName = playerName;
+            this.position = position;
+            this.dob = dob;
+            this.phoneNumber = phoneNumber;
+            this.jerseyNumber = jerseyNumber;
+            this.avatarPath = avatarPath;
+        }
+
+        public Player(int playerID, int teamID, string playerName, string position, DateTime dob, string phoneNumber, int jerseyNumber, string avatarPath)
+        {
+            this.playerID = playerID;
+            this.teamID = teamID;
+            this.playerName = playerName;
+            this.position = position;
+            this.dob = dob;
+            this.phoneNumber = phoneNumber;
+            this.jerseyNumber = jerseyNumber;
+            this.avatarPath = avatarPath;
+        }
+
         public int PlayerID { get => playerID; set => playerID = value; }
         public int TeamID { get => teamID; set => teamID = value; }
         public string PlayerName { get => playerName; set => playerName = value; }
@@ -44,6 +68,7 @@ namespace FootBall_Tournament_Management.NewFolder1
         public DateTime Dob { get => dob; set => dob = value; }
         public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
         public int JerseyNumber { get => jerseyNumber; set => jerseyNumber = value; }
+        public string AvatarPath { get => avatarPath; set => avatarPath = value; }
     }
 
 

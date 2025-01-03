@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace FootBall_Tournament_Management.Forms
         Main_screen screen;
 
         string[] list;
+        private string selectedImagePath;
+
         public AddPlayer(Main_screen screen)
         {
             InitializeComponent();
@@ -54,14 +57,22 @@ namespace FootBall_Tournament_Management.Forms
             DateTime dt = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]));
 
             var item = cbbTeamName.SelectedItem as ComboBoxItem;
-            Player player = new Player(int.Parse(item.Tag.ToString()), txtName.Text.Trim(), cbbPos.Text, dt, txtPhoneNumber.Text.Trim(), (int) nudJerseyNum.Value);
-
-            PlayerDAO playerDAO = new PlayerDAO();
+            
             try
             {
-                playerDAO.AddPlayer(player);
-                MessageBox.Show("Add new player successfully !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                if (avatar.Image == null)
+                {
+                    Player player = new Player(int.Parse(item.Tag.ToString()), txtName.Text.Trim(), cbbPos.Text, dt, txtPhoneNumber.Text.Trim(), (int)nudJerseyNum.Value, null);
+                    PlayerDAO playerDAO = new PlayerDAO();
+                    playerDAO.AddPlayer(player);
+                }
+                else
+                {
+                    Player player = new Player(int.Parse(item.Tag.ToString()), txtName.Text.Trim(), cbbPos.Text, dt, txtPhoneNumber.Text, (int)nudJerseyNum.Value, GetRelativePath(txtName.Text.Trim()));
+                    PlayerDAO playerDAO = new PlayerDAO();
+                    playerDAO.AddPlayer(player);
+                }
             }
             catch (MySqlException)
             {
@@ -70,8 +81,65 @@ namespace FootBall_Tournament_Management.Forms
                 return;
             }
 
+            MessageBox.Show("Add new player successfully !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             screen.InvokeButtonPlayerClick();
             this.Close();
+        }
+
+        private string GetRelativePath(string name)
+        {
+            string rootFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Avatars");
+            string targetFolder = Path.Combine(rootFolder, "Players");
+
+            int i = 1;
+            const int maxRetries = 100;
+            string newFileName = "";
+            string fileExtension = Path.GetExtension(selectedImagePath);
+            bool success = false;
+
+            while (i <= maxRetries)
+            {
+                try
+                {
+                    newFileName = i == 1 ? $"{name}{fileExtension}" : $"{name}{i}{fileExtension}";
+                    string savedImagePath = Path.Combine(targetFolder, newFileName);
+
+                    if (!File.Exists(savedImagePath))
+                    {
+                        File.Copy(selectedImagePath, savedImagePath);
+                        success = true;
+                        break;
+                    }
+
+                    i++;
+                }
+                catch (IOException ex)
+                {
+                    MessageBox.Show($"File is being used by another process: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    i++;
+                }
+            }
+
+            if (!success)
+            {
+                throw new IOException("Unable to save the image after multiple attempts.");
+            }
+
+            return Path.Combine("Avatars", "Players", newFileName);
+        }
+
+        private void avatar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                selectedImagePath = openFileDialog.FileName;
+                avatar.Image = new Bitmap(selectedImagePath);
+            }
         }
 
         private void txtTeamID_KeyPress(object sender, KeyPressEventArgs e)
@@ -116,5 +184,7 @@ namespace FootBall_Tournament_Management.Forms
         {
             LoadTeamList();
         }
+
+        
     }
 }
