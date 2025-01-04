@@ -462,16 +462,25 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                         {
                             matchDAO.UpdateMatchWinner(matches[index], stage1[i].TeamID);
                             winner.Add(stage1[i].TeamID);
+
                             stage2[index].TeamID = stage1[i].TeamID;
                             stage2[index].TeamName = stage1[i].TeamName;
+
+                            stage1[i].BackColor = Color.Tomato;
                         }
                         else
                         {
                             matchDAO.UpdateMatchWinner(matches[index], stage1[i+1].TeamID);
                             winner.Add(stage1[i+1].TeamID);
+
                             stage2[index].TeamID = stage1[i+1].TeamID;
                             stage2[index].TeamName = stage1[i+1].TeamName;
+
+                            stage1[i + 1].BackColor = Color.Tomato;
                         }
+                        
+                        stage1[i].ckbTeamName.Enabled = false;
+                        stage1[i + 1].ckbTeamName.Enabled = false;
 
                         index++;
                     }
@@ -524,16 +533,25 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                         {
                             matchDAO.UpdateMatchWinner(matches[matchIndex], stage2[i].TeamID);
                             winner.Add(stage2[i].TeamID);
+
                             stage3[index].TeamID = stage2[i].TeamID;
                             stage3[index].TeamName = stage2[i].TeamName;
+
+                            stage2[i].BackColor = Color.Tomato;
                         }
                         else
                         {
                             matchDAO.UpdateMatchWinner(matches[matchIndex], stage2[i + 1].TeamID);
                             winner.Add(stage2[i + 1].TeamID);
+
                             stage3[index].TeamID = stage2[i + 1].TeamID;
                             stage3[index].TeamName = stage2[i + 1].TeamName;
+
+                            stage2[i + 1].BackColor = Color.Tomato;
                         }
+
+                        stage2[i].ckbTeamName.Enabled = false;
+                        stage2[i + 1].ckbTeamName.Enabled = false;
 
                         index++;
                         matchIndex++;
@@ -580,16 +598,25 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                     {
                         matchDAO.UpdateMatchWinner(matches[6], stage3[0].TeamID);
                         winner.Add(stage3[0].TeamID);
+
                         uctTeam15.TeamID = stage3[0].TeamID;
                         uctTeam15.TeamName = stage3[0].TeamName;
+
+                        stage3[0].BackColor = Color.Tomato;
                     }
                     else
                     {
                         matchDAO.UpdateMatchWinner(matches[6], stage3[1].TeamID);
                         winner.Add(stage3[1].TeamID);
+
                         uctTeam15.TeamID = stage3[1].TeamID;
                         uctTeam15.TeamName = stage3[1].TeamName;
+
+                        stage3[1].BackColor = Color.Tomato;
                     }
+
+                    stage3[0].ckbTeamName.Enabled = false;
+                    stage3[1].ckbTeamName.Enabled = false;
 
                     MessageBox.Show("Stage finished !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     stage++;

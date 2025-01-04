@@ -120,9 +120,13 @@ namespace FootBall_Tournament_Management.DAO
 
                     using (var reader = command.ExecuteReader())
                     {
-                        if (reader.Read())
+                        if (reader.Read() && reader[8] != DBNull.Value)
                         {
                             return new Player(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4), reader.GetString(5), reader.GetInt32(6), reader.GetString(8));
+                        }
+                        else
+                        {
+                            return new Player(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4), reader.GetString(5), reader.GetInt32(6));
                         }
                     }
                 }

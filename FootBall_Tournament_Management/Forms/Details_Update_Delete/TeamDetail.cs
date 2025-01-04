@@ -20,6 +20,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 {
     public partial class TeamDetail : Form
     {
+        
         private int teamID;
         private Main_screen screen;
 
@@ -45,16 +46,14 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
             if (string.IsNullOrEmpty(team.AvatarPath))
             {
-                return;
+                string fullPath = GetFullImagePath(team.AvatarPath);
+                if (File.Exists(fullPath))
+                {
+                    avatar.Image = new Bitmap(fullPath);
+                }
             }
-
-            string fullPath = GetFullImagePath(team.AvatarPath);
-            if (File.Exists(fullPath))
-            {
-                avatar.Image = new Bitmap(fullPath);
-            }
-
-            DisplayMembers();
+            DataTable teamDT = new TeamDAO().GetTeamMembers(teamID);
+            DisplayMembers(teamDT);
         }
 
         private string GetFullImagePath(string relativePath)
@@ -188,10 +187,12 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             this.Close();
         }
 
-        public void DisplayMembers()
+        public void DisplayMembers(DataTable dt)
         {
-            TeamDAO teamDAO = new TeamDAO();
-            DataTable dt = teamDAO.GetTeamMembers(teamID);
+            dgvMemebers.DataSource = null;  
+            dgvMemebers.Rows.Clear();       
+            dgvMemebers.Columns.Clear();
+
 
 
             dt.Columns.RemoveAt(7);
@@ -226,7 +227,57 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
             imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if(!ckbPos.Checked && !ckbBirthDate.Checked && !ckbName.Checked)
+            {
+                MessageBox.Show("Please choose criteria !!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            TeamDAO teamDAO = new TeamDAO();
 
+            if (ckbPos.Checked && ckbBirthDate.Checked && ckbName.Checked)
+            {
+                DataTable dt = teamDAO.GetTeamMembers(teamID, txtSearchName.Text.Trim(), cbbPos.Text.Trim(), dpkStartDate.Value, dpkEndDate.Value);
+                DisplayMembers(dt);
+            }
+            else if(ckbPos.Checked && !ckbBirthDate.Checked && ckbName.Checked)
+            {
+                DataTable dt = teamDAO.GetTeamMembers(teamID, txtSearchName.Text.Trim(), cbbPos.Text.Trim());
+                DisplayMembers(dt);
+            }
+            else if (!ckbPos.Checked && ckbBirthDate.Checked && ckbName.Checked)
+            {
+                DataTable dt = teamDAO.GetTeamMembers(teamID, txtSearchName.Text.Trim(), dpkStartDate.Value, dpkEndDate.Value);
+                DisplayMembers(dt);
+            }
+            else if (ckbPos.Checked && ckbBirthDate.Checked && !ckbName.Checked)
+            {
+                DataTable dt = teamDAO.GetTeamMembers(cbbPos.Text, teamID, dpkStartDate.Value, dpkEndDate.Value);
+                DisplayMembers(dt);
+            }
+            else if (!ckbPos.Checked && !ckbBirthDate.Checked && ckbName.Checked)
+            {
+                DataTable dt = teamDAO.GetTeamMembers(teamID, txtSearchName.Text.Trim());
+                DisplayMembers(dt);
+            }
+            else if (ckbPos.Checked && !ckbBirthDate.Checked && !ckbName.Checked)
+            {
+                DataTable dt = teamDAO.GetTeamMembers(cbbPos.Text, teamID);
+                DisplayMembers(dt);
+            }
+            else if (!ckbPos.Checked && ckbBirthDate.Checked && !ckbName.Checked)
+            {
+                DataTable dt = teamDAO.GetTeamMembers(teamID, dpkStartDate.Value, dpkEndDate.Value);
+                DisplayMembers(dt);
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            DataTable teamDT = new TeamDAO().GetTeamMembers(teamID);
+            DisplayMembers(teamDT);
+        }
     }
 }
