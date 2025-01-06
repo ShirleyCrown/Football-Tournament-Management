@@ -228,7 +228,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
             btnStart.Enabled = false;
             this.Close();
-            new TournamentBracket(tournamentID).ShowDialog();
+            new TournamentBracket8(tournamentID).ShowDialog();
         }
 
         private void ckbUpdateDetails_CheckedChanged(object sender, EventArgs e)

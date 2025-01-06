@@ -53,13 +53,13 @@
             this.detail.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showDetail});
             this.detail.Name = "detail";
-            this.detail.Size = new System.Drawing.Size(185, 36);
+            this.detail.Size = new System.Drawing.Size(241, 69);
             // 
             // showDetail
             // 
             this.showDetail.Name = "showDetail";
-            this.showDetail.Size = new System.Drawing.Size(184, 32);
-            this.showDetail.Text = "Show details";
+            this.showDetail.Size = new System.Drawing.Size(240, 32);
+            this.showDetail.Text = "Match details";
             this.showDetail.Click += new System.EventHandler(this.showDetail_Click);
             // 
             // TeamInBracket
@@ -71,7 +71,6 @@
             this.Name = "TeamInBracket";
             this.Size = new System.Drawing.Size(302, 71);
             this.Load += new System.EventHandler(this.TeamInBracket_Load);
-            this.Click += new System.EventHandler(this.TeamInBracket_Click);
             this.detail.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,6 +1,6 @@
 ﻿namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 {
-    partial class TournamentBracket
+    partial class TournamentBracket8
     {
         /// <summary>
         /// Required designer variable.
@@ -55,8 +55,9 @@
             this.rtbRule = new System.Windows.Forms.RichTextBox();
             this.btnUpdateRule = new System.Windows.Forms.Button();
             this.btnNextStage = new System.Windows.Forms.Button();
-            this.avatar = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.avatar = new System.Windows.Forms.PictureBox();
+            this.btnChart = new System.Windows.Forms.Button();
             this.uctTeam8 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam4 = new FootBall_Tournament_Management.TeamInBracket();
             this.uctTeam7 = new FootBall_Tournament_Management.TeamInBracket();
@@ -75,8 +76,8 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -393,22 +394,13 @@
             // btnNextStage
             // 
             this.btnNextStage.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNextStage.Location = new System.Drawing.Point(1866, 1195);
+            this.btnNextStage.Location = new System.Drawing.Point(1567, 1169);
             this.btnNextStage.Name = "btnNextStage";
             this.btnNextStage.Size = new System.Drawing.Size(254, 69);
             this.btnNextStage.TabIndex = 2;
             this.btnNextStage.Text = "Next Stage";
             this.btnNextStage.UseVisualStyleBackColor = true;
             this.btnNextStage.Click += new System.EventHandler(this.btnNextStage_Click);
-            // 
-            // avatar
-            // 
-            this.avatar.Location = new System.Drawing.Point(19, 55);
-            this.avatar.Name = "avatar";
-            this.avatar.Size = new System.Drawing.Size(347, 245);
-            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.avatar.TabIndex = 0;
-            this.avatar.TabStop = false;
             // 
             // groupBox4
             // 
@@ -421,12 +413,33 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Logo";
             // 
+            // avatar
+            // 
+            this.avatar.Location = new System.Drawing.Point(19, 55);
+            this.avatar.Name = "avatar";
+            this.avatar.Size = new System.Drawing.Size(347, 245);
+            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.avatar.TabIndex = 0;
+            this.avatar.TabStop = false;
+            // 
+            // btnChart
+            // 
+            this.btnChart.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChart.Location = new System.Drawing.Point(1868, 1169);
+            this.btnChart.Name = "btnChart";
+            this.btnChart.Size = new System.Drawing.Size(254, 69);
+            this.btnChart.TabIndex = 2;
+            this.btnChart.Text = "View Chart";
+            this.btnChart.UseVisualStyleBackColor = true;
+            this.btnChart.Click += new System.EventHandler(this.btnChart_Click);
+            // 
             // uctTeam8
             // 
             this.uctTeam8.IsCheck = false;
             this.uctTeam8.IsEnabled = true;
             this.uctTeam8.Location = new System.Drawing.Point(284, 1178);
             this.uctTeam8.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam8.MatchID = 0;
             this.uctTeam8.Name = "uctTeam8";
             this.uctTeam8.Size = new System.Drawing.Size(302, 71);
             this.uctTeam8.TabIndex = 3;
@@ -439,6 +452,7 @@
             this.uctTeam4.IsEnabled = true;
             this.uctTeam4.Location = new System.Drawing.Point(284, 751);
             this.uctTeam4.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam4.MatchID = 0;
             this.uctTeam4.Name = "uctTeam4";
             this.uctTeam4.Size = new System.Drawing.Size(302, 71);
             this.uctTeam4.TabIndex = 3;
@@ -451,6 +465,7 @@
             this.uctTeam7.IsEnabled = true;
             this.uctTeam7.Location = new System.Drawing.Point(284, 1071);
             this.uctTeam7.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam7.MatchID = 0;
             this.uctTeam7.Name = "uctTeam7";
             this.uctTeam7.Size = new System.Drawing.Size(302, 71);
             this.uctTeam7.TabIndex = 3;
@@ -463,6 +478,7 @@
             this.uctTeam3.IsEnabled = true;
             this.uctTeam3.Location = new System.Drawing.Point(284, 643);
             this.uctTeam3.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam3.MatchID = 0;
             this.uctTeam3.Name = "uctTeam3";
             this.uctTeam3.Size = new System.Drawing.Size(302, 71);
             this.uctTeam3.TabIndex = 3;
@@ -475,6 +491,7 @@
             this.uctTeam6.IsEnabled = true;
             this.uctTeam6.Location = new System.Drawing.Point(284, 965);
             this.uctTeam6.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam6.MatchID = 0;
             this.uctTeam6.Name = "uctTeam6";
             this.uctTeam6.Size = new System.Drawing.Size(302, 71);
             this.uctTeam6.TabIndex = 3;
@@ -487,6 +504,7 @@
             this.uctTeam2.IsEnabled = true;
             this.uctTeam2.Location = new System.Drawing.Point(284, 537);
             this.uctTeam2.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam2.MatchID = 0;
             this.uctTeam2.Name = "uctTeam2";
             this.uctTeam2.Size = new System.Drawing.Size(302, 71);
             this.uctTeam2.TabIndex = 3;
@@ -499,6 +517,7 @@
             this.uctTeam12.IsEnabled = true;
             this.uctTeam12.Location = new System.Drawing.Point(718, 1120);
             this.uctTeam12.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam12.MatchID = 0;
             this.uctTeam12.Name = "uctTeam12";
             this.uctTeam12.Size = new System.Drawing.Size(302, 71);
             this.uctTeam12.TabIndex = 3;
@@ -511,6 +530,7 @@
             this.uctTeam10.IsEnabled = true;
             this.uctTeam10.Location = new System.Drawing.Point(718, 695);
             this.uctTeam10.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam10.MatchID = 0;
             this.uctTeam10.Name = "uctTeam10";
             this.uctTeam10.Size = new System.Drawing.Size(302, 71);
             this.uctTeam10.TabIndex = 3;
@@ -523,6 +543,7 @@
             this.uctTeam15.IsEnabled = true;
             this.uctTeam15.Location = new System.Drawing.Point(1605, 791);
             this.uctTeam15.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam15.MatchID = 0;
             this.uctTeam15.Name = "uctTeam15";
             this.uctTeam15.Size = new System.Drawing.Size(302, 71);
             this.uctTeam15.TabIndex = 3;
@@ -535,6 +556,7 @@
             this.uctTeam14.IsEnabled = true;
             this.uctTeam14.Location = new System.Drawing.Point(1182, 1012);
             this.uctTeam14.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam14.MatchID = 0;
             this.uctTeam14.Name = "uctTeam14";
             this.uctTeam14.Size = new System.Drawing.Size(302, 71);
             this.uctTeam14.TabIndex = 3;
@@ -547,6 +569,7 @@
             this.uctTeam13.IsEnabled = true;
             this.uctTeam13.Location = new System.Drawing.Point(1182, 586);
             this.uctTeam13.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam13.MatchID = 0;
             this.uctTeam13.Name = "uctTeam13";
             this.uctTeam13.Size = new System.Drawing.Size(302, 71);
             this.uctTeam13.TabIndex = 3;
@@ -559,6 +582,7 @@
             this.uctTeam11.IsEnabled = true;
             this.uctTeam11.Location = new System.Drawing.Point(718, 911);
             this.uctTeam11.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam11.MatchID = 0;
             this.uctTeam11.Name = "uctTeam11";
             this.uctTeam11.Size = new System.Drawing.Size(302, 71);
             this.uctTeam11.TabIndex = 3;
@@ -571,6 +595,7 @@
             this.uctTeam9.IsEnabled = true;
             this.uctTeam9.Location = new System.Drawing.Point(718, 486);
             this.uctTeam9.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam9.MatchID = 0;
             this.uctTeam9.Name = "uctTeam9";
             this.uctTeam9.Size = new System.Drawing.Size(302, 71);
             this.uctTeam9.TabIndex = 3;
@@ -583,6 +608,7 @@
             this.uctTeam5.IsEnabled = true;
             this.uctTeam5.Location = new System.Drawing.Point(284, 855);
             this.uctTeam5.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam5.MatchID = 0;
             this.uctTeam5.Name = "uctTeam5";
             this.uctTeam5.Size = new System.Drawing.Size(302, 71);
             this.uctTeam5.TabIndex = 3;
@@ -595,6 +621,7 @@
             this.uctTeam1.IsEnabled = true;
             this.uctTeam1.Location = new System.Drawing.Point(284, 428);
             this.uctTeam1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.uctTeam1.MatchID = 0;
             this.uctTeam1.Name = "uctTeam1";
             this.uctTeam1.Size = new System.Drawing.Size(302, 71);
             this.uctTeam1.TabIndex = 3;
@@ -620,6 +647,7 @@
             this.Controls.Add(this.uctTeam13);
             this.Controls.Add(this.uctTeam11);
             this.Controls.Add(this.uctTeam9);
+            this.Controls.Add(this.btnChart);
             this.Controls.Add(this.btnNextStage);
             this.Controls.Add(this.uctTeam5);
             this.Controls.Add(this.uctTeam1);
@@ -639,8 +667,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -691,5 +719,6 @@
         private System.Windows.Forms.CheckBox ckbUpdateRule;
         private System.Windows.Forms.PictureBox avatar;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnChart;
     }
 }

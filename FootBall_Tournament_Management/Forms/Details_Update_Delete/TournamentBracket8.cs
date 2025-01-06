@@ -1,4 +1,5 @@
 ﻿using FootBall_Tournament_Management.DAO;
+using FootBall_Tournament_Management.Forms.Chart;
 using FootBall_Tournament_Management.NewFolder1;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,12 @@ using System.Windows.Forms;
 
 namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 {
-    public partial class TournamentBracket : Form
+    public partial class TournamentBracket8 : Form
     {
         private int stage;
         private int tournamentID;
         private List<Match> matches = new List<Match>();
-        public TournamentBracket(int tournamentID)
+        public TournamentBracket8(int tournamentID)
         {
             this.tournamentID = tournamentID;
             InitializeComponent();
@@ -131,9 +132,11 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
                 controls[index].TeamName = team1.TeamName;
                 controls[index].TeamID = matches[i].Team1ID;
+                controls[index].MatchID = matches[i].MatchID;
 
                 controls[index + 1].TeamName = team2.TeamName;
                 controls[index + 1].TeamID = matches[i].Team2ID;
+                controls[index + 1].MatchID = matches[i].MatchID;
 
                 if (matches[i].TeamWin != 0)
                 {
@@ -465,6 +468,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
                             stage2[index].TeamID = stage1[i].TeamID;
                             stage2[index].TeamName = stage1[i].TeamName;
+                            stage2[index].MatchID = stage1[i].MatchID;
 
                             stage1[i].BackColor = Color.Tomato;
                         }
@@ -475,6 +479,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
                             stage2[index].TeamID = stage1[i+1].TeamID;
                             stage2[index].TeamName = stage1[i+1].TeamName;
+                            stage2[index].MatchID = stage1[i+1].MatchID;
 
                             stage1[i + 1].BackColor = Color.Tomato;
                         }
@@ -536,6 +541,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
                             stage3[index].TeamID = stage2[i].TeamID;
                             stage3[index].TeamName = stage2[i].TeamName;
+                            stage3[index].MatchID = stage2[i].MatchID;
 
                             stage2[i].BackColor = Color.Tomato;
                         }
@@ -546,6 +552,7 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
                             stage3[index].TeamID = stage2[i + 1].TeamID;
                             stage3[index].TeamName = stage2[i + 1].TeamName;
+                            stage3[index].MatchID = stage2[i + 1].MatchID;
 
                             stage2[i + 1].BackColor = Color.Tomato;
                         }
@@ -601,7 +608,8 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
                         uctTeam15.TeamID = stage3[0].TeamID;
                         uctTeam15.TeamName = stage3[0].TeamName;
-
+                        uctTeam15.MatchID = stage3[0].MatchID;
+                        uctTeam15.BackColor = Color.Tomato;
                         stage3[0].BackColor = Color.Tomato;
                     }
                     else
@@ -611,7 +619,8 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
 
                         uctTeam15.TeamID = stage3[1].TeamID;
                         uctTeam15.TeamName = stage3[1].TeamName;
-
+                        uctTeam15.MatchID = stage3[1].MatchID;
+                        stage3[0].BackColor = Color.Tomato;
                         stage3[1].BackColor = Color.Tomato;
                     }
 
@@ -628,6 +637,22 @@ namespace FootBall_Tournament_Management.Forms.Details_Update_Delete
                     return;
                 }
             }
+        }
+
+        private void btnChart_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new MatchDAO().GetAllMatchesInTournament(tournamentID);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                if (row[7] == DBNull.Value)
+                {
+                    MessageBox.Show("Please insert all match results to use this function!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            new StatisticChart(tournamentID).ShowDialog();
         }
     }
 }

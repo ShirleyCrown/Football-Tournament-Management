@@ -29,6 +29,37 @@ namespace FootBall_Tournament_Management.NewFolder1
             this.Result = result;
         }
 
+        public Match(int matchID, int tournamentID, int team1ID, int team2ID, DateTime matchDate, string location, string result)
+        {
+            this.MatchID = matchID;
+            this.TournamentID = tournamentID;
+            this.Team1ID = team1ID;
+            this.Team2ID = team2ID;
+            this.MatchDate = matchDate;
+            this.Location = location;
+            this.Result = result;
+        }
+
+        public Match(int matchID, int tournamentID, int team1ID, int team2ID, string location, string result)
+        {
+            this.MatchID = matchID;
+            this.TournamentID = tournamentID;
+            this.Team1ID = team1ID;
+            this.Team2ID = team2ID;
+            this.Location = location;
+            this.Result = result;
+        }
+
+        public Match(int matchID, int tournamentID, int team1ID, int team2ID, DateTime matchDate, string result)
+        {
+            this.MatchID = matchID;
+            this.TournamentID = tournamentID;
+            this.Team1ID = team1ID;
+            this.Team2ID = team2ID;
+            this.MatchDate = matchDate;
+            this.Result = result;
+        }
+
         public Match(int tournamentID, int team1ID, int team2ID)
         {
             this.TournamentID = tournamentID;
@@ -52,6 +83,15 @@ namespace FootBall_Tournament_Management.NewFolder1
             this.tournamentID = tournamentID;
             this.team1ID = team1ID;
             this.team2ID = team2ID;
+        }
+
+        public Match(int matchID, int tournamentID, int team1ID, int team2ID, DateTime matchDate)
+        {
+            this.matchID = matchID;
+            this.tournamentID = tournamentID;
+            this.team1ID = team1ID;
+            this.team2ID = team2ID;
+            this.matchDate = matchDate;
         }
 
         public int MatchID { get => matchID; set => matchID = value; }

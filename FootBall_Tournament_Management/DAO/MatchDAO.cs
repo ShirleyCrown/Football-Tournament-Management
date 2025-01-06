@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static Google.Protobuf.Reflection.SourceCodeInfo.Types;
+using Match = FootBall_Tournament_Management.NewFolder1.Match;
 
 namespace FootBall_Tournament_Management.DAO
 {
-    internal class MatchDAO
+    public class MatchDAO
     {
         private DatabaseHelper db = new DatabaseHelper();
 
@@ -84,6 +86,40 @@ namespace FootBall_Tournament_Management.DAO
             }
         }
 
+        public void UpdateMatchResult(int matchID, string res)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "UPDATE Matches SET Result = @Result WHERE MatchID = @MatchID";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Result", res);
+                    command.Parameters.AddWithValue("@MatchID", matchID);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void UpdateMatchInfo(int matchID, DateTime matchDate, string location)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "UPDATE Matches SET MatchDate = @MatchDate, Location = @Location WHERE MatchID = @MatchID";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@MatchDate", matchDate);
+                    command.Parameters.AddWithValue("@Location", location);
+                    command.Parameters.AddWithValue("@MatchID", matchID);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         public void DeleteMatch(int matchId)
         {
             using (var connection = db.GetConnection())
@@ -117,6 +153,61 @@ namespace FootBall_Tournament_Management.DAO
                 }
             }
         }
+
+        public String GetScoreByID(int matchID)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "SELECT Result FROM Matches WHERE MatchID = @MatchID";
+
+                using(var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@MatchID", matchID);
+                    using(var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read() && reader[0] != DBNull.Value )
+                        {
+                            return reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            return "";
+        }
+
+        public Match GetMatchByID(int matchID)
+        {
+            using (var connection = db.GetConnection())
+            {
+                connection.Open();
+                string query = "SELECT * FROM Matches WHERE MatchID = @MatchID";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@MatchID", matchID);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int matchId = reader.GetInt32(0);
+                            int tournamentID = reader.GetInt32(1);
+                            int team1ID = reader.GetInt32(2);
+                            int team2ID = reader.GetInt32(3);
+                            DateTime matchDate = !reader.IsDBNull(4) ? reader.GetDateTime(4) : DateTime.Now;
+                            string location = !reader.IsDBNull(5) ? reader.GetString(5) : "";
+                            int winner = !reader.IsDBNull(6) ? reader.GetInt32(6) : 0;
+                            string avatarPath = !reader.IsDBNull(7) ? reader.GetString(7) : "";
+
+                            return new Match(matchId, tournamentID, team1ID, team2ID, matchDate, location, winner, avatarPath);
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
 
         public DataTable GetAllMatchesInTournament(int tournamentID)
         {

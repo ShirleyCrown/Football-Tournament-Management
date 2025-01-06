@@ -160,7 +160,7 @@ namespace FootBall_Tournament_Management
                 MatchDAO matchDAO = new MatchDAO();
                 if(matchDAO.GetAllMatchesInTournament(componentID).Rows.Count > 0)
                 {
-                    new TournamentBracket(componentID).ShowDialog();
+                    new TournamentBracket8(componentID).ShowDialog();
                     
                 }
                 else
